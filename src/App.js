@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import { Row, Col } from 'antd';
+import ChartReview from './components/ChartReview'
 
 class App extends Component {
   render() {
@@ -8,7 +9,7 @@ class App extends Component {
       <div className="App">
         <Row>
           <Col span={12} offset={6}>
-            <p>Hello, world</p>
+            <ChartReview />
           </Col>
         </Row>  
       </div>
