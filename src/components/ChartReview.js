@@ -1,10 +1,12 @@
 import React from 'react';
 import { Formik } from 'formik';
+import { Form, Icon, Input, Button } from 'antd';
+
+const FormItem = Form.Item;
 
 const ChartReview = () => (
   <div>
     <h1>Chart Review</h1>
-    <p>This can be anywhere in your application</p>
     {/*
           The benefit of the render prop approach is that you have full access to React's
           state, props, and composition model. Thus there is no need to map outer props
@@ -59,27 +61,33 @@ const ChartReview = () => (
         handleSubmit,
         isSubmitting,
       }) => (
-        <form onSubmit={handleSubmit}>
-          <input
+        <Form onSubmit={handleSubmit}>
+          <FormItem> 
+          <Input
             type="email"
             name="email"
             onChange={handleChange}
             onBlur={handleBlur}
             value={values.email}
           />
+          </FormItem>
           {touched.email && errors.email && <div>{errors.email}</div>}
-          <input
+          <FormItem>
+          <Input
             type="password"
             name="password"
             onChange={handleChange}
             onBlur={handleBlur}
             value={values.password}
           />
+          </FormItem>
           {touched.password && errors.password && <div>{errors.password}</div>}
-          <button type="submit" disabled={isSubmitting}>
+          <FormItem>
+          <Button type="submit" disabled={isSubmitting}>
             Submit
-          </button>
-        </form>
+          </Button>
+          </FormItem>
+        </Form>
       )}
     />
   </div>
