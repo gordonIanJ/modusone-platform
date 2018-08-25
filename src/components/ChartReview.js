@@ -5,27 +5,25 @@ const FormItem = Form.Item;
 const Option = Select.Option;
 const AutoCompleteOption = AutoComplete.Option;
 
-const residences = [{
-  value: 'zhejiang',
-  label: 'Zhejiang',
+const hospitalProviders = [{
+  value: 'ballard',
+  label: 'Ballard',
   children: [{
-    value: 'hangzhou',
-    label: 'Hangzhou',
-    children: [{
-      value: 'xihu',
-      label: 'West Lake',
-    }],
+    value: 'JORIELLE R BAUTISTA MD',
+    label: 'JORIELLE R BAUTISTA MD',
+  },
+  { value: 'EILEEN E. CHANG ARNP',
+    label: 'EILEEN E. CHANG ARNP'
   }],
 }, {
-  value: 'jiangsu',
-  label: 'Jiangsu',
+  value: 'Downtown',
+  label: 'Downtown',
   children: [{
-    value: 'nanjing',
-    label: 'Nanjing',
-    children: [{
-      value: 'zhonghuamen',
-      label: 'Zhong Hua Men',
-    }],
+    value: 'JENNA L. GREEN ARNP',
+    label: 'JENNA L. GREEN ARNP',
+  },
+  { value: 'MARK O MCCABE MD',
+    label: 'MARK O MCCABE MD'
   }],
 }];
 
@@ -76,6 +74,10 @@ class RegistrationForm extends React.Component {
     this.setState({ autoCompleteResult });
   }
 
+  onChange = (value) => {
+    console.log(value);
+  } 
+  
   render() {
     const { getFieldDecorator } = this.props.form;
     const { autoCompleteResult } = this.state;
@@ -107,8 +109,6 @@ class RegistrationForm extends React.Component {
     ));
 
     return (
-      <div>
-      <h1>Chart Review</h1> 
       <Form onSubmit={this.handleSubmit}>
         <FormItem
           {...formItemLayout}
@@ -123,26 +123,23 @@ class RegistrationForm extends React.Component {
           })(
             <Input />
           )}
-        </FormItem> 
+        </FormItem>
         <FormItem
           {...formItemLayout}
-          label={(
-            <span>
-              Nickname&nbsp;
-            </span>
-          )}
+          label="Hospital and Provider"
         >
-          {getFieldDecorator('nickname', {
-            rules: [{ required: true, message: 'Please input your nickname!', whitespace: true }],
+          {getFieldDecorator('hospitalProvider', {
+            rules: [{
+              required: true, message: 'Please input your E-mail!',
+            }],
           })(
-            <Input />
+          <Cascader options={hospitalProviders} onChange={this.onChange} placeholder="Please select" />
           )}
         </FormItem>
         <FormItem {...tailFormItemLayout}>
           <Button type="primary" htmlType="submit">Deliver</Button>
         </FormItem>
       </Form>
-      </div>
     );
   }
 }
