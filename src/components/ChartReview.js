@@ -5,27 +5,25 @@ const FormItem = Form.Item;
 const Option = Select.Option;
 const AutoCompleteOption = AutoComplete.Option;
 
-const residences = [{
-  value: 'zhejiang',
-  label: 'Zhejiang',
+const hospitalProviders = [{
+  value: 'ballard',
+  label: 'Ballard',
   children: [{
-    value: 'hangzhou',
-    label: 'Hangzhou',
-    children: [{
-      value: 'xihu',
-      label: 'West Lake',
-    }],
+    value: 'JORIELLE R BAUTISTA MD',
+    label: 'JORIELLE R BAUTISTA MD',
+  },
+  { value: 'EILEEN E. CHANG ARNP',
+    label: 'EILEEN E. CHANG ARNP'
   }],
 }, {
-  value: 'jiangsu',
-  label: 'Jiangsu',
+  value: 'Downtown',
+  label: 'Downtown',
   children: [{
-    value: 'nanjing',
-    label: 'Nanjing',
-    children: [{
-      value: 'zhonghuamen',
-      label: 'Zhong Hua Men',
-    }],
+    value: 'JENNA L. GREEN ARNP',
+    label: 'JENNA L. GREEN ARNP',
+  },
+  { value: 'MARK O MCCABE MD',
+    label: 'MARK O MCCABE MD'
   }],
 }];
 
@@ -39,7 +37,8 @@ class RegistrationForm extends React.Component {
     e.preventDefault();
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
-        console.log('Received values of form: ', values);
+        //console.log('Received values of form: ', values);
+        this.formValuePre.innerText = JSON.stringify(values);
       }
     });
   }
@@ -106,42 +105,42 @@ class RegistrationForm extends React.Component {
       <AutoCompleteOption key={website}>{website}</AutoCompleteOption>
     ));
 
+    let divStyle = {
+      marginTop: '2em'
+    };
+
     return (
-      <div>
-      <h1>Chart Review</h1> 
-      <Form onSubmit={this.handleSubmit}>
-        <FormItem
-          {...formItemLayout}
-          label="E-mail"
-        >
-          {getFieldDecorator('email', {
-            rules: [{
-              type: 'email', message: 'The input is not valid E-mail!',
-            }, {
-              required: true, message: 'Please input your E-mail!',
-            }],
+      <div style={divStyle}> 
+        <Form onSubmit={this.handleSubmit}>
+          <FormItem
+            {...formItemLayout}
+            label="E-mail"
+          >
+            {getFieldDecorator('email', {
+              rules: [{
+                type: 'email', message: 'The input is not valid E-mail!',
+              }, {
+                required: true, message: 'Please input your E-mail!',
+              }],
+            })(
+              <Input />
+            )}
+          </FormItem>
+          <FormItem
+            {...formItemLayout}
+            label="Provider"
+          >
+            {getFieldDecorator('hospitalProvider', {
+            rules: [{ type: 'array', required: true, message: 'Please select a provider!' }],
           })(
-            <Input />
-          )}
-        </FormItem> 
-        <FormItem
-          {...formItemLayout}
-          label={(
-            <span>
-              Nickname&nbsp;
-            </span>
-          )}
-        >
-          {getFieldDecorator('nickname', {
-            rules: [{ required: true, message: 'Please input your nickname!', whitespace: true }],
-          })(
-            <Input />
-          )}
-        </FormItem>
-        <FormItem {...tailFormItemLayout}>
-          <Button type="primary" htmlType="submit">Deliver</Button>
-        </FormItem>
-      </Form>
+            <Cascader options={hospitalProviders} />
+          )} 
+          </FormItem>
+          <FormItem {...tailFormItemLayout}>
+            <Button type="primary" htmlType="submit">Deliver</Button>
+          </FormItem>
+        </Form>
+        <pre ref={ref => this.formValuePre = ref}></pre>
       </div>
     );
   }

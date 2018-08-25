@@ -7,7 +7,7 @@ const props = { header: 'Chart Review' }
 describe('ChartReview', () => {
   it('renders the ChartReview', () => {
     const { queryByText } = render(<ChartReview {...props} />)
-    const header = queryByText('Chart Review')
-    expect(header.innerHTML).toBe('Chart Review')
+    const email= queryByText('E-mail')
+    expect(email.title).toBe('E-mail')
   })
 })
