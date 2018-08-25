@@ -1,5 +1,6 @@
 import React from 'react';
 import { Form, Input, Tooltip, Icon, Cascader, Select, Row, Col, Checkbox, Button, AutoComplete } from 'antd';
+import Unirest from 'unirest';
 
 const FormItem = Form.Item;
 const Option = Select.Option;
@@ -39,6 +40,13 @@ class RegistrationForm extends React.Component {
       if (!err) {
         //console.log('Received values of form: ', values);
         this.formValuePre.innerText = JSON.stringify(values);
+        Unirest.post('https://m1-chart-review.free.beeceptor.com')
+        .headers({'Accept': 'application/json', 'Content-Type': 'application/json'})
+        .send(values)
+        .end(function (response) {
+          console.log(response.body);
+});
+
       }
     });
   }
