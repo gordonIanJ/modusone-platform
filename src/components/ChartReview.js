@@ -1,6 +1,7 @@
 import React from 'react';
 import { Form, Input, Tooltip, Icon, Cascader, Select, Row, Col, Checkbox, Button, AutoComplete } from 'antd';
 import Unirest from 'unirest';
+import stringify from 'json-stringify-pretty-compact';
 
 const FormItem = Form.Item;
 const Option = Select.Option;
@@ -39,7 +40,7 @@ class RegistrationForm extends React.Component {
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
         //console.log('Received values of form: ', values);
-        this.formValuePre.innerText = JSON.stringify(values);
+        this.formValuePre.innerText = stringify(values);
         Unirest.post('https://m1-chart-review.free.beeceptor.com')
         .headers({'Accept': 'application/json', 'Content-Type': 'application/json'})
         .send(values)
