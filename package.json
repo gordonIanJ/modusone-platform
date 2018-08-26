@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "antd": "^3.8.2",
+    "json-stringify-pretty-compact": "^1.2.0",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
     "react-testing-library": "^5.0.0",
