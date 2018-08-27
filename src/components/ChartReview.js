@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, Input, Tooltip, Icon, Cascader, Select, Row, Col, Checkbox, Button, AutoComplete } from 'antd';
+import { Form, Input, Tooltip, Icon, Cascader, Select, Row, Col, Checkbox, Button, AutoComplete, DatePicker } from 'antd';
 import Unirest from 'unirest';
 import stringify from 'json-stringify-pretty-compact';
 
@@ -114,6 +114,10 @@ class RegistrationForm extends React.Component {
       <AutoCompleteOption key={website}>{website}</AutoCompleteOption>
     ));
 
+    const config = {
+      rules: [{ type: 'object', required: true, message: 'Please select time!' }],
+    };
+    
     let divStyle = {
       marginTop: '2em'
     };
@@ -144,6 +148,32 @@ class RegistrationForm extends React.Component {
           })(
             <Cascader options={hospitalProviders} />
           )} 
+          </FormItem>
+          <FormItem
+            {...formItemLayout}
+            label="MRN"
+          >
+            {getFieldDecorator('mrn', {
+              rules: [{ required: true, message: 'Please input the medical record number!' }],
+            })(
+              <Input placeholder="MRN" />
+            )}
+          </FormItem>
+          <FormItem
+            {...formItemLayout}
+            label="Date of Admission"
+          >
+            {getFieldDecorator('admission-date', config)(
+              <DatePicker />
+            )}
+          </FormItem>
+          <FormItem
+            {...formItemLayout}
+            label="Date of Release"
+          >
+            {getFieldDecorator('discharge-date', config)(
+              <DatePicker />
+            )}
           </FormItem>
           <FormItem {...tailFormItemLayout}>
             <Button type="primary" htmlType="submit">Deliver</Button>
