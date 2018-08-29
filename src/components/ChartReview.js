@@ -1,192 +1,109 @@
 import React from 'react';
-import { Form, Input, Tooltip, Icon, Cascader, Row, Col, Button, DatePicker, Select } from 'antd';
-import Unirest from 'unirest';
+//import { Form, Input, Tooltip, Icon, Cascader, Row, Col, Button, DatePicker, Select } from 'antd';
+import { Form, Input, Icon, Cascader, Button, DatePicker } from 'antd';
+//import Unirest from 'unirest';
 import stringify from 'json-stringify-pretty-compact';
+import { cascaderState } from '../chartReviewForHospitals/components/ChartReview/initialState' 
 
 const FormItem = Form.Item;
-
-
-/* TODO: Derive read models for Cascaders and Selects
-const hospitals = [
-  {
-    name: 'Ballard',
-    providers: [
-      'JORIELLE R BAUTISTA MD',
-      'EILEEN E. CHANG ARNP'
-    ]
-  },
-  {
-    name: 'Downtown',
-    providers: [
-      'JENNA L. GREEN ARNP',
-      'MARK O MCCABE MD'
-    ]
+  
+const transformCascaderState = (cascaderState) => {
+  var diagnoses = cascaderState.diagnoses
+  for (var i = 0; i < diagnoses.length; i++) {
+    diagnoses[i].children = cascaderState.conditions
   }
-];
-
-const providers = hospitals.map(function(hospital) {
-  const children = hospital.providers.map(function(provider) { 
-    return(
-      {
-        value: provider,
-        label: provider
-      }
-    ) 
-  });  
-  return(
-    { 
-      value: hospital.name.toLowerCase,
-      label: hospital.name,
-      children: children 
-    }
-  )
-});
-*/
-
-/*
-const conditions = [
-  {
-    name: 'Major Depressive Disorder',
-    qualities: [
-      {
-        frequency: [
-          'single',
-          'episodic'
-        ],
-      },
-      {
-        severity: [ 
-          'severe',
-          'active',
-          'remiss'
-        ]
-      }
-    ] 
-  },
-  {
-    name: 'Chronic Kidney Disease' 
-  },
-  {
-    name: 'Diabetes',
-    qualities: [
-      {
-        type: [
-          'type-1',
-          'type-2'
-        ]
-      }
-    ]
-  },
-  {
-    name: 'Morbid Obesity'
-  },
-  {
-    name: 'Drug Dependence',
-    qualities: [
-      'drug-type',
-      {
-        severity: [ 
-          'severe',
-          'active',
-          'remiss'
-        ]
-      }
-    ] 
-  }
-];
-*/
-
-const hospitals = [
-  {
-    value: 'ballard',
-    label: 'Ballard',
-    children: [
-      {
-        value: 'JORIELLE R BAUTISTA MD',
-        label: 'JORIELLE R BAUTISTA MD',
-      },
-      {
-        value: 'EILEEN E. CHANG ARNP',
-        label: 'EILEEN E. CHANG ARNP',
-      }
-
-    ],
-  }, 
-  {
-    value: 'downtown',
-    label: 'Downtown',
-    children: [
-      {
-        value: 'JENNA L. GREEN ARNP',
-        label: 'JENNA L. GREEN ARNP',
-      },
-      {
-        value: 'MARK O MCCABE MD',
-        label: 'MARK O MCCABE MD',
-      }
-    ],
-  }
-];
-
-const getProvidersByHospital = (hospitalId) => {
-  var providers = Array()
-  for (var hCount = 0; hCount < hospitals.length; hCount++) {
-    var hospital = hospitals[hCount]
-    if (hospital.value === hospitalId) { 
-      var children = hospital.children
-      for (var cCount = 0; cCount < children.length; cCount++) {
-        var child = children[cCount]
-        providers.push(child.value) 
-      }
-    }
-  }
-  console.log(providers) 
-  return providers
+  cascaderState.diagnoses = diagnoses
+  return cascaderState
 }
-
-const conditions = [{
-  value: 'zhejiang',
-  label: 'Zhejiang',
-  children: [{
-    value: 'hangzhou',
-    label: 'Hangzhou',
-  }],
-}, {
-  value: 'jiangsu',
-  label: 'Jiangsu',
-  children: [{
-    value: 'nanjing',
-    label: 'Nanjing',
-  }],
-}];
+const transformedCascaderState = transformCascaderState(cascaderState)
 
 let uuid = 0;
 class RegistrationForm extends React.Component {
-  state = {
-    confirmDirty: false,
-  };
+  
+  constructor(props) {
+    super(props)
+    this.state = {
+      confirmDirty: false
+    }
+  }
+
+  cleanValues = (values) => {
+    let cleanConditions = values.conditions.filter(val => {
+      return val !== null;
+    });      
+    let cleanProviders = values.providers.filter(val => {
+      return val !== null;
+    });      
+    values.conditions = cleanConditions
+    values.providers = cleanProviders 
+    return values 
+  }
+                      
+  transformValues = (values) => {
+    var conditionsClassified = {
+      omitted: [],
+      misdiagnosed: [],
+      unmet: [],
+      accurate: [],
+    } 
+    var conditions = [] 
+    for (var i = 0; i < values.conditions.length; i++) {
+      conditions[i] = {
+          provider: values.providers[i],
+          condition: values.conditions[i]
+      }
+      switch(values.conditions[i][0]) {
+        case 'Omitted':
+          conditionsClassified.omitted.push(conditions[i])
+          break;
+        case 'Criteria Unmet':
+          conditionsClassified.unmet.push(conditions[i])
+          break;
+        case 'Misdiagnosed':
+          conditionsClassified.misdiagnosed.push(conditions[i])
+          break;
+        case 'Accurate':
+          conditionsClassified.accurate.push(conditions[i])
+          break;
+        default:
+          break;
+      } 
+    }
+    for (let [key, value] of Object.entries(conditionsClassified)) {  
+      if (value.length < 1) {
+        delete(conditionsClassified[key])
+      } 
+    } 
+    values.conditions = conditionsClassified
+    delete(values.providers)
+    return values
+  }
 
   handleSubmit = (e) => {
     e.preventDefault();
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
-        //console.log('Received values of form: ', values);
-        this.formValuePre.innerText = stringify(values);
-        Unirest.post('https://m1-chart-review.free.beeceptor.com')
+        const CleanValues = this.cleanValues(values)
+        const TransformedValues = this.transformValues(CleanValues)
+        this.formValuePre.innerText = stringify(TransformedValues);
+        /*Unirest.post('https://m1-chart-review.free.beeceptor.com')
         .headers({'Accept': 'application/json', 'Content-Type': 'application/json'})
-        .send(values)
+        .send(CleanValues)
         .end(function (response) {
           console.log(response.body);
-        });
-
+        });*/
       }
     });
   }
-
+  
   remove = (k) => {
     const { form } = this.props; 
     // can use data-binding to get
     const keys = form.getFieldValue('keys');
+    // We need at least one passenger
+    if (keys.length === 1) {
+      return;
+    }
     // can use data-binding to set
     form.setFieldsValue({
       keys: keys.filter(key => key !== k),
@@ -205,12 +122,6 @@ class RegistrationForm extends React.Component {
       keys: nextKeys,
     });
   }
-
-  handleHospitalChange = (value, selectedOptions) => {
-    if (selectedOptions[0] !== undefined) {
-      this.setState({hospital: selectedOptions[0].label});
-    }
-  }
   
   render() {
     const { getFieldDecorator, getFieldValue } = this.props.form;
@@ -224,54 +135,13 @@ class RegistrationForm extends React.Component {
         sm: { span: 16 },
       },
     };
-    const tailFormItemLayout = {
-      wrapperCol: {
-        xs: {
-          span: 24,
-          offset: 0,
-        },
-        sm: {
-          span: 16,
-          offset: 8,
-        },
-      },
-    };
-    const fieldsetItemLayout = {
-      labelCol: {
-        xs: { span: 24 },
-        sm: { span: 8 },
-      },
-      wrapperCol: {
-        xs: { span: 24 },
-        sm: { span: 16 },
-      },
-    };
-    const tailFieldsetItemLayout = {
-      wrapperCol: {
-        xs: {
-          span: 24,
-          offset: 0,
-        },
-        sm: {
-          span: 16,
-          offset: 8,
-        },
-      },
-    };
-
+    
     const config = {
       rules: [{ type: 'object', required: true, message: 'Please select date!' }],
     };
     
-    let divStyle = {
-      marginTop: '2em'
-    };
-    
     getFieldDecorator('keys', { initialValue: [] });
     const keys = getFieldValue('keys');
-    console.log('this.state.hospital is: ' + this.state.hospital)
-    const providers = getProvidersByHospital(this.state.hospital)
-    console.log('providers are: ' + providers)
 
     const dynFieldsetItems = keys.map((k, index) => {
       return (
@@ -285,7 +155,7 @@ class RegistrationForm extends React.Component {
               {getFieldDecorator(`providers[${k}]`, {
               rules: [{ type: 'array', required: true, message: 'Please select a provider!' }],
             })(
-              <Cascader options={providers[this.state.hospital]} />
+              <Cascader options={transformedCascaderState.hospitals} />
             )} 
             </FormItem>
             <FormItem
@@ -295,15 +165,14 @@ class RegistrationForm extends React.Component {
               {getFieldDecorator(`conditions[${k}]`, {
               rules: [{ type: 'array', required: true, message: 'Please select a condition!' }],
              })(
-              <Cascader options={conditions} />
+              <Cascader options={transformedCascaderState.diagnoses} />
             )} 
             </FormItem>
           {keys.length >= 1 ? (
             <Icon
               className="dynamic-delete-button"
               type="minus-circle-o"
-              //disabled={keys.length < 1}
-              disabled={false}
+              disabled={keys.length < 1}
               onClick={() => this.remove(k)}
             />
           ) : null}
@@ -312,7 +181,7 @@ class RegistrationForm extends React.Component {
     });
 
     return (
-      <div style={divStyle}> 
+      <div> 
         <h1>Chart Review - Hospitals</h1> 
         <Form onSubmit={this.handleSubmit}>
           <FormItem
@@ -336,7 +205,7 @@ class RegistrationForm extends React.Component {
             {getFieldDecorator('hospital-provider', {
             rules: [{ type: 'array', required: true, message: 'Please select a provider!' }],
           })(
-            <Cascader options={hospitals} onChange={this.handleHospitalChange}/>
+            <Cascader options={transformedCascaderState.hospitals} onChange={this.handleHospitalChange}/>
           )} 
           </FormItem>
           <FormItem
