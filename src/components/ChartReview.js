@@ -1,87 +1,130 @@
 import React from 'react';
-import { Form, Input, Tooltip, Icon, Cascader, Select, Row, Col, Checkbox, Button, AutoComplete } from 'antd';
+//import { Form, Input, Tooltip, Icon, Cascader, Row, Col, Button, DatePicker, Select } from 'antd';
+import { Form, Input, Icon, Cascader, Button, DatePicker } from 'antd';
+//import Unirest from 'unirest';
+import stringify from 'json-stringify-pretty-compact';
+import { cascaderState } from '../chartReviewForHospitals/components/ChartReview/initialState' 
 
 const FormItem = Form.Item;
-const Option = Select.Option;
-const AutoCompleteOption = AutoComplete.Option;
+  
+const transformCascaderState = (cascaderState) => {
+  var diagnoses = cascaderState.diagnoses
+  for (var i = 0; i < diagnoses.length; i++) {
+    diagnoses[i].children = cascaderState.conditions
+  }
+  cascaderState.diagnoses = diagnoses
+  return cascaderState
+}
+const transformedCascaderState = transformCascaderState(cascaderState)
 
-const hospitalProviders = [{
-  value: 'ballard',
-  label: 'Ballard',
-  children: [{
-    value: 'JORIELLE R BAUTISTA MD',
-    label: 'JORIELLE R BAUTISTA MD',
-  },
-  { value: 'EILEEN E. CHANG ARNP',
-    label: 'EILEEN E. CHANG ARNP'
-  }],
-}, {
-  value: 'Downtown',
-  label: 'Downtown',
-  children: [{
-    value: 'JENNA L. GREEN ARNP',
-    label: 'JENNA L. GREEN ARNP',
-  },
-  { value: 'MARK O MCCABE MD',
-    label: 'MARK O MCCABE MD'
-  }],
-}];
-
+let uuid = 0;
 class RegistrationForm extends React.Component {
-  state = {
-    confirmDirty: false,
-    autoCompleteResult: [],
-  };
+  
+  constructor(props) {
+    super(props)
+    this.state = {
+      confirmDirty: false
+    }
+  }
+
+  cleanValues = (values) => {
+    let cleanConditions = values.conditions.filter(val => {
+      return val !== null;
+    });      
+    let cleanProviders = values.providers.filter(val => {
+      return val !== null;
+    });      
+    values.conditions = cleanConditions
+    values.providers = cleanProviders 
+    return values 
+  }
+                      
+  transformValues = (values) => {
+    var conditionsClassified = {
+      omitted: [],
+      misdiagnosed: [],
+      unmet: [],
+      accurate: [],
+    } 
+    var conditions = [] 
+    for (var i = 0; i < values.conditions.length; i++) {
+      conditions[i] = {
+          provider: values.providers[i],
+          condition: values.conditions[i]
+      }
+      switch(values.conditions[i][0]) {
+        case 'Omitted':
+          conditionsClassified.omitted.push(conditions[i])
+          break;
+        case 'Criteria Unmet':
+          conditionsClassified.unmet.push(conditions[i])
+          break;
+        case 'Misdiagnosed':
+          conditionsClassified.misdiagnosed.push(conditions[i])
+          break;
+        case 'Accurate':
+          conditionsClassified.accurate.push(conditions[i])
+          break;
+        default:
+          break;
+      } 
+    }
+    for (let [key, value] of Object.entries(conditionsClassified)) {  
+      if (value.length < 1) {
+        delete(conditionsClassified[key])
+      } 
+    } 
+    values.conditions = conditionsClassified
+    delete(values.providers)
+    return values
+  }
 
   handleSubmit = (e) => {
     e.preventDefault();
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
-        console.log('Received values of form: ', values);
+        const CleanValues = this.cleanValues(values)
+        const TransformedValues = this.transformValues(CleanValues)
+        this.formValuePre.innerText = stringify(TransformedValues);
+        /*Unirest.post('https://m1-chart-review.free.beeceptor.com')
+        .headers({'Accept': 'application/json', 'Content-Type': 'application/json'})
+        .send(CleanValues)
+        .end(function (response) {
+          console.log(response.body);
+        });*/
       }
     });
   }
-
-  handleConfirmBlur = (e) => {
-    const value = e.target.value;
-    this.setState({ confirmDirty: this.state.confirmDirty || !!value });
-  }
-
-  compareToFirstPassword = (rule, value, callback) => {
-    const form = this.props.form;
-    if (value && value !== form.getFieldValue('password')) {
-      callback('Two passwords that you enter is inconsistent!');
-    } else {
-      callback();
+  
+  remove = (k) => {
+    const { form } = this.props; 
+    // can use data-binding to get
+    const keys = form.getFieldValue('keys');
+    // We need at least one passenger
+    if (keys.length === 1) {
+      return;
     }
+    // can use data-binding to set
+    form.setFieldsValue({
+      keys: keys.filter(key => key !== k),
+    });
   }
 
-  validateToNextPassword = (rule, value, callback) => {
-    const form = this.props.form;
-    if (value && this.state.confirmDirty) {
-      form.validateFields(['confirm'], { force: true });
-    }
-    callback();
+  add = () => {
+    const { form } = this.props; 
+    // can use data-binding to get
+    const keys = form.getFieldValue('keys');
+    const nextKeys = keys.concat(uuid);
+    uuid++;
+    // can use data-binding to set
+    // important! notify form to detect changes
+    form.setFieldsValue({
+      keys: nextKeys,
+    });
   }
-
-  handleWebsiteChange = (value) => {
-    let autoCompleteResult;
-    if (!value) {
-      autoCompleteResult = [];
-    } else {
-      autoCompleteResult = ['.com', '.org', '.net'].map(domain => `${value}${domain}`);
-    }
-    this.setState({ autoCompleteResult });
-  }
-
-  onChange = (value) => {
-    console.log(value);
-  } 
   
   render() {
-    const { getFieldDecorator } = this.props.form;
-    const { autoCompleteResult } = this.state;
-
+    const { getFieldDecorator, getFieldValue } = this.props.form;
     const formItemLayout = {
       labelCol: {
         xs: { span: 24 },
@@ -92,54 +135,117 @@ class RegistrationForm extends React.Component {
         sm: { span: 16 },
       },
     };
-    const tailFormItemLayout = {
-      wrapperCol: {
-        xs: {
-          span: 24,
-          offset: 0,
-        },
-        sm: {
-          span: 16,
-          offset: 8,
-        },
-      },
+    
+    const config = {
+      rules: [{ type: 'object', required: true, message: 'Please select date!' }],
     };
-    const websiteOptions = autoCompleteResult.map(website => (
-      <AutoCompleteOption key={website}>{website}</AutoCompleteOption>
-    ));
+    
+    getFieldDecorator('keys', { initialValue: [] });
+    const keys = getFieldValue('keys');
+
+    const dynFieldsetItems = keys.map((k, index) => {
+      return (
+          <div>
+            <h2>{index === 0 ? 'Pertinent Conditions' : ''}</h2>
+            <h3>Condition {index + 1}</h3>
+            <FormItem
+              {...formItemLayout}
+              label="Provider"
+            >
+              {getFieldDecorator(`providers[${k}]`, {
+              rules: [{ type: 'array', required: true, message: 'Please select a provider!' }],
+            })(
+              <Cascader options={transformedCascaderState.hospitals} />
+            )} 
+            </FormItem>
+            <FormItem
+              {...formItemLayout}
+              label="Condition"
+            >
+              {getFieldDecorator(`conditions[${k}]`, {
+              rules: [{ type: 'array', required: true, message: 'Please select a condition!' }],
+             })(
+              <Cascader options={transformedCascaderState.diagnoses} />
+            )} 
+            </FormItem>
+          {keys.length >= 1 ? (
+            <Icon
+              className="dynamic-delete-button"
+              type="minus-circle-o"
+              disabled={keys.length < 1}
+              onClick={() => this.remove(k)}
+            />
+          ) : null}
+          </div>
+      );
+    });
 
     return (
-      <Form onSubmit={this.handleSubmit}>
-        <FormItem
-          {...formItemLayout}
-          label="E-mail"
-        >
-          {getFieldDecorator('email', {
-            rules: [{
-              type: 'email', message: 'The input is not valid E-mail!',
-            }, {
-              required: true, message: 'Please input your E-mail!',
-            }],
+      <div> 
+        <h1>Chart Review - Hospitals</h1> 
+        <Form onSubmit={this.handleSubmit}>
+          <FormItem
+            {...formItemLayout}
+            label="E-mail"
+          >
+            {getFieldDecorator('email', {
+              rules: [{
+                type: 'email', message: 'The input is not valid E-mail!',
+              }, {
+                required: true, message: 'Please input your E-mail!',
+              }],
+            })(
+              <Input />
+            )}
+          </FormItem>
+          <FormItem
+            {...formItemLayout}
+            label="Provider"
+          >
+            {getFieldDecorator('hospital-provider', {
+            rules: [{ type: 'array', required: true, message: 'Please select a provider!' }],
           })(
-            <Input />
-          )}
-        </FormItem>
-        <FormItem
-          {...formItemLayout}
-          label="Hospital and Provider"
-        >
-          {getFieldDecorator('hospitalProvider', {
-            rules: [{
-              required: true, message: 'Please input your E-mail!',
-            }],
-          })(
-          <Cascader options={hospitalProviders} onChange={this.onChange} placeholder="Please select" />
-          )}
-        </FormItem>
-        <FormItem {...tailFormItemLayout}>
-          <Button type="primary" htmlType="submit">Deliver</Button>
-        </FormItem>
-      </Form>
+            <Cascader options={transformedCascaderState.hospitals} onChange={this.handleHospitalChange}/>
+          )} 
+          </FormItem>
+          <FormItem
+            {...formItemLayout}
+            label="MRN"
+          >
+            {getFieldDecorator('mrn', {
+              rules: [{ required: true, message: 'Please input the medical record number!' }],
+            })(
+              <Input placeholder="MRN" />
+            )}
+          </FormItem>
+          <FormItem
+            {...formItemLayout}
+            label="Date of Admission"
+          >
+            {getFieldDecorator('admission-date', config)(
+              <DatePicker />
+            )}
+          </FormItem>
+          <FormItem
+            {...formItemLayout}
+            label="Date of Release"
+          >
+            {getFieldDecorator('discharge-date', config)(
+              <DatePicker />
+            )}
+          </FormItem>
+          {dynFieldsetItems}
+          <FormItem {...formItemLayout}>
+            <Button type="dashed" onClick={this.add} style={{ width: '60%' }}>
+              <Icon type="plus" /> Add pertinent condition 
+            </Button>
+          </FormItem>
+          <FormItem {...formItemLayout}>
+            <Button type="primary" htmlType="submit">Deliver</Button>
+          </FormItem>
+        </Form>
+        <pre ref={ref => this.formValuePre = ref}></pre>
+      </div>
     );
   }
 }
