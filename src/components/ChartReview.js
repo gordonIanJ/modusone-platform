@@ -3,9 +3,10 @@ import React from 'react';
 import { Form, Input, Icon, Cascader, Button, DatePicker } from 'antd';
 //import Unirest from 'unirest';
 import stringify from 'json-stringify-pretty-compact';
-import { cascaderState } from '../chartReviewForHospitals/components/ChartReview/initialState' 
+import { cascaderState } from '../initialState' 
 
 const FormItem = Form.Item;
+const { TextArea } = Input;
   
 const transformCascaderState = (cascaderState) => {
   var diagnoses = cascaderState.diagnoses
@@ -42,40 +43,46 @@ class RegistrationForm extends React.Component {
   makeConditionRecords = (values) => {
     var conditions = [] 
     for (var i = 0; i < values.conditions.length; i++) {
+      var conditionName = values.conditions[i][1]
       var conditionDetails = values.conditions[i].slice(2)
-      conditionDetails = conditionDetails.join(" AND "); 
+      if (conditionDetails.length > 0) {
+        conditionDetails = conditionDetails.join(" , ");
+        conditionName += ' ; ' + conditionDetails  
+      } 
       conditions[i] = {
         email: values.email,
-        dischardingHospital: values.hospitalProvider[0],
-        dischargingProvider: values.hospitalProvider[1],
+        assignedHospital: values.hospitalProvider[0],
+        assignedProvider: values.hospitalProvider[1],
         mrn: values.mrn,
         admissionDate: values.admissionDate,
         dischargeDate: values.dischargeDate,  
-        conditionName: values.conditions[i][1],
+        conditionName: conditionName, 
         conditionDiagnosisQuality: values.conditions[i][0],
-        conditionDetails: conditionDetails,
-        diagnosingHospital: values.providers[i][0],
-        diagnosingProvider: values.providers[i][1] 
+        conditionNotes: values.conditionNotes[i],
+        attendingHospital: values.providers[i][0],
+        attendingProvider: values.providers[i][1] 
       }
     }
     return conditions
   } 
   
   handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault()
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
         const CleanValues = this.cleanValues(values)
         const ConditionRecords = this.makeConditionRecords(CleanValues)
-        this.formValuePre.innerText = stringify(ConditionRecords);
+        this.formValuePre.innerText = stringify(ConditionRecords)
         /*Unirest.post('https://m1-chart-review.free.beeceptor.com')
         .headers({'Accept': 'application/json', 'Content-Type': 'application/json'})
         .send(CleanValues)
         .end(function (response) {
-          console.log(response.body);
-        });*/
+          console.log(response.body)
+        })*/
+        
+        //this.props.form.resetFields()
       }
-    });
+    })
   }
   
   remove = (k) => {
@@ -149,6 +156,18 @@ class RegistrationForm extends React.Component {
              })(
               <Cascader options={transformedCascaderState.diagnoses} />
             )} 
+            </FormItem>
+            <FormItem
+              {...formItemLayout}
+              label="Condition Notes"
+            >
+              {getFieldDecorator(`conditionNotes[${k}]`, {
+                rules: [{
+                  required: false,
+                }],
+              })(
+                <TextArea />
+              )}
             </FormItem>
           {keys.length >= 1 ? (
             <Icon
