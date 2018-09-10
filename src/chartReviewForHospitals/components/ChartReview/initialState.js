@@ -2,7 +2,7 @@ export const cascaderState = {
 
     hospitals: [
         {
-            value: 'ballard',
+            value: 'Ballard',
             label: 'Ballard',
             children: [
             {
@@ -17,7 +17,7 @@ export const cascaderState = {
             ]
         }, 
         {
-            value: 'downtown',
+            value: 'Downtown',
             label: 'Downtown',
             children: [
             {
@@ -33,7 +33,7 @@ export const cascaderState = {
     ],
   
     providers: {
-        ballard: [
+        Ballard: [
             {
                 value: 'JORIELLE R BAUTISTA MD',
                 label: 'JORIELLE R BAUTISTA MD'
@@ -43,7 +43,7 @@ export const cascaderState = {
                 label: 'EILEEN E. CHANG ARNP'
             }
         ],
-        downtown: [
+        Downtown: [
             {
                 value: 'JENNA L. GREEN ARNP',
                 label: 'JENNA L. GREEN ARNP'
