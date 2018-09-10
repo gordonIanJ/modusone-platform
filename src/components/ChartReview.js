@@ -39,53 +39,35 @@ class RegistrationForm extends React.Component {
     return values 
   }
                       
-  transformValues = (values) => {
-    var conditionsClassified = {
-      omitted: [],
-      misdiagnosed: [],
-      unmet: [],
-      accurate: [],
-    } 
+  makeConditionRecords = (values) => {
     var conditions = [] 
     for (var i = 0; i < values.conditions.length; i++) {
+      var conditionDetails = values.conditions[i].slice(2)
+      conditionDetails = conditionDetails.join(" AND "); 
       conditions[i] = {
-          provider: values.providers[i],
-          condition: values.conditions[i]
+        email: values.email,
+        dischardingHospital: values.hospitalProvider[0],
+        dischargingProvider: values.hospitalProvider[1],
+        mrn: values.mrn,
+        admissionDate: values.admissionDate,
+        dischargeDate: values.dischargeDate,  
+        conditionName: values.conditions[i][1],
+        conditionDiagnosisQuality: values.conditions[i][0],
+        conditionDetails: conditionDetails,
+        diagnosingHospital: values.providers[i][0],
+        diagnosingProvider: values.providers[i][1] 
       }
-      switch(values.conditions[i][0]) {
-        case 'Omitted':
-          conditionsClassified.omitted.push(conditions[i])
-          break;
-        case 'Criteria Unmet':
-          conditionsClassified.unmet.push(conditions[i])
-          break;
-        case 'Misdiagnosed':
-          conditionsClassified.misdiagnosed.push(conditions[i])
-          break;
-        case 'Accurate':
-          conditionsClassified.accurate.push(conditions[i])
-          break;
-        default:
-          break;
-      } 
     }
-    for (let [key, value] of Object.entries(conditionsClassified)) {  
-      if (value.length < 1) {
-        delete(conditionsClassified[key])
-      } 
-    } 
-    values.conditions = conditionsClassified
-    delete(values.providers)
-    return values
-  }
-
+    return conditions
+  } 
+  
   handleSubmit = (e) => {
     e.preventDefault();
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
         const CleanValues = this.cleanValues(values)
-        const TransformedValues = this.transformValues(CleanValues)
-        this.formValuePre.innerText = stringify(TransformedValues);
+        const ConditionRecords = this.makeConditionRecords(CleanValues)
+        this.formValuePre.innerText = stringify(ConditionRecords);
         /*Unirest.post('https://m1-chart-review.free.beeceptor.com')
         .headers({'Accept': 'application/json', 'Content-Type': 'application/json'})
         .send(CleanValues)
@@ -202,7 +184,7 @@ class RegistrationForm extends React.Component {
             {...formItemLayout}
             label="Provider"
           >
-            {getFieldDecorator('hospital-provider', {
+            {getFieldDecorator('hospitalProvider', {
             rules: [{ type: 'array', required: true, message: 'Please select a provider!' }],
           })(
             <Cascader options={transformedCascaderState.hospitals} onChange={this.handleHospitalChange}/>
@@ -222,7 +204,7 @@ class RegistrationForm extends React.Component {
             {...formItemLayout}
             label="Date of Admission"
           >
-            {getFieldDecorator('admission-date', config)(
+            {getFieldDecorator('admissionDate', config)(
               <DatePicker />
             )}
           </FormItem>
@@ -230,7 +212,7 @@ class RegistrationForm extends React.Component {
             {...formItemLayout}
             label="Date of Release"
           >
-            {getFieldDecorator('discharge-date', config)(
+            {getFieldDecorator('dischargeDate', config)(
               <DatePicker />
             )}
           </FormItem>
