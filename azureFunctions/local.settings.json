@@ -1,0 +1,15 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "FUNCTIONS_WORKER_RUNTIME": "node",
+    "AzureWebJobsStorage": "DefaultEndpointsProtocol=https;EndpointSuffix=core.windows.net;AccountName=m1chartreviewspa;AccountKey=rSDdwby6hmM5kJzgX531i5CuQvjCA2JipPN8Pzg1iiIBlVDoWo498+J73W06Ha+1RSL2dd8zulIxbz/aiDPN0w==",
+    "m1chartreviewspa_STORAGE": "DefaultEndpointsProtocol=https;AccountName=m1chartreviewspa;AccountKey=rSDdwby6hmM5kJzgX531i5CuQvjCA2JipPN8Pzg1iiIBlVDoWo498+J73W06Ha+1RSL2dd8zulIxbz/aiDPN0w==",
+    "AzureWebJobsDashboard": "DefaultEndpointsProtocol=https;EndpointSuffix=core.windows.net;AccountName=m1chartreviewspa;AccountKey=rSDdwby6hmM5kJzgX531i5CuQvjCA2JipPN8Pzg1iiIBlVDoWo498+J73W06Ha+1RSL2dd8zulIxbz/aiDPN0w==",
+    "WEBSITE_NODE_DEFAULT_VERSION": "6.5.0",
+    "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING": "DefaultEndpointsProtocol=https;EndpointSuffix=core.windows.net;AccountName=m1chartreviewspa;AccountKey=rSDdwby6hmM5kJzgX531i5CuQvjCA2JipPN8Pzg1iiIBlVDoWo498+J73W06Ha+1RSL2dd8zulIxbz/aiDPN0w==",
+    "WEBSITE_CONTENTSHARE": "m1chartreview",
+    "CosmosDB_Endpoint": "https://m1chartreview.documents.azure.com:443/",
+    "CosmosDB_Key": "h3NjwWY2v7JNzJLqrfHhgqgbkdZhJL5pSeqcZp1C4yNgy9jiIBcTLg6Lo5vMMcjaXzCq31congugfP22ojNiXw=="
+  },
+  "ConnectionStrings": {}
+}
