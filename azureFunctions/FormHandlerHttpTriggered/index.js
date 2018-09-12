@@ -1,17 +1,16 @@
 module.exports = function (context, req) {
-    context.log('JavaScript HTTP trigger function processed a request.');
-
-    if (req.query.name || (req.body && req.body.name)) {
+    if (req.body) {
         context.res = {
-            // status: 200, /* Defaults to 200 */
-            body: "Hello " + (req.query.name || req.body.name)
+            status: 201,
+            //body: context.req.body
+            body: 'Hello from FormHandlerHttpTriggered at Azure Functions!'
         };
     }
     else {
         context.res = {
             status: 400,
-            body: "Please pass a name on the query string or in the request body"
+            body: "Please send JSON in the body"
         };
     }
     context.done();
-};
+} 
