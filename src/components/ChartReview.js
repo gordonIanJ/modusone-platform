@@ -1,7 +1,7 @@
 import React from 'react';
 //import { Form, Input, Tooltip, Icon, Cascader, Row, Col, Button, DatePicker, Select } from 'antd';
 import { Form, Input, Icon, Cascader, Button, DatePicker } from 'antd';
-//import Unirest from 'unirest';
+import Unirest from 'unirest';
 import stringify from 'json-stringify-pretty-compact';
 import { cascaderState } from '../initialState' 
 
@@ -73,6 +73,12 @@ class RegistrationForm extends React.Component {
         const CleanValues = this.cleanValues(values)
         const ConditionRecords = this.makeConditionRecords(CleanValues)
         this.formValuePre.innerText = stringify(ConditionRecords)
+        Unirest.post('https://m1chartreview.azurewebsites.net/api/FormHandlerHttpTriggered?code=aBYoIlUVx3iV1kRDuTCAam/A3RNuW/xNyzqiYaMCrPRY7ubaMc8mIQ==')
+        .headers({'Accept': 'application/json', 'Content-Type': 'application/json'})
+        .send(ConditionRecords)
+        .end(function (response) {
+          console.log(response.body)
+        })
         /*Unirest.post('https://m1-chart-review.free.beeceptor.com')
         .headers({'Accept': 'application/json', 'Content-Type': 'application/json'})
         .send(CleanValues)
