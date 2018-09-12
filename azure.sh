@@ -62,8 +62,15 @@ deploy_function_app () {
     configure_function_app_for_cosmos_db
 }
 
+deploy_function () {
+    cd azureFunctions
+    func azure functionapp publish $FUNCTION_APP_NAME
+    cd ../
+}
+
 deploy () {
     deploy_function_app
+    deploy_function
     deploy_spa
 }
 
