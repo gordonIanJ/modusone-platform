@@ -1,7 +1,10 @@
-create_storage_account () {
+create_resource_group () {
     az group create \
     --name $RESOURCE_GROUP_NAME \
     --location $LOCATION
+}
+
+create_storage_account () {
     az storage account create \
     --name $STORAGE_ACCOUNT_NAME \
     --resource-group $RESOURCE_GROUP_NAME \
@@ -11,12 +14,10 @@ create_storage_account () {
 }
 
 create_storage_blob () {
-    create_storage_account
     az storage blob service-properties update --account-name $STORAGE_ACCOUNT_NAME --static-website true --404-document 404.html --index-document index.html
 }
 
 create_function_app () {
-    create_storage_account 
     az functionapp create \
     --name $FUNCTION_APP_NAME \
     --resource-group $RESOURCE_GROUP_NAME \
@@ -26,7 +27,7 @@ create_function_app () {
 
 create_cosmos_db () {
     az cosmosdb create \
-    --name $FUNCTION_APP_NAME \
+    --name $COSMOS_DB_NAME \
     --resource-group $RESOURCE_GROUP_NAME 
 
 }
@@ -34,12 +35,12 @@ create_cosmos_db () {
 configure_function_app_for_cosmos_db () {
     # Get the Azure Cosmos DB connection string.
     endpoint=$(az cosmosdb show \
-    --name $FUNCTION_APP_NAME \
+    --name $COSMOS_DB_NAME \
     --resource-group $RESOURCE_GROUP_NAME \
     --query documentEndpoint \
     --output tsv)
     key=$(az cosmosdb list-keys \
-    --name $FUNCTION_APP_NAME \
+    --name $COSMOS_DB_NAME \
     --resource-group $RESOURCE_GROUP_NAME \
     --query primaryMasterKey \
     --output tsv)
@@ -50,36 +51,46 @@ configure_function_app_for_cosmos_db () {
     --setting CosmosDB_Endpoint=$endpoint CosmosDB_Key=$key
 }
 
-deploy_spa () {
-    create_storage_blob 
-    az storage blob upload-batch -s build -d '$web' \
-    --account-name $STORAGE_ACCOUNT_NAME
-}
-
 deploy_function_app () {
+    create_resource_group 
+    create_storage_account 
     create_function_app
     create_cosmos_db
     configure_function_app_for_cosmos_db
 }
 
-deploy_function () {
-    cd azureFunctions
+deploy_functions () {
+    cd $BASE_DIRECTORY/services/$FUNCTION_APP_NAME
     func azure functionapp publish $FUNCTION_APP_NAME
-    cd ../
+    cd $BASE_DIRECTORY 
+}
+
+deploy_spa () {
+    create_resource_group 
+    create_storage_account 
+    create_storage_blob 
+    az storage blob upload-batch -s $FUNCTION_APP_ARTIFACT -d '$web' \
+    --account-name $STORAGE_ACCOUNT_NAME
 }
 
 deploy () {
     deploy_function_app
-    deploy_function
+    deploy_functions
     deploy_spa
 }
 
 az login
 az extension add --name storage-preview
 
-RESOURCE_GROUP_NAME=m1-chart-review
+RESOURCE_GROUP_NAME=modusone
 LOCATION=centralus
-STORAGE_ACCOUNT_NAME=m1chartreviewspa
-FUNCTION_APP_NAME=m1chartreview
-STORAGE_ENDPOINT=`az storage account show -n $STORAGE_ACCOUNT_NAME -g $RESOURCE_GROUP_NAME --query "primaryEndpoints.web" --output tsv` 
-STORAGE_CONNECTION_STRING=$(cd azureFunctions; func azure storage fetch-connection-string $STORAGE_ACCOUNT_NAME; cd ../)
+STORAGE_ACCOUNT_NAME=modusone
+FUNCTION_APP_NAME=PertinentConditions
+COSMOS_DB_NAME=`echo $FUNCTION_APP_NAME | tr '[:upper:]' '[:lower:]'`
+BASE_DIRECTORY=/Users/iangordon/Projects/modusone-platform/
+FUNCTION_APP_ARTIFACT=$BASE_DIRECTORY/client/build/
+
+#STORAGE_ENDPOINT=`az storage account show -n $STORAGE_ACCOUNT_NAME -g $RESOURCE_GROUP_NAME --query "primaryEndpoints.web" --output tsv` 
+#STORAGE_CONNECTION_STRING=$(cd $BASE_DIRECTORY/services/$FUNCTION_APP_NAME; func azure storage fetch-connection-string $STORAGE_ACCOUNT_NAME; cd ../)
+
+#deploy
