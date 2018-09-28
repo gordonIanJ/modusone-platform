@@ -25,38 +25,10 @@ create_function_app () {
     --consumption-plan-location $LOCATION 
 }
 
-create_cosmos_db () {
-    az cosmosdb create \
-    --name $COSMOS_DB_NAME \
-    --resource-group $RESOURCE_GROUP_NAME 
-
-}
-
-configure_function_app_for_cosmos_db () {
-    # Get the Azure Cosmos DB connection string.
-    endpoint=$(az cosmosdb show \
-    --name $COSMOS_DB_NAME \
-    --resource-group $RESOURCE_GROUP_NAME \
-    --query documentEndpoint \
-    --output tsv)
-    key=$(az cosmosdb list-keys \
-    --name $COSMOS_DB_NAME \
-    --resource-group $RESOURCE_GROUP_NAME \
-    --query primaryMasterKey \
-    --output tsv)
-    # Configure function app settings to use the Azure Cosmos DB connection string.
-    az functionapp config appsettings set \
-    --name $FUNCTION_APP_NAME \
-    --resource-group $RESOURCE_GROUP_NAME \
-    --setting CosmosDB_Endpoint=$endpoint CosmosDB_Key=$key
-}
-
 deploy_function_app () {
     create_resource_group 
     create_storage_account 
     create_function_app
-    create_cosmos_db
-    configure_function_app_for_cosmos_db
 }
 
 deploy_functions () {

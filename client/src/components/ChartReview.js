@@ -1,5 +1,4 @@
 import React from 'react';
-//import { Form, Input, Tooltip, Icon, Cascader, Row, Col, Button, DatePicker, Select } from 'antd';
 import { Form, Input, Icon, Cascader, Button, DatePicker } from 'antd';
 import Unirest from 'unirest';
 import stringify from 'json-stringify-pretty-compact';
@@ -43,12 +42,6 @@ class RegistrationForm extends React.Component {
   makeConditionRecords = (values) => {
     var conditions = [] 
     for (var i = 0; i < values.conditions.length; i++) {
-      var conditionName = values.conditions[i][1]
-      var conditionDetails = values.conditions[i].slice(2)
-      if (conditionDetails.length > 0) {
-        conditionDetails = conditionDetails.join(" , ");
-        conditionName += ' ; ' + conditionDetails  
-      } 
       conditions[i] = {
         email: values.email,
         assignedHospital: values.hospitalProvider[0],
@@ -56,7 +49,7 @@ class RegistrationForm extends React.Component {
         mrn: values.mrn,
         admissionDate: values.admissionDate,
         dischargeDate: values.dischargeDate,  
-        conditionName: conditionName, 
+        conditionName: values.conditions[i][1], 
         conditionDiagnosisQuality: values.conditions[i][0],
         conditionNotes: values.conditionNotes[i],
         attendingHospital: values.providers[i][0],
@@ -73,19 +66,12 @@ class RegistrationForm extends React.Component {
         const CleanValues = this.cleanValues(values)
         const ConditionRecords = this.makeConditionRecords(CleanValues)
         this.formValuePre.innerText = stringify(ConditionRecords)
-        Unirest.post('https://m1chartreview.azurewebsites.net/api/FormHandlerHttpTriggered?code=aBYoIlUVx3iV1kRDuTCAam/A3RNuW/xNyzqiYaMCrPRY7ubaMc8mIQ==')
+        Unirest.post('https://pertinentconditions.azurewebsites.net/api/FormHandlerHttpTriggered?code=W4/89mgbh6tFo/kepjg5a6DoAEifp78VjrcmfPRJ5xhq3IA7zxRigA==')
         .headers({'Accept': 'application/json', 'Content-Type': 'application/json'})
         .send(ConditionRecords)
         .end(function (response) {
-          console.log(response.body)
+          console.log(JSON.stringify(response.body))
         })
-        /*Unirest.post('https://m1-chart-review.free.beeceptor.com')
-        .headers({'Accept': 'application/json', 'Content-Type': 'application/json'})
-        .send(CleanValues)
-        .end(function (response) {
-          console.log(response.body)
-        })*/
-        
         //this.props.form.resetFields()
       }
     })
