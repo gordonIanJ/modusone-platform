@@ -13,6 +13,11 @@ create_storage_account () {
     --kind StorageV2
 }
 
+assign_access_to_storage_account () {
+    STORAGE_ACCOUNT_ID=`az storage account show --resource-group modusone --name modusone --output json | jq .id |sed 's/"//g'` 
+    az role assignment create --role Reader --assignee shane@modusonehealth.com --scope $STORAGE_ACCOUNT_ID
+}
+
 create_storage_blob () {
     az storage blob service-properties update --account-name $STORAGE_ACCOUNT_NAME --static-website true --404-document 404.html --index-document index.html
 }
@@ -27,7 +32,8 @@ create_function_app () {
 
 deploy_function_app () {
     create_resource_group 
-    create_storage_account 
+    create_storage_account
+    assign_access_to_storage_account
     create_function_app
 }
 
@@ -40,6 +46,7 @@ deploy_functions () {
 deploy_spa () {
     create_resource_group 
     create_storage_account 
+    assign_access_to_storage_account
     create_storage_blob 
     az storage blob upload-batch -s $FUNCTION_APP_ARTIFACT -d '$web' \
     --account-name $STORAGE_ACCOUNT_NAME
