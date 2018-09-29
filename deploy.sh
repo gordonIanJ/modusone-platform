@@ -15,7 +15,7 @@ create_storage_account () {
 
 assign_access_to_storage_account () {
     STORAGE_ACCOUNT_ID=`az storage account show --resource-group modusone --name modusone --output json | jq .id |sed 's/"//g'` 
-    az role assignment create --role Reader --assignee shane@modusonehealth.com --scope $STORAGE_ACCOUNT_ID
+    az role assignment create --role "Reader and Data Access" --assignee shane@modusonehealth.com --scope $STORAGE_ACCOUNT_ID
 }
 
 create_storage_blob () {
