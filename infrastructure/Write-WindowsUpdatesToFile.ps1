@@ -1,0 +1,2 @@
+$computerName = (get-childitem -path env:computername).Value
+Get-WUHistory | Select-Object -Property ComputerName,Date,KB,Title | Export-Csv -Path ~\Desktop\$computerName.txt -Force -NoTypeInformation
