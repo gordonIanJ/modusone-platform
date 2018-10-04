@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import { Row, Col } from 'antd';
-import ChartReview from './components/ChartReview'
+import ChartReview from './components/CHI/ChartReview'
 
 class App extends Component {
   render() {

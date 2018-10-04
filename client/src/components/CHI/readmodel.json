@@ -1,0 +1,369 @@
+{
+    "CHI": { 
+        "providers": {
+        },
+        "St. Anthony": { 
+            "groups": {
+                "Hospitalists": {
+                    "careType": "inpatient",
+                    "conditions": [
+                    ]
+                },
+                "General Surgery": {
+                    "careType": "inpatient",
+                    "conditions": [
+                    ]
+                },
+                "Bariatric Surgery": {
+                    "careType": "inpatient",
+                    "conditions": [
+                    ]
+                },
+                "Vascular Surgery": {
+                    "careType": "inpatient",
+                    "conditions": [
+                    ]
+                }
+            }
+        },
+        "St. Clare": { 
+            "providers": {
+            },
+            "groups": {
+                "Hospitalists": {
+                    "careType": "inpatient",
+                    "conditions": [
+                    ]
+                },
+                "General Surgery": {
+                    "careType": "inpatient",
+                    "conditions": [
+                    ]
+                },
+                "Bariatric Surgery": {
+                    "careType": "inpatient",
+                    "conditions": [
+                    ]
+                },
+                "Vascular Surgery": {
+                    "careType": "inpatient",
+                    "conditions": [
+                    ]
+                }
+            }
+        },
+        "St. Elizabeth": { 
+            "providers": {
+            },
+            "groups": {
+                "Hospitalists": {
+                    "careType": "inpatient",
+                    "conditions": [
+                    ]
+                },
+                "General Surgery": {
+                    "careType": "inpatient",
+                    "conditions": [
+                    ]
+                },
+                "Bariatric Surgery": {
+                    "careType": "inpatient",
+                    "conditions": [
+                    ]
+                },
+                "Vascular Surgery": {
+                    "careType": "inpatient",
+                    "conditions": [
+                    ]
+                }
+            }
+        },
+        "St. Francis": { 
+            "providers": {
+            },
+            "groups": {
+                "Hospitalists": {
+                    "careType": "inpatient",
+                    "conditions": [
+                    ]
+                },
+                "General Surgery": {
+                    "careType": "inpatient",
+                    "conditions": [
+                    ]
+                },
+                "Bariatric Surgery": {
+                    "careType": "inpatient",
+                    "conditions": [
+                    ]
+                },
+                "Vascular Surgery": {
+                    "careType": "inpatient",
+                    "conditions": [
+                    ]
+                }
+            }
+        },
+        "St. Joseph": { 
+            "providers": {
+            },
+            "groups": {
+                "Hospitalists": {
+                    "careType": "inpatient",
+                    "conditions": [
+                    ]
+                },
+                "General Surgery": {
+                    "careType": "inpatient",
+                    "conditions": [
+                    ]
+                },
+                "Bariatric Surgery": {
+                    "careType": "inpatient",
+                    "conditions": [
+                    ]
+                },
+                "Vascular Surgery": {
+                    "careType": "inpatient",
+                    "conditions": [
+                    ]
+                }
+            }
+        },
+        "Harrison": { 
+            "providers": {
+            },
+            "groups": {
+                "Hospitalists": {
+                    "careType": "inpatient",
+                    "conditions": [
+                    ]
+                }
+            }
+        },
+        "Highline": { 
+            "providers": {
+            },
+            "groups": {
+                "Hospitalists": {
+                    "careType": "inpatient",
+                    "conditions": [
+                    ]
+                }
+            }
+        }
+    },
+    "The Polyclinic": { 
+        "facilities": {
+            "Ballard": { 
+                "providers": [
+                ],
+                "groups": {
+                    "Outpatient Primary Care": {
+                        "careType": "outpatient",
+                        "conditions": [
+                        ]
+                    }, 
+                    "Cardiologists": {
+                        "careType": "outpatient",
+                        "conditions": [
+                        ]
+                    },
+                    "Endocrinologists": {
+                        "careType": "outpatient",
+                        "conditions": [
+                        ]
+                    },
+                    "Nephrology": {
+                        "careType": "outpatient",
+                        "conditions": [
+                        ]
+                    },
+                    "Rheumatology": {
+                        "careType": "outpatient",
+                        "conditions": [
+                        ]
+                    }
+                }
+            },
+            "Downtown": { 
+                "providers": [
+                ],
+                "groups": {
+                    "Outpatient Primary Care": {
+                        "careType": "outpatient",
+                        "conditions": [
+                        ]
+                    }, 
+                    "Cardiologists": {
+                        "careType": "outpatient",
+                        "conditions": [
+                        ]
+                    },
+                    "Endocrinologists": {
+                        "careType": "outpatient",
+                        "conditions": [
+                        ]
+                    },
+                    "Nephrology": {
+                        "careType": "outpatient",
+                        "conditions": [
+                        ]
+                    },
+                    "Rheumatology": {
+                        "careType": "outpatient",
+                        "conditions": [
+                        ]
+                    }
+                }
+            },
+            "Madison": { 
+                "providers": [
+                ],
+                "groups": {
+                    "Outpatient Primary Care": {
+                        "careType": "outpatient",
+                        "conditions": [
+                        ]
+                    }, 
+                    "Cardiologists": {
+                        "careType": "outpatient",
+                        "conditions": [
+                        ]
+                    },
+                    "Endocrinologists": {
+                        "careType": "outpatient",
+                        "conditions": [
+                        ]
+                    },
+                    "Nephrology": {
+                        "careType": "outpatient",
+                        "conditions": [
+                        ]
+                    },
+                    "Rheumatology": {
+                        "careType": "outpatient",
+                        "conditions": [
+                        ]
+                    }
+                }
+            },
+            "Northgate": { 
+                "providers": [
+                ],
+                "groups": {
+                    "Outpatient Primary Care": {
+                        "careType": "outpatient",
+                        "conditions": [
+                        ]
+                    }, 
+                    "Cardiologists": {
+                        "careType": "outpatient",
+                        "conditions": [
+                        ]
+                    },
+                    "Endocrinologists": {
+                        "careType": "outpatient",
+                        "conditions": [
+                        ]
+                    },
+                    "Nephrology": {
+                        "careType": "outpatient",
+                        "conditions": [
+                        ]
+                    },
+                    "Rheumatology": {
+                        "careType": "outpatient",
+                        "conditions": [
+                        ]
+                    }
+                }
+            },
+            "Broadway":  { 
+                "providers": [
+                ],
+                "groups": {
+                    "Hospitalists": {
+                        "careType": "inpatient",
+                        "conditions": [
+                        ]
+                    }
+                }
+            }
+        }
+    },
+    "Piedmont": {
+        "facilities": {
+            "Piedmont Atlanta": { 
+                "providers": [
+                ],
+                "groups": {
+                    "Cardiology": {
+                        "careType": "inpatient",
+                        "conditions": [
+                        ]
+                    },
+                    "Hospitalists": {
+                        "careType": "inpatient",
+                        "conditions": [
+                        ]
+                    },
+                    "Neurosurgery": {
+                        "careType": "inpatient",
+                        "conditions": [
+                        ]
+                    },
+                    "Pulmonology": {
+                        "careType": "inpatient",
+                        "conditions": [
+                        ]
+                    }
+                }
+            },
+            "Piedmont Henry": { 
+                "providers": [
+                ],
+                "groups": {
+                    "Cardiology": {
+                        "careType": "inpatient",
+                        "conditions": [
+                        ]
+                    },
+                    "Hospitalists": {
+                        "careType": "inpatient",
+                        "conditions": [
+                        ]
+                    },
+                    "Pulmonology": {
+                        "careType": "inpatient",
+                        "conditions": [
+                        ]
+                    }
+                }
+            },
+            "Piedmont Mountainside": {
+                "providers": [
+                ],
+                "groups": {
+                    "Cardiology": {
+                        "careType": "inpatient",
+                        "conditions": [
+                        ]
+                    },
+                    "Hospitalists": {
+                        "careType": "inpatient",
+                        "conditions": [
+                        ]
+                    },
+                    "Pulmonology": {
+                        "careType": "inpatient",
+                        "providers": [
+                        ],
+                        "conditions": [
+                        ]
+                    }
+                }
+            }
+        }
+    }
+}

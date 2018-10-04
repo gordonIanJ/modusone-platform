@@ -2,7 +2,7 @@ import React from 'react';
 import { Form, Input, Icon, Cascader, Button, DatePicker } from 'antd';
 import Unirest from 'unirest';
 import stringify from 'json-stringify-pretty-compact';
-import { cascaderState } from '../initialState' 
+import { cascaderState } from './initialstate' 
 
 const FormItem = Form.Item;
 const { TextArea } = Input;
@@ -175,7 +175,7 @@ class RegistrationForm extends React.Component {
 
     return (
       <div> 
-        <h1>Chart Review - Hospitals</h1> 
+        <h1>Chart Review - CHI</h1> 
         <Form onSubmit={this.handleSubmit}>
           <FormItem
             {...formItemLayout}
@@ -203,12 +203,12 @@ class RegistrationForm extends React.Component {
           </FormItem>
           <FormItem
             {...formItemLayout}
-            label="MRN"
+            label="MySIS ID"
           >
             {getFieldDecorator('mrn', {
               rules: [{ required: true, message: 'Please input the medical record number!' }],
             })(
-              <Input placeholder="MRN" />
+              <Input placeholder="MySIS ID" />
             )}
           </FormItem>
           <FormItem
