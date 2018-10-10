@@ -2,21 +2,12 @@ import React from 'react';
 import { Form, Input, Icon, Cascader, Button, DatePicker } from 'antd';
 import Unirest from 'unirest';
 import stringify from 'json-stringify-pretty-compact';
-import { cascaderState } from './initialstate' 
+
+let ReadModel = require('./readmodel.json');
 
 const FormItem = Form.Item;
 const { TextArea } = Input;
   
-const transformCascaderState = (cascaderState) => {
-  var diagnoses = cascaderState.diagnoses
-  for (var i = 0; i < diagnoses.length; i++) {
-    diagnoses[i].children = cascaderState.conditions
-  }
-  cascaderState.diagnoses = diagnoses
-  return cascaderState
-}
-const transformedCascaderState = transformCascaderState(cascaderState)
-
 let uuid = 0;
 class RegistrationForm extends React.Component {
   
@@ -31,11 +22,11 @@ class RegistrationForm extends React.Component {
     let cleanConditions = values.conditions.filter(val => {
       return val !== null;
     });      
-    let cleanProviders = values.providers.filter(val => {
+    let cleanAttendingProviders = values.attendingProviders.filter(val => {
       return val !== null;
     });      
     values.conditions = cleanConditions
-    values.providers = cleanProviders 
+    values.attendingProviders = cleanAttendingProviders 
     return values 
   }
                       
@@ -43,17 +34,16 @@ class RegistrationForm extends React.Component {
     var conditions = [] 
     for (var i = 0; i < values.conditions.length; i++) {
       conditions[i] = {
-        email: values.email,
-        assignedHospital: values.hospitalProvider[0],
-        assignedProvider: values.hospitalProvider[1],
-        mrn: values.mrn,
+        reviewerEmail: values.email,
+        assignedFacility: values.hospital[0],
+        assignedProvider: values.assignedProvider[0],
+        medicalRecordId: values.mrn,
         admissionDate: values.admissionDate,
         dischargeDate: values.dischargeDate,  
         conditionName: values.conditions[i][1], 
         conditionDiagnosisQuality: values.conditions[i][0],
         conditionNotes: values.conditionNotes[i],
-        attendingHospital: values.providers[i][0],
-        attendingProvider: values.providers[i][1] 
+        attendingProvider: values.attendingProviders[i][0],
       }
     }
     return conditions
@@ -133,10 +123,10 @@ class RegistrationForm extends React.Component {
               {...formItemLayout}
               label="Provider"
             >
-              {getFieldDecorator(`providers[${k}]`, {
+              {getFieldDecorator(`attendingProviders[${k}]`, {
               rules: [{ type: 'array', required: true, message: 'Please select a provider!' }],
             })(
-              <Cascader options={transformedCascaderState.hospitals} />
+              <Cascader options={ReadModel.Cascaders.Providers} />
             )} 
             </FormItem>
             <FormItem
@@ -146,7 +136,7 @@ class RegistrationForm extends React.Component {
               {getFieldDecorator(`conditions[${k}]`, {
               rules: [{ type: 'array', required: true, message: 'Please select a condition!' }],
              })(
-              <Cascader options={transformedCascaderState.diagnoses} />
+              <Cascader options={ReadModel.Cascaders.Conditions} />
             )} 
             </FormItem>
             <FormItem
@@ -193,12 +183,22 @@ class RegistrationForm extends React.Component {
           </FormItem>
           <FormItem
             {...formItemLayout}
+            label="Hospital"
+          >
+            {getFieldDecorator('hospital', {
+            rules: [{ type: 'array', required: true, message: 'Please select a hospital!' }],
+          })(
+            <Cascader options={ReadModel.Cascaders.Hospitals} />
+          )} 
+          </FormItem>
+          <FormItem
+            {...formItemLayout}
             label="Provider"
           >
-            {getFieldDecorator('hospitalProvider', {
+            {getFieldDecorator('assignedProvider', {
             rules: [{ type: 'array', required: true, message: 'Please select a provider!' }],
           })(
-            <Cascader options={transformedCascaderState.hospitals} onChange={this.handleHospitalChange}/>
+            <Cascader options={ReadModel.Cascaders.Providers} />
           )} 
           </FormItem>
           <FormItem
