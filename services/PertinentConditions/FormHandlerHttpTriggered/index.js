@@ -3,12 +3,12 @@ module.exports = function (context, req) {
     if (req.body) {
         tableBinding = []        
         for (i = 0; i < req.body.length; i++) {
-            var uniqueRowKey = req.body[i].mrn + (((1+Math.random())*0x10000)|0).toString(16).substring(1) 
+            var uniqueRowKey = req.body[i].MedicalRecordId + (((1+Math.random())*0x10000)|0).toString(16).substring(1) 
             tableBinding.push({
-                PartitionKey: req.body[i].assignedHospital,
+                PartitionKey: req.body[i].assignedFacility,
                 RowKey: uniqueRowKey,    
-                MedicalRecordId: req.body[i].mrn, 
-                Email: req.body[i].email, 
+                MedicalRecordId: req.body[i].MedicalRecordId, 
+                Email: req.body[i].reviewerEmail, 
                 AssignedProvider: req.body[i].assignedProvider,
                 AdmissionDate: req.body[i].admissionDate,
                 DischargeDate: req.body[i].dischargeDate,
