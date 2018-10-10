@@ -1,369 +1,2064 @@
 {
-    "CHI": { 
-        "providers": {
-        },
-        "St. Anthony": { 
-            "groups": {
-                "Hospitalists": {
-                    "careType": "inpatient",
-                    "conditions": [
-                    ]
-                },
-                "General Surgery": {
-                    "careType": "inpatient",
-                    "conditions": [
-                    ]
-                },
-                "Bariatric Surgery": {
-                    "careType": "inpatient",
-                    "conditions": [
-                    ]
-                },
-                "Vascular Surgery": {
-                    "careType": "inpatient",
-                    "conditions": [
-                    ]
-                }
+    "Cascaders": {
+        "Conditions": [
+            {
+                "children": [
+                    {
+                        "label": "Portal hypertension", 
+                        "value": "Portal hypertension"
+                    }, 
+                    {
+                        "label": "Septic shock", 
+                        "value": "Septic shock"
+                    }, 
+                    {
+                        "label": "Acute diastolic heart failure", 
+                        "value": "Acute diastolic heart failure"
+                    }, 
+                    {
+                        "label": "Coma GCS score time of record", 
+                        "value": "Coma GCS score time of record"
+                    }, 
+                    {
+                        "label": "Acute systolic heart failure", 
+                        "value": "Acute systolic heart failure"
+                    }, 
+                    {
+                        "label": "Hemiplegia [side dominance]", 
+                        "value": "Hemiplegia [side dominance]"
+                    }, 
+                    {
+                        "label": "Chronic respiratory failure [specify with hypoxia and/or hypercapnia]", 
+                        "value": "Chronic respiratory failure [specify with hypoxia and/or hypercapnia]"
+                    }, 
+                    {
+                        "label": "Acute renal failure", 
+                        "value": "Acute renal failure"
+                    }, 
+                    {
+                        "label": "Acute respiratory failure [specify with hypoxia and/or hypercapnia]", 
+                        "value": "Acute respiratory failure [specify with hypoxia and/or hypercapnia]"
+                    }, 
+                    {
+                        "label": "Drug dependence continuous use", 
+                        "value": "Drug dependence continuous use"
+                    }, 
+                    {
+                        "label": "Chronic kidney disease stage 3", 
+                        "value": "Chronic kidney disease stage 3"
+                    }, 
+                    {
+                        "label": "Chronic kidney disease stage 4", 
+                        "value": "Chronic kidney disease stage 4"
+                    }, 
+                    {
+                        "label": "Chronic kidney disease stage 5", 
+                        "value": "Chronic kidney disease stage 5"
+                    }, 
+                    {
+                        "label": "Myelopathy [vascular or nonvascular]", 
+                        "value": "Myelopathy [vascular or nonvascular]"
+                    }, 
+                    {
+                        "label": "Morbid obesity exact BMI", 
+                        "value": "Morbid obesity exact BMI"
+                    }, 
+                    {
+                        "label": "Cerebral edema", 
+                        "value": "Cerebral edema"
+                    }, 
+                    {
+                        "label": "Drug [specify type of drug] dependence [specify uncomplicated or with withdrawal]", 
+                        "value": "Drug [specify type of drug] dependence [specify uncomplicated or with withdrawal]"
+                    }, 
+                    {
+                        "label": "Chronic respiratory failure", 
+                        "value": "Chronic respiratory failure"
+                    }, 
+                    {
+                        "label": "Not applicable", 
+                        "value": "Not applicable"
+                    }, 
+                    {
+                        "label": "Compression of brain", 
+                        "value": "Compression of brain"
+                    }, 
+                    {
+                        "label": "Acute kidney injury", 
+                        "value": "Acute kidney injury"
+                    }, 
+                    {
+                        "label": "Hypernatremia", 
+                        "value": "Hypernatremia"
+                    }, 
+                    {
+                        "label": "Severe protein-calorie malnutrition exact BMI", 
+                        "value": "Severe protein-calorie malnutrition exact BMI"
+                    }, 
+                    {
+                        "label": "Protein calorie malnutrition exact BMI", 
+                        "value": "Protein calorie malnutrition exact BMI"
+                    }, 
+                    {
+                        "label": "Chronic systolic heart failure", 
+                        "value": "Chronic systolic heart failure"
+                    }, 
+                    {
+                        "label": "Hemiparesis [side dominance]", 
+                        "value": "Hemiparesis [side dominance]"
+                    }, 
+                    {
+                        "label": "Chronic diastolic heart failure", 
+                        "value": "Chronic diastolic heart failure"
+                    }, 
+                    {
+                        "label": "Major depressive disorder [single episode or recurrent episode]", 
+                        "value": "Major depressive disorder [single episode or recurrent episode]"
+                    }, 
+                    {
+                        "label": "Encephalopathy due to [specific cause]", 
+                        "value": "Encephalopathy due to [specific cause]"
+                    }, 
+                    {
+                        "label": "Systemic inflammatory response syndrome (SIRS) due to [specific cause]", 
+                        "value": "Systemic inflammatory response syndrome (SIRS) due to [specific cause]"
+                    }, 
+                    {
+                        "label": "Sepsis", 
+                        "value": "Sepsis"
+                    }, 
+                    {
+                        "label": "Severe sepsis", 
+                        "value": "Severe sepsis"
+                    }, 
+                    {
+                        "label": "Acute renal failure with tubular necrosis", 
+                        "value": "Acute renal failure with tubular necrosis"
+                    }, 
+                    {
+                        "label": "Acute respiratory failure [with hypoxia and/or hypercapnia]", 
+                        "value": "Acute respiratory failure [with hypoxia and/or hypercapnia]"
+                    }, 
+                    {
+                        "label": "Hyponatremia", 
+                        "value": "Hyponatremia"
+                    }, 
+                    {
+                        "label": "Acute blood loss anemia", 
+                        "value": "Acute blood loss anemia"
+                    }
+                ], 
+                "label": "Accurate", 
+                "value": "Accurate"
+            }, 
+            {
+                "children": [
+                    {
+                        "label": "Portal hypertension", 
+                        "value": "Portal hypertension"
+                    }, 
+                    {
+                        "label": "Septic shock", 
+                        "value": "Septic shock"
+                    }, 
+                    {
+                        "label": "Acute diastolic heart failure", 
+                        "value": "Acute diastolic heart failure"
+                    }, 
+                    {
+                        "label": "Coma GCS score time of record", 
+                        "value": "Coma GCS score time of record"
+                    }, 
+                    {
+                        "label": "Acute systolic heart failure", 
+                        "value": "Acute systolic heart failure"
+                    }, 
+                    {
+                        "label": "Hemiplegia [side dominance]", 
+                        "value": "Hemiplegia [side dominance]"
+                    }, 
+                    {
+                        "label": "Chronic respiratory failure [specify with hypoxia and/or hypercapnia]", 
+                        "value": "Chronic respiratory failure [specify with hypoxia and/or hypercapnia]"
+                    }, 
+                    {
+                        "label": "Acute renal failure", 
+                        "value": "Acute renal failure"
+                    }, 
+                    {
+                        "label": "Acute respiratory failure [specify with hypoxia and/or hypercapnia]", 
+                        "value": "Acute respiratory failure [specify with hypoxia and/or hypercapnia]"
+                    }, 
+                    {
+                        "label": "Drug dependence continuous use", 
+                        "value": "Drug dependence continuous use"
+                    }, 
+                    {
+                        "label": "Chronic kidney disease stage 3", 
+                        "value": "Chronic kidney disease stage 3"
+                    }, 
+                    {
+                        "label": "Chronic kidney disease stage 4", 
+                        "value": "Chronic kidney disease stage 4"
+                    }, 
+                    {
+                        "label": "Chronic kidney disease stage 5", 
+                        "value": "Chronic kidney disease stage 5"
+                    }, 
+                    {
+                        "label": "Myelopathy [vascular or nonvascular]", 
+                        "value": "Myelopathy [vascular or nonvascular]"
+                    }, 
+                    {
+                        "label": "Morbid obesity exact BMI", 
+                        "value": "Morbid obesity exact BMI"
+                    }, 
+                    {
+                        "label": "Cerebral edema", 
+                        "value": "Cerebral edema"
+                    }, 
+                    {
+                        "label": "Drug [specify type of drug] dependence [specify uncomplicated or with withdrawal]", 
+                        "value": "Drug [specify type of drug] dependence [specify uncomplicated or with withdrawal]"
+                    }, 
+                    {
+                        "label": "Chronic respiratory failure", 
+                        "value": "Chronic respiratory failure"
+                    }, 
+                    {
+                        "label": "Not applicable", 
+                        "value": "Not applicable"
+                    }, 
+                    {
+                        "label": "Compression of brain", 
+                        "value": "Compression of brain"
+                    }, 
+                    {
+                        "label": "Acute kidney injury", 
+                        "value": "Acute kidney injury"
+                    }, 
+                    {
+                        "label": "Hypernatremia", 
+                        "value": "Hypernatremia"
+                    }, 
+                    {
+                        "label": "Severe protein-calorie malnutrition exact BMI", 
+                        "value": "Severe protein-calorie malnutrition exact BMI"
+                    }, 
+                    {
+                        "label": "Protein calorie malnutrition exact BMI", 
+                        "value": "Protein calorie malnutrition exact BMI"
+                    }, 
+                    {
+                        "label": "Chronic systolic heart failure", 
+                        "value": "Chronic systolic heart failure"
+                    }, 
+                    {
+                        "label": "Hemiparesis [side dominance]", 
+                        "value": "Hemiparesis [side dominance]"
+                    }, 
+                    {
+                        "label": "Chronic diastolic heart failure", 
+                        "value": "Chronic diastolic heart failure"
+                    }, 
+                    {
+                        "label": "Major depressive disorder [single episode or recurrent episode]", 
+                        "value": "Major depressive disorder [single episode or recurrent episode]"
+                    }, 
+                    {
+                        "label": "Encephalopathy due to [specific cause]", 
+                        "value": "Encephalopathy due to [specific cause]"
+                    }, 
+                    {
+                        "label": "Systemic inflammatory response syndrome (SIRS) due to [specific cause]", 
+                        "value": "Systemic inflammatory response syndrome (SIRS) due to [specific cause]"
+                    }, 
+                    {
+                        "label": "Sepsis", 
+                        "value": "Sepsis"
+                    }, 
+                    {
+                        "label": "Severe sepsis", 
+                        "value": "Severe sepsis"
+                    }, 
+                    {
+                        "label": "Acute renal failure with tubular necrosis", 
+                        "value": "Acute renal failure with tubular necrosis"
+                    }, 
+                    {
+                        "label": "Acute respiratory failure [with hypoxia and/or hypercapnia]", 
+                        "value": "Acute respiratory failure [with hypoxia and/or hypercapnia]"
+                    }, 
+                    {
+                        "label": "Hyponatremia", 
+                        "value": "Hyponatremia"
+                    }, 
+                    {
+                        "label": "Acute blood loss anemia", 
+                        "value": "Acute blood loss anemia"
+                    }
+                ], 
+                "label": "Criteria Unmet", 
+                "value": "Criteria Unmet"
+            }, 
+            {
+                "children": [
+                    {
+                        "label": "Portal hypertension", 
+                        "value": "Portal hypertension"
+                    }, 
+                    {
+                        "label": "Septic shock", 
+                        "value": "Septic shock"
+                    }, 
+                    {
+                        "label": "Acute diastolic heart failure", 
+                        "value": "Acute diastolic heart failure"
+                    }, 
+                    {
+                        "label": "Coma GCS score time of record", 
+                        "value": "Coma GCS score time of record"
+                    }, 
+                    {
+                        "label": "Acute systolic heart failure", 
+                        "value": "Acute systolic heart failure"
+                    }, 
+                    {
+                        "label": "Hemiplegia [side dominance]", 
+                        "value": "Hemiplegia [side dominance]"
+                    }, 
+                    {
+                        "label": "Chronic respiratory failure [specify with hypoxia and/or hypercapnia]", 
+                        "value": "Chronic respiratory failure [specify with hypoxia and/or hypercapnia]"
+                    }, 
+                    {
+                        "label": "Acute renal failure", 
+                        "value": "Acute renal failure"
+                    }, 
+                    {
+                        "label": "Acute respiratory failure [specify with hypoxia and/or hypercapnia]", 
+                        "value": "Acute respiratory failure [specify with hypoxia and/or hypercapnia]"
+                    }, 
+                    {
+                        "label": "Drug dependence continuous use", 
+                        "value": "Drug dependence continuous use"
+                    }, 
+                    {
+                        "label": "Chronic kidney disease stage 3", 
+                        "value": "Chronic kidney disease stage 3"
+                    }, 
+                    {
+                        "label": "Chronic kidney disease stage 4", 
+                        "value": "Chronic kidney disease stage 4"
+                    }, 
+                    {
+                        "label": "Chronic kidney disease stage 5", 
+                        "value": "Chronic kidney disease stage 5"
+                    }, 
+                    {
+                        "label": "Myelopathy [vascular or nonvascular]", 
+                        "value": "Myelopathy [vascular or nonvascular]"
+                    }, 
+                    {
+                        "label": "Morbid obesity exact BMI", 
+                        "value": "Morbid obesity exact BMI"
+                    }, 
+                    {
+                        "label": "Cerebral edema", 
+                        "value": "Cerebral edema"
+                    }, 
+                    {
+                        "label": "Drug [specify type of drug] dependence [specify uncomplicated or with withdrawal]", 
+                        "value": "Drug [specify type of drug] dependence [specify uncomplicated or with withdrawal]"
+                    }, 
+                    {
+                        "label": "Chronic respiratory failure", 
+                        "value": "Chronic respiratory failure"
+                    }, 
+                    {
+                        "label": "Not applicable", 
+                        "value": "Not applicable"
+                    }, 
+                    {
+                        "label": "Compression of brain", 
+                        "value": "Compression of brain"
+                    }, 
+                    {
+                        "label": "Acute kidney injury", 
+                        "value": "Acute kidney injury"
+                    }, 
+                    {
+                        "label": "Hypernatremia", 
+                        "value": "Hypernatremia"
+                    }, 
+                    {
+                        "label": "Severe protein-calorie malnutrition exact BMI", 
+                        "value": "Severe protein-calorie malnutrition exact BMI"
+                    }, 
+                    {
+                        "label": "Protein calorie malnutrition exact BMI", 
+                        "value": "Protein calorie malnutrition exact BMI"
+                    }, 
+                    {
+                        "label": "Chronic systolic heart failure", 
+                        "value": "Chronic systolic heart failure"
+                    }, 
+                    {
+                        "label": "Hemiparesis [side dominance]", 
+                        "value": "Hemiparesis [side dominance]"
+                    }, 
+                    {
+                        "label": "Chronic diastolic heart failure", 
+                        "value": "Chronic diastolic heart failure"
+                    }, 
+                    {
+                        "label": "Major depressive disorder [single episode or recurrent episode]", 
+                        "value": "Major depressive disorder [single episode or recurrent episode]"
+                    }, 
+                    {
+                        "label": "Encephalopathy due to [specific cause]", 
+                        "value": "Encephalopathy due to [specific cause]"
+                    }, 
+                    {
+                        "label": "Systemic inflammatory response syndrome (SIRS) due to [specific cause]", 
+                        "value": "Systemic inflammatory response syndrome (SIRS) due to [specific cause]"
+                    }, 
+                    {
+                        "label": "Sepsis", 
+                        "value": "Sepsis"
+                    }, 
+                    {
+                        "label": "Severe sepsis", 
+                        "value": "Severe sepsis"
+                    }, 
+                    {
+                        "label": "Acute renal failure with tubular necrosis", 
+                        "value": "Acute renal failure with tubular necrosis"
+                    }, 
+                    {
+                        "label": "Acute respiratory failure [with hypoxia and/or hypercapnia]", 
+                        "value": "Acute respiratory failure [with hypoxia and/or hypercapnia]"
+                    }, 
+                    {
+                        "label": "Hyponatremia", 
+                        "value": "Hyponatremia"
+                    }, 
+                    {
+                        "label": "Acute blood loss anemia", 
+                        "value": "Acute blood loss anemia"
+                    }
+                ], 
+                "label": "Misdiagnosed", 
+                "value": "Misdiagnosed"
+            }, 
+            {
+                "children": [
+                    {
+                        "label": "Portal hypertension", 
+                        "value": "Portal hypertension"
+                    }, 
+                    {
+                        "label": "Septic shock", 
+                        "value": "Septic shock"
+                    }, 
+                    {
+                        "label": "Acute diastolic heart failure", 
+                        "value": "Acute diastolic heart failure"
+                    }, 
+                    {
+                        "label": "Coma GCS score time of record", 
+                        "value": "Coma GCS score time of record"
+                    }, 
+                    {
+                        "label": "Acute systolic heart failure", 
+                        "value": "Acute systolic heart failure"
+                    }, 
+                    {
+                        "label": "Hemiplegia [side dominance]", 
+                        "value": "Hemiplegia [side dominance]"
+                    }, 
+                    {
+                        "label": "Chronic respiratory failure [specify with hypoxia and/or hypercapnia]", 
+                        "value": "Chronic respiratory failure [specify with hypoxia and/or hypercapnia]"
+                    }, 
+                    {
+                        "label": "Acute renal failure", 
+                        "value": "Acute renal failure"
+                    }, 
+                    {
+                        "label": "Acute respiratory failure [specify with hypoxia and/or hypercapnia]", 
+                        "value": "Acute respiratory failure [specify with hypoxia and/or hypercapnia]"
+                    }, 
+                    {
+                        "label": "Drug dependence continuous use", 
+                        "value": "Drug dependence continuous use"
+                    }, 
+                    {
+                        "label": "Chronic kidney disease stage 3", 
+                        "value": "Chronic kidney disease stage 3"
+                    }, 
+                    {
+                        "label": "Chronic kidney disease stage 4", 
+                        "value": "Chronic kidney disease stage 4"
+                    }, 
+                    {
+                        "label": "Chronic kidney disease stage 5", 
+                        "value": "Chronic kidney disease stage 5"
+                    }, 
+                    {
+                        "label": "Myelopathy [vascular or nonvascular]", 
+                        "value": "Myelopathy [vascular or nonvascular]"
+                    }, 
+                    {
+                        "label": "Morbid obesity exact BMI", 
+                        "value": "Morbid obesity exact BMI"
+                    }, 
+                    {
+                        "label": "Cerebral edema", 
+                        "value": "Cerebral edema"
+                    }, 
+                    {
+                        "label": "Drug [specify type of drug] dependence [specify uncomplicated or with withdrawal]", 
+                        "value": "Drug [specify type of drug] dependence [specify uncomplicated or with withdrawal]"
+                    }, 
+                    {
+                        "label": "Chronic respiratory failure", 
+                        "value": "Chronic respiratory failure"
+                    }, 
+                    {
+                        "label": "Not applicable", 
+                        "value": "Not applicable"
+                    }, 
+                    {
+                        "label": "Compression of brain", 
+                        "value": "Compression of brain"
+                    }, 
+                    {
+                        "label": "Acute kidney injury", 
+                        "value": "Acute kidney injury"
+                    }, 
+                    {
+                        "label": "Hypernatremia", 
+                        "value": "Hypernatremia"
+                    }, 
+                    {
+                        "label": "Severe protein-calorie malnutrition exact BMI", 
+                        "value": "Severe protein-calorie malnutrition exact BMI"
+                    }, 
+                    {
+                        "label": "Protein calorie malnutrition exact BMI", 
+                        "value": "Protein calorie malnutrition exact BMI"
+                    }, 
+                    {
+                        "label": "Chronic systolic heart failure", 
+                        "value": "Chronic systolic heart failure"
+                    }, 
+                    {
+                        "label": "Hemiparesis [side dominance]", 
+                        "value": "Hemiparesis [side dominance]"
+                    }, 
+                    {
+                        "label": "Chronic diastolic heart failure", 
+                        "value": "Chronic diastolic heart failure"
+                    }, 
+                    {
+                        "label": "Major depressive disorder [single episode or recurrent episode]", 
+                        "value": "Major depressive disorder [single episode or recurrent episode]"
+                    }, 
+                    {
+                        "label": "Encephalopathy due to [specific cause]", 
+                        "value": "Encephalopathy due to [specific cause]"
+                    }, 
+                    {
+                        "label": "Systemic inflammatory response syndrome (SIRS) due to [specific cause]", 
+                        "value": "Systemic inflammatory response syndrome (SIRS) due to [specific cause]"
+                    }, 
+                    {
+                        "label": "Sepsis", 
+                        "value": "Sepsis"
+                    }, 
+                    {
+                        "label": "Severe sepsis", 
+                        "value": "Severe sepsis"
+                    }, 
+                    {
+                        "label": "Acute renal failure with tubular necrosis", 
+                        "value": "Acute renal failure with tubular necrosis"
+                    }, 
+                    {
+                        "label": "Acute respiratory failure [with hypoxia and/or hypercapnia]", 
+                        "value": "Acute respiratory failure [with hypoxia and/or hypercapnia]"
+                    }, 
+                    {
+                        "label": "Hyponatremia", 
+                        "value": "Hyponatremia"
+                    }, 
+                    {
+                        "label": "Acute blood loss anemia", 
+                        "value": "Acute blood loss anemia"
+                    }
+                ], 
+                "label": "Omitted", 
+                "value": "Omitted"
             }
-        },
-        "St. Clare": { 
-            "providers": {
-            },
-            "groups": {
-                "Hospitalists": {
-                    "careType": "inpatient",
-                    "conditions": [
-                    ]
-                },
-                "General Surgery": {
-                    "careType": "inpatient",
-                    "conditions": [
-                    ]
-                },
-                "Bariatric Surgery": {
-                    "careType": "inpatient",
-                    "conditions": [
-                    ]
-                },
-                "Vascular Surgery": {
-                    "careType": "inpatient",
-                    "conditions": [
-                    ]
-                }
+        ], 
+        "Hospitals": [
+            {
+                "label": "Harrison", 
+                "value": "Harrison"
+            }, 
+            {
+                "label": "Highline", 
+                "value": "Highline"
+            }, 
+            {
+                "label": "St. Anthony", 
+                "value": "St. Anthony"
+            }, 
+            {
+                "label": "St. Clare", 
+                "value": "St. Clare"
+            }, 
+            {
+                "label": "St. Elizabeth", 
+                "value": "St. Elizabeth"
+            }, 
+            {
+                "label": "St. Francis", 
+                "value": "St. Francis"
+            }, 
+            {
+                "label": "St. Joseph", 
+                "value": "St. Joseph"
             }
-        },
-        "St. Elizabeth": { 
-            "providers": {
-            },
-            "groups": {
-                "Hospitalists": {
-                    "careType": "inpatient",
-                    "conditions": [
-                    ]
-                },
-                "General Surgery": {
-                    "careType": "inpatient",
-                    "conditions": [
-                    ]
-                },
-                "Bariatric Surgery": {
-                    "careType": "inpatient",
-                    "conditions": [
-                    ]
-                },
-                "Vascular Surgery": {
-                    "careType": "inpatient",
-                    "conditions": [
-                    ]
-                }
+        ], 
+        "Providers": [
+            {
+                "label": "Dr. Ossama Al Masalmeh", 
+                "value": "Dr. Ossama Al Masalmeh"
+            }, 
+            {
+                "label": "Dr. Jonathan Bodine", 
+                "value": "Dr. Jonathan Bodine"
+            }, 
+            {
+                "label": "Dr. Bhavim Desai", 
+                "value": "Dr. Bhavim Desai"
+            }, 
+            {
+                "label": "Dr. Mehmet Guzelbeyoglu", 
+                "value": "Dr. Mehmet Guzelbeyoglu"
+            }, 
+            {
+                "label": "Dr. Christopher Lucas", 
+                "value": "Dr. Christopher Lucas"
+            }, 
+            {
+                "label": "Dr. Carlo Palarca", 
+                "value": "Dr. Carlo Palarca"
+            }, 
+            {
+                "label": "Dr. Saman Selahi", 
+                "value": "Dr. Saman Selahi"
+            }, 
+            {
+                "label": "Deiter (Mike) Kaizer, PA-C", 
+                "value": "Deiter (Mike) Kaizer, PA-C"
+            }, 
+            {
+                "label": "Dr. Eller Manlapaz", 
+                "value": "Dr. Eller Manlapaz"
+            }, 
+            {
+                "label": "Dr. Keith Pasternak", 
+                "value": "Dr. Keith Pasternak"
+            }, 
+            {
+                "label": "Dr. Stephen Sim", 
+                "value": "Dr. Stephen Sim"
+            }, 
+            {
+                "label": "Dr. Yancey Sloane", 
+                "value": "Dr. Yancey Sloane"
+            }, 
+            {
+                "label": "Dr. Ali Thomas", 
+                "value": "Dr. Ali Thomas"
+            }, 
+            {
+                "label": "Dr. Rebecca Townsend", 
+                "value": "Dr. Rebecca Townsend"
+            }, 
+            {
+                "label": "Dr. Zin Tun", 
+                "value": "Dr. Zin Tun"
+            }, 
+            {
+                "label": "Dr. Andriy Viter", 
+                "value": "Dr. Andriy Viter"
+            }, 
+            {
+                "label": "Dr. Rending Xu", 
+                "value": "Dr. Rending Xu"
+            }, 
+            {
+                "label": "Dr. Sharooz Zandnia", 
+                "value": "Dr. Sharooz Zandnia"
+            }, 
+            {
+                "label": "Dr. Mona Shawky", 
+                "value": "Dr. Mona Shawky"
+            }, 
+            {
+                "label": "Dr. Gurdev Singh", 
+                "value": "Dr. Gurdev Singh"
+            }, 
+            {
+                "label": "Dr. Venkata Yearva", 
+                "value": "Dr. Venkata Yearva"
+            }, 
+            {
+                "label": "Ardith Conway, ARNP", 
+                "value": "Ardith Conway, ARNP"
+            }, 
+            {
+                "label": "Celina Georgia, ARNP", 
+                "value": "Celina Georgia, ARNP"
+            }, 
+            {
+                "label": "Dr. Rosita Hermann", 
+                "value": "Dr. Rosita Hermann"
+            }, 
+            {
+                "label": "Braden Andersen, ARNP", 
+                "value": "Braden Andersen, ARNP"
+            }, 
+            {
+                "label": "Luc Bouquet, ARNP", 
+                "value": "Luc Bouquet, ARNP"
+            }, 
+            {
+                "label": "Cherryl Menapace, ARNP", 
+                "value": "Cherryl Menapace, ARNP"
+            }, 
+            {
+                "label": "Dr. Bhupinder Walia", 
+                "value": "Dr. Bhupinder Walia"
+            }, 
+            {
+                "label": "Laurie Benton, ARNP", 
+                "value": "Laurie Benton, ARNP"
+            }, 
+            {
+                "label": "Teresa Harding, ARNP", 
+                "value": "Teresa Harding, ARNP"
+            }, 
+            {
+                "label": "Dr. Andy Nguyen", 
+                "value": "Dr. Andy Nguyen"
+            }, 
+            {
+                "label": "Dr. Syed Abbas", 
+                "value": "Dr. Syed Abbas"
+            }, 
+            {
+                "label": "", 
+                "value": ""
+            }, 
+            {
+                "label": "Dr. Fizzah Ali", 
+                "value": "Dr. Fizzah Ali"
+            }, 
+            {
+                "label": "Dr. Viorel Angheloiu", 
+                "value": "Dr. Viorel Angheloiu"
+            }, 
+            {
+                "label": "Dr. Jennifer Aquino", 
+                "value": "Dr. Jennifer Aquino"
+            }, 
+            {
+                "label": "Dr. Amir Aref", 
+                "value": "Dr. Amir Aref"
+            }, 
+            {
+                "label": "Dr. Berhane Asfaw", 
+                "value": "Dr. Berhane Asfaw"
+            }, 
+            {
+                "label": "Dr. Khalid Aslam", 
+                "value": "Dr. Khalid Aslam"
+            }, 
+            {
+                "label": "Dr. Joseph Barthelemy", 
+                "value": "Dr. Joseph Barthelemy"
+            }, 
+            {
+                "label": "Dr. Ramon Basa", 
+                "value": "Dr. Ramon Basa"
+            }, 
+            {
+                "label": "Dr. Kimberly Bell", 
+                "value": "Dr. Kimberly Bell"
+            }, 
+            {
+                "label": "Sharon Bennett, PA-C", 
+                "value": "Sharon Bennett, PA-C"
+            }, 
+            {
+                "label": "Dr. Bhavana Bhanot", 
+                "value": "Dr. Bhavana Bhanot"
+            }, 
+            {
+                "label": "Dr. Himanshu Bhutani", 
+                "value": "Dr. Himanshu Bhutani"
+            }, 
+            {
+                "label": "Hana Cha, PA-C", 
+                "value": "Hana Cha, PA-C"
+            }, 
+            {
+                "label": "Dr. Jinsoo Chang", 
+                "value": "Dr. Jinsoo Chang"
+            }, 
+            {
+                "label": "", 
+                "value": ""
+            }, 
+            {
+                "label": "Dr. Sriranjini Chilkunda Ramaswamy", 
+                "value": "Dr. Sriranjini Chilkunda Ramaswamy"
+            }, 
+            {
+                "label": "Dr. Ishmael Ching", 
+                "value": "Dr. Ishmael Ching"
+            }, 
+            {
+                "label": "Georgia Coote, ARNP", 
+                "value": "Georgia Coote, ARNP"
+            }, 
+            {
+                "label": "Chelsea Crosby, PA-C", 
+                "value": "Chelsea Crosby, PA-C"
+            }, 
+            {
+                "label": "Dr. Marco Cruz", 
+                "value": "Dr. Marco Cruz"
+            }, 
+            {
+                "label": "Randal Cupp, PA-C", 
+                "value": "Randal Cupp, PA-C"
+            }, 
+            {
+                "label": "Dr. Lakshmi Datla", 
+                "value": "Dr. Lakshmi Datla"
+            }, 
+            {
+                "label": "Dr. Amit Desai", 
+                "value": "Dr. Amit Desai"
+            }, 
+            {
+                "label": "Dr. Harjeet Dhillon", 
+                "value": "Dr. Harjeet Dhillon"
+            }, 
+            {
+                "label": "Dr. Vladimir Dzhashi", 
+                "value": "Dr. Vladimir Dzhashi"
+            }, 
+            {
+                "label": "Dr. Guoping Feng", 
+                "value": "Dr. Guoping Feng"
+            }, 
+            {
+                "label": "William Finnerty, ARNP", 
+                "value": "William Finnerty, ARNP"
+            }, 
+            {
+                "label": "Dr. Radu Florea", 
+                "value": "Dr. Radu Florea"
+            }, 
+            {
+                "label": "Philip Furth, PA-C", 
+                "value": "Philip Furth, PA-C"
+            }, 
+            {
+                "label": "Dr. Michal Galeziok", 
+                "value": "Dr. Michal Galeziok"
+            }, 
+            {
+                "label": "Dr. Emad Girgis", 
+                "value": "Dr. Emad Girgis"
+            }, 
+            {
+                "label": "Dr. Anjna Grover", 
+                "value": "Dr. Anjna Grover"
+            }, 
+            {
+                "label": "Dr. Matthew Guindon", 
+                "value": "Dr. Matthew Guindon"
+            }, 
+            {
+                "label": "Mary Harris-Tucker, PA-C", 
+                "value": "Mary Harris-Tucker, PA-C"
+            }, 
+            {
+                "label": "Mary Harvey, ARNP", 
+                "value": "Mary Harvey, ARNP"
+            }, 
+            {
+                "label": "Dr. Edward Himes", 
+                "value": "Dr. Edward Himes"
+            }, 
+            {
+                "label": "Dr. Mai Vi Hoang", 
+                "value": "Dr. Mai Vi Hoang"
+            }, 
+            {
+                "label": "", 
+                "value": ""
+            }, 
+            {
+                "label": "Dr. Ihab Ibrahim", 
+                "value": "Dr. Ihab Ibrahim"
+            }, 
+            {
+                "label": "Dr. Mohamed Imam", 
+                "value": "Dr. Mohamed Imam"
+            }, 
+            {
+                "label": "Lenora Ivanek, PA-C", 
+                "value": "Lenora Ivanek, PA-C"
+            }, 
+            {
+                "label": "Dr. Nadeem Jaffer", 
+                "value": "Dr. Nadeem Jaffer"
+            }, 
+            {
+                "label": "Dr. Tonia Jenson", 
+                "value": "Dr. Tonia Jenson"
+            }, 
+            {
+                "label": "Dr. Mark (Jihua) Jia", 
+                "value": "Dr. Mark (Jihua) Jia"
+            }, 
+            {
+                "label": "Dr. Audry Kahlstrom", 
+                "value": "Dr. Audry Kahlstrom"
+            }, 
+            {
+                "label": "Dr. Muhammed Khan", 
+                "value": "Dr. Muhammed Khan"
+            }, 
+            {
+                "label": "Dr. Shadi Khir", 
+                "value": "Dr. Shadi Khir"
+            }, 
+            {
+                "label": "", 
+                "value": ""
+            }, 
+            {
+                "label": "Dr. Nikolay Kolev", 
+                "value": "Dr. Nikolay Kolev"
+            }, 
+            {
+                "label": "", 
+                "value": ""
+            }, 
+            {
+                "label": "Dr. Samakshi Krishna", 
+                "value": "Dr. Samakshi Krishna"
+            }, 
+            {
+                "label": "Cora Krouse, PA-C", 
+                "value": "Cora Krouse, PA-C"
+            }, 
+            {
+                "label": "Dr. Lakeysha Layfield", 
+                "value": "Dr. Lakeysha Layfield"
+            }, 
+            {
+                "label": "Dr. David Lee", 
+                "value": "Dr. David Lee"
+            }, 
+            {
+                "label": "Dr. Desire Lehmann", 
+                "value": "Dr. Desire Lehmann"
+            }, 
+            {
+                "label": "Dr. Michael - PAC L'Italien", 
+                "value": "Dr. Michael - PAC L'Italien"
+            }, 
+            {
+                "label": "Dr. Ying Liu", 
+                "value": "Dr. Ying Liu"
+            }, 
+            {
+                "label": "Dr. Ed Lopez", 
+                "value": "Dr. Ed Lopez"
+            }, 
+            {
+                "label": "Laura Luu, ARNP", 
+                "value": "Laura Luu, ARNP"
+            }, 
+            {
+                "label": "Andrea Lyon-Loftus, PA-C", 
+                "value": "Andrea Lyon-Loftus, PA-C"
+            }, 
+            {
+                "label": "Dr. Naushaba Marri", 
+                "value": "Dr. Naushaba Marri"
+            }, 
+            {
+                "label": "Dr. Liana Maxa", 
+                "value": "Dr. Liana Maxa"
+            }, 
+            {
+                "label": "Matthew Metsker, PA-C", 
+                "value": "Matthew Metsker, PA-C"
+            }, 
+            {
+                "label": "Mihee Montstream, ARNP", 
+                "value": "Mihee Montstream, ARNP"
+            }, 
+            {
+                "label": "Albert Morriss, PA-C", 
+                "value": "Albert Morriss, PA-C"
+            }, 
+            {
+                "label": "", 
+                "value": ""
+            }, 
+            {
+                "label": "Dr. David Munoz", 
+                "value": "Dr. David Munoz"
+            }, 
+            {
+                "label": "Dr. Thankam Nair", 
+                "value": "Dr. Thankam Nair"
+            }, 
+            {
+                "label": "Michelle Nelson, PA-C", 
+                "value": "Michelle Nelson, PA-C"
+            }, 
+            {
+                "label": "Dr. Vivian Nkwonta", 
+                "value": "Dr. Vivian Nkwonta"
+            }, 
+            {
+                "label": "Dr. Emmy Oh", 
+                "value": "Dr. Emmy Oh"
+            }, 
+            {
+                "label": "Dr. Srivatsan Padmanabhan", 
+                "value": "Dr. Srivatsan Padmanabhan"
+            }, 
+            {
+                "label": "", 
+                "value": ""
+            }, 
+            {
+                "label": "Dr. Ankit Patel", 
+                "value": "Dr. Ankit Patel"
+            }, 
+            {
+                "label": "Dr. Jay Patel", 
+                "value": "Dr. Jay Patel"
+            }, 
+            {
+                "label": "Dr. Seetharam Pothi Reddy", 
+                "value": "Dr. Seetharam Pothi Reddy"
+            }, 
+            {
+                "label": "Dr. Jeffrey Reasol", 
+                "value": "Dr. Jeffrey Reasol"
+            }, 
+            {
+                "label": "Dr. Gari Reddy", 
+                "value": "Dr. Gari Reddy"
+            }, 
+            {
+                "label": "Dr. Prathima Reddy", 
+                "value": "Dr. Prathima Reddy"
+            }, 
+            {
+                "label": "Dr. Azra Rehman", 
+                "value": "Dr. Azra Rehman"
+            }, 
+            {
+                "label": "Luke Requa, PA-C", 
+                "value": "Luke Requa, PA-C"
+            }, 
+            {
+                "label": "Dr. David Rochelin", 
+                "value": "Dr. David Rochelin"
+            }, 
+            {
+                "label": "Dr. Nirmalya Roychowdhury", 
+                "value": "Dr. Nirmalya Roychowdhury"
+            }, 
+            {
+                "label": "Dr. Evelyn Rubin", 
+                "value": "Dr. Evelyn Rubin"
+            }, 
+            {
+                "label": "Dr. Yasser Said", 
+                "value": "Dr. Yasser Said"
+            }, 
+            {
+                "label": "Dr. Vincent Salvador", 
+                "value": "Dr. Vincent Salvador"
+            }, 
+            {
+                "label": "Dr. Shelly Sanetti", 
+                "value": "Dr. Shelly Sanetti"
+            }, 
+            {
+                "label": "Dr. Maggie Sekeramayi", 
+                "value": "Dr. Maggie Sekeramayi"
+            }, 
+            {
+                "label": "Dr. Dipam Shah", 
+                "value": "Dr. Dipam Shah"
+            }, 
+            {
+                "label": "Dr. Megha Shah", 
+                "value": "Dr. Megha Shah"
+            }, 
+            {
+                "label": "Dr. Ashwin Shivakumar", 
+                "value": "Dr. Ashwin Shivakumar"
+            }, 
+            {
+                "label": "Dr. Sherrod Shiveley", 
+                "value": "Dr. Sherrod Shiveley"
+            }, 
+            {
+                "label": "", 
+                "value": ""
+            }, 
+            {
+                "label": "Dr. Arthur Siek", 
+                "value": "Dr. Arthur Siek"
+            }, 
+            {
+                "label": "Dr. John Stam", 
+                "value": "Dr. John Stam"
+            }, 
+            {
+                "label": "Dr. Jessica Tam", 
+                "value": "Dr. Jessica Tam"
+            }, 
+            {
+                "label": "Dr. Bob Thong", 
+                "value": "Dr. Bob Thong"
+            }, 
+            {
+                "label": "Dr. Arinder Tiwana", 
+                "value": "Dr. Arinder Tiwana"
+            }, 
+            {
+                "label": "Dr. Tamas Ungar", 
+                "value": "Dr. Tamas Ungar"
+            }, 
+            {
+                "label": "Dr. Nicolas Veohongs", 
+                "value": "Dr. Nicolas Veohongs"
+            }, 
+            {
+                "label": "", 
+                "value": ""
+            }, 
+            {
+                "label": "Dr. Pragathy Vutla", 
+                "value": "Dr. Pragathy Vutla"
+            }, 
+            {
+                "label": "Dr. John Wagoner", 
+                "value": "Dr. John Wagoner"
+            }, 
+            {
+                "label": "Dr. Danhua Wallace", 
+                "value": "Dr. Danhua Wallace"
+            }, 
+            {
+                "label": "Dr. Alison Wright", 
+                "value": "Dr. Alison Wright"
+            }, 
+            {
+                "label": "Dr. Gayatri Yambem", 
+                "value": "Dr. Gayatri Yambem"
+            }, 
+            {
+                "label": "Dr. Nathaniel Yu Chua", 
+                "value": "Dr. Nathaniel Yu Chua"
+            }, 
+            {
+                "label": "Dr. Vitaliy Zak", 
+                "value": "Dr. Vitaliy Zak"
+            }, 
+            {
+                "label": "Dr. Wen Zhong", 
+                "value": "Dr. Wen Zhong"
+            }, 
+            {
+                "label": "Dr. Irina Case", 
+                "value": "Dr. Irina Case"
+            }, 
+            {
+                "label": "Dr. Kelly Carlisle", 
+                "value": "Dr. Kelly Carlisle"
+            }, 
+            {
+                "label": "Dr. Mohamed Elagnaf", 
+                "value": "Dr. Mohamed Elagnaf"
+            }, 
+            {
+                "label": "Dr. Zachary Kane", 
+                "value": "Dr. Zachary Kane"
+            }, 
+            {
+                "label": "Dr. Omar Naji", 
+                "value": "Dr. Omar Naji"
+            }, 
+            {
+                "label": "Dr. Phillip Nielson", 
+                "value": "Dr. Phillip Nielson"
+            }, 
+            {
+                "label": "Dr. Rakshit Patnana", 
+                "value": "Dr. Rakshit Patnana"
+            }, 
+            {
+                "label": "Dr. Michelle Pham", 
+                "value": "Dr. Michelle Pham"
+            }, 
+            {
+                "label": "Dr. Jason Chung", 
+                "value": "Dr. Jason Chung"
+            }, 
+            {
+                "label": "Dr. Amar Khunti", 
+                "value": "Dr. Amar Khunti"
+            }, 
+            {
+                "label": "Dr. Sungmi Lian", 
+                "value": "Dr. Sungmi Lian"
+            }, 
+            {
+                "label": "Dr. Dolkar Sherpa", 
+                "value": "Dr. Dolkar Sherpa"
+            }, 
+            {
+                "label": "Dr. Maninderjit Singh", 
+                "value": "Dr. Maninderjit Singh"
+            }, 
+            {
+                "label": "Dr. Chris Stadtherr", 
+                "value": "Dr. Chris Stadtherr"
+            }, 
+            {
+                "label": "Dr. Rana Tan", 
+                "value": "Dr. Rana Tan"
+            }, 
+            {
+                "label": "Dr. Roberta Trandev", 
+                "value": "Dr. Roberta Trandev"
+            }, 
+            {
+                "label": "Dr. Prabin Uprety", 
+                "value": "Dr. Prabin Uprety"
+            }, 
+            {
+                "label": "Dr. Ashley Hamilton", 
+                "value": "Dr. Ashley Hamilton"
+            }, 
+            {
+                "label": "Dr. Timothy Jenkins", 
+                "value": "Dr. Timothy Jenkins"
+            }, 
+            {
+                "label": "Dr. Priyanka Kapoor", 
+                "value": "Dr. Priyanka Kapoor"
+            }, 
+            {
+                "label": "Dr. Ali Alhusseni", 
+                "value": "Dr. Ali Alhusseni"
+            }, 
+            {
+                "label": "Dr. Pushpanjali Basnyat", 
+                "value": "Dr. Pushpanjali Basnyat"
+            }, 
+            {
+                "label": "Dr. Megha Bendre", 
+                "value": "Dr. Megha Bendre"
+            }, 
+            {
+                "label": "Dr. Shaluk Biswas", 
+                "value": "Dr. Shaluk Biswas"
+            }, 
+            {
+                "label": "Dr. Judy Emil Dela Cruz", 
+                "value": "Dr. Judy Emil Dela Cruz"
+            }, 
+            {
+                "label": "Dr. Dhananjay Deo", 
+                "value": "Dr. Dhananjay Deo"
+            }, 
+            {
+                "label": "Dr. Tianhai (Tim) Guo", 
+                "value": "Dr. Tianhai (Tim) Guo"
+            }, 
+            {
+                "label": "Dr. Dana Ionescu", 
+                "value": "Dr. Dana Ionescu"
+            }, 
+            {
+                "label": "Dr. Priya Kanwar", 
+                "value": "Dr. Priya Kanwar"
+            }, 
+            {
+                "label": "Dr. Kelly Liu", 
+                "value": "Dr. Kelly Liu"
+            }, 
+            {
+                "label": "Janet MacKay, RN", 
+                "value": "Janet MacKay, RN"
+            }, 
+            {
+                "label": "Dr. Aimee Shariat", 
+                "value": "Dr. Aimee Shariat"
+            }, 
+            {
+                "label": "Dr. Maryam Tariq", 
+                "value": "Dr. Maryam Tariq"
+            }, 
+            {
+                "label": "Kelly Taylor", 
+                "value": "Kelly Taylor"
+            }, 
+            {
+                "label": "Dr. Thomson Tuscano", 
+                "value": "Dr. Thomson Tuscano"
+            }, 
+            {
+                "label": "Dr. Dong Vo", 
+                "value": "Dr. Dong Vo"
             }
-        },
-        "St. Francis": { 
-            "providers": {
-            },
-            "groups": {
-                "Hospitalists": {
-                    "careType": "inpatient",
-                    "conditions": [
-                    ]
-                },
-                "General Surgery": {
-                    "careType": "inpatient",
-                    "conditions": [
-                    ]
-                },
-                "Bariatric Surgery": {
-                    "careType": "inpatient",
-                    "conditions": [
-                    ]
-                },
-                "Vascular Surgery": {
-                    "careType": "inpatient",
-                    "conditions": [
-                    ]
-                }
-            }
-        },
-        "St. Joseph": { 
-            "providers": {
-            },
-            "groups": {
-                "Hospitalists": {
-                    "careType": "inpatient",
-                    "conditions": [
-                    ]
-                },
-                "General Surgery": {
-                    "careType": "inpatient",
-                    "conditions": [
-                    ]
-                },
-                "Bariatric Surgery": {
-                    "careType": "inpatient",
-                    "conditions": [
-                    ]
-                },
-                "Vascular Surgery": {
-                    "careType": "inpatient",
-                    "conditions": [
-                    ]
-                }
-            }
-        },
-        "Harrison": { 
-            "providers": {
-            },
-            "groups": {
-                "Hospitalists": {
-                    "careType": "inpatient",
-                    "conditions": [
-                    ]
-                }
-            }
-        },
-        "Highline": { 
-            "providers": {
-            },
-            "groups": {
-                "Hospitalists": {
-                    "careType": "inpatient",
-                    "conditions": [
-                    ]
-                }
-            }
+        ]
+    }, 
+    "ProvidersByNpi": [
+        {
+            "npi": 1851654776, 
+            "reportingName": "Dr. Ossama Al Masalmeh"
+        }, 
+        {
+            "npi": 1760434740, 
+            "reportingName": "Dr. Jonathan Bodine"
+        }, 
+        {
+            "npi": 1871886721, 
+            "reportingName": "Dr. Bhavim Desai"
+        }, 
+        {
+            "npi": 1174621130, 
+            "reportingName": "Dr. Mehmet Guzelbeyoglu"
+        }, 
+        {
+            "npi": 1528233582, 
+            "reportingName": "Dr. Christopher Lucas"
+        }, 
+        {
+            "npi": 1265762678, 
+            "reportingName": "Dr. Carlo Palarca"
+        }, 
+        {
+            "npi": 1174750335, 
+            "reportingName": "Dr. Saman Selahi"
+        }, 
+        {
+            "npi": 1558540385, 
+            "reportingName": "Deiter (Mike) Kaizer, PA-C"
+        }, 
+        {
+            "npi": 1932116076, 
+            "reportingName": "Dr. Eller Manlapaz"
+        }, 
+        {
+            "npi": 1477567725, 
+            "reportingName": "Dr. Keith Pasternak"
+        }, 
+        {
+            "npi": 1407913205, 
+            "reportingName": "Dr. Stephen Sim"
+        }, 
+        {
+            "npi": 1760455745, 
+            "reportingName": "Dr. Yancey Sloane"
+        }, 
+        {
+            "npi": 1134337611, 
+            "reportingName": "Dr. Ali Thomas"
+        }, 
+        {
+            "npi": 1962502815, 
+            "reportingName": "Dr. Rebecca Townsend"
+        }, 
+        {
+            "npi": 1508122136, 
+            "reportingName": "Dr. Zin Tun"
+        }, 
+        {
+            "npi": 1528371622, 
+            "reportingName": "Dr. Andriy Viter"
+        }, 
+        {
+            "npi": 1063437028, 
+            "reportingName": "Dr. Rending Xu"
+        }, 
+        {
+            "npi": 1699030635, 
+            "reportingName": "Dr. Sharooz Zandnia"
+        }, 
+        {
+            "npi": 1861711210, 
+            "reportingName": "Dr. Mona Shawky"
+        }, 
+        {
+            "npi": 1376599431, 
+            "reportingName": "Dr. Gurdev Singh"
+        }, 
+        {
+            "npi": 1699045641, 
+            "reportingName": "Dr. Venkata Yearva"
+        }, 
+        {
+            "npi": 1689850190, 
+            "reportingName": "Ardith Conway, ARNP"
+        }, 
+        {
+            "npi": 1225543622, 
+            "reportingName": "Celina Georgia, ARNP"
+        }, 
+        {
+            "npi": 1982847158, 
+            "reportingName": "Dr. Rosita Hermann"
+        }, 
+        {
+            "npi": 1598292120, 
+            "reportingName": "Braden Andersen, ARNP"
+        }, 
+        {
+            "npi": 1831348333, 
+            "reportingName": "Luc Bouquet, ARNP"
+        }, 
+        {
+            "npi": 1073028981, 
+            "reportingName": "Cherryl Menapace, ARNP"
+        }, 
+        {
+            "npi": 1801039649, 
+            "reportingName": "Dr. Bhupinder Walia"
+        }, 
+        {
+            "npi": 1902853229, 
+            "reportingName": "Laurie Benton, ARNP"
+        }, 
+        {
+            "npi": 1235159484, 
+            "reportingName": "Teresa Harding, ARNP"
+        }, 
+        {
+            "npi": 1790882686, 
+            "reportingName": "Dr. Andy Nguyen"
+        }, 
+        {
+            "npi": 1962769380, 
+            "reportingName": "Dr. Syed Abbas"
+        }, 
+        {
+            "npi": 1932362076, 
+            "reportingName": ""
+        }, 
+        {
+            "npi": 1265524961, 
+            "reportingName": "Dr. Fizzah Ali"
+        }, 
+        {
+            "npi": 1063687234, 
+            "reportingName": "Dr. Viorel Angheloiu"
+        }, 
+        {
+            "npi": 1184746067, 
+            "reportingName": "Dr. Jennifer Aquino"
+        }, 
+        {
+            "npi": 1063522126, 
+            "reportingName": "Dr. Amir Aref"
+        }, 
+        {
+            "npi": 1760593057, 
+            "reportingName": "Dr. Berhane Asfaw"
+        }, 
+        {
+            "npi": 1578593703, 
+            "reportingName": "Dr. Khalid Aslam"
+        }, 
+        {
+            "npi": 1447567011, 
+            "reportingName": "Dr. Joseph Barthelemy"
+        }, 
+        {
+            "npi": 1801030275, 
+            "reportingName": "Dr. Ramon Basa"
+        }, 
+        {
+            "npi": 1730262767, 
+            "reportingName": "Dr. Kimberly Bell"
+        }, 
+        {
+            "npi": 1447223110, 
+            "reportingName": "Sharon Bennett, PA-C"
+        }, 
+        {
+            "npi": 1689699506, 
+            "reportingName": "Dr. Bhavana Bhanot"
+        }, 
+        {
+            "npi": 1962672550, 
+            "reportingName": "Dr. Himanshu Bhutani"
+        }, 
+        {
+            "npi": 1699968800, 
+            "reportingName": "Hana Cha, PA-C"
+        }, 
+        {
+            "npi": 1538424692, 
+            "reportingName": "Dr. Jinsoo Chang"
+        }, 
+        {
+            "npi": 1104927730, 
+            "reportingName": ""
+        }, 
+        {
+            "npi": 1578862389, 
+            "reportingName": "Dr. Sriranjini Chilkunda Ramaswamy"
+        }, 
+        {
+            "npi": 1588817480, 
+            "reportingName": "Dr. Ishmael Ching"
+        }, 
+        {
+            "npi": 1851678163, 
+            "reportingName": "Georgia Coote, ARNP"
+        }, 
+        {
+            "npi": 1861715310, 
+            "reportingName": "Chelsea Crosby, PA-C"
+        }, 
+        {
+            "npi": 1619170511, 
+            "reportingName": "Dr. Marco Cruz"
+        }, 
+        {
+            "npi": 1205024866, 
+            "reportingName": "Randal Cupp, PA-C"
+        }, 
+        {
+            "npi": 1851567341, 
+            "reportingName": "Dr. Lakshmi Datla"
+        }, 
+        {
+            "npi": 1922246529, 
+            "reportingName": "Dr. Amit Desai"
+        }, 
+        {
+            "npi": 1508076985, 
+            "reportingName": "Dr. Harjeet Dhillon"
+        }, 
+        {
+            "npi": 1063643542, 
+            "reportingName": "Dr. Vladimir Dzhashi"
+        }, 
+        {
+            "npi": 1063427482, 
+            "reportingName": "Dr. Guoping Feng"
+        }, 
+        {
+            "npi": 1891097531, 
+            "reportingName": "William Finnerty, ARNP"
+        }, 
+        {
+            "npi": 1043485030, 
+            "reportingName": "Dr. Radu Florea"
+        }, 
+        {
+            "npi": 1518057678, 
+            "reportingName": "Philip Furth, PA-C"
+        }, 
+        {
+            "npi": 1861670200, 
+            "reportingName": "Dr. Michal Galeziok"
+        }, 
+        {
+            "npi": 1235146077, 
+            "reportingName": "Dr. Emad Girgis"
+        }, 
+        {
+            "npi": 1962663567, 
+            "reportingName": "Dr. Anjna Grover"
+        }, 
+        {
+            "npi": 1144541350, 
+            "reportingName": "Dr. Matthew Guindon"
+        }, 
+        {
+            "npi": 1811033202, 
+            "reportingName": "Mary Harris-Tucker, PA-C"
+        }, 
+        {
+            "npi": 1023401627, 
+            "reportingName": "Mary Harvey, ARNP"
+        }, 
+        {
+            "npi": 1942386503, 
+            "reportingName": "Dr. Edward Himes"
+        }, 
+        {
+            "npi": 1760745988, 
+            "reportingName": "Dr. Mai Vi Hoang"
+        }, 
+        {
+            "npi": 1780975615, 
+            "reportingName": ""
+        }, 
+        {
+            "npi": 1417062712, 
+            "reportingName": "Dr. Ihab Ibrahim"
+        }, 
+        {
+            "npi": 1497084842, 
+            "reportingName": "Dr. Mohamed Imam"
+        }, 
+        {
+            "npi": 1790088052, 
+            "reportingName": "Lenora Ivanek, PA-C"
+        }, 
+        {
+            "npi": 1427302025, 
+            "reportingName": "Dr. Nadeem Jaffer"
+        }, 
+        {
+            "npi": 1801129283, 
+            "reportingName": "Dr. Tonia Jenson"
+        }, 
+        {
+            "npi": 1629357744, 
+            "reportingName": "Dr. Mark (Jihua) Jia"
+        }, 
+        {
+            "npi": 1689951550, 
+            "reportingName": "Dr. Audry Kahlstrom"
+        }, 
+        {
+            "npi": 1770635930, 
+            "reportingName": "Dr. Muhammed Khan"
+        }, 
+        {
+            "npi": 1902160534, 
+            "reportingName": "Dr. Shadi Khir"
+        }, 
+        {
+            "npi": 1184983793, 
+            "reportingName": ""
+        }, 
+        {
+            "npi": 1699951699, 
+            "reportingName": "Dr. Nikolay Kolev"
+        }, 
+        {
+            "npi": 1376776377, 
+            "reportingName": ""
+        }, 
+        {
+            "npi": 1255431664, 
+            "reportingName": "Dr. Samakshi Krishna"
+        }, 
+        {
+            "npi": 1891768560, 
+            "reportingName": "Cora Krouse, PA-C"
+        }, 
+        {
+            "npi": 1841458676, 
+            "reportingName": "Dr. Lakeysha Layfield"
+        }, 
+        {
+            "npi": 1538285275, 
+            "reportingName": "Dr. David Lee"
+        }, 
+        {
+            "npi": 1639426232, 
+            "reportingName": "Dr. Desire Lehmann"
+        }, 
+        {
+            "npi": 1770948333, 
+            "reportingName": "Dr. Michael - PAC L'Italien"
+        }, 
+        {
+            "npi": 1528494267, 
+            "reportingName": "Dr. Ying Liu"
+        }, 
+        {
+            "npi": 1649363706, 
+            "reportingName": "Dr. Ed Lopez"
+        }, 
+        {
+            "npi": 1578505533, 
+            "reportingName": "Laura Luu, ARNP"
+        }, 
+        {
+            "npi": 1467606111, 
+            "reportingName": "Andrea Lyon-Loftus, PA-C"
+        }, 
+        {
+            "npi": 1679630461, 
+            "reportingName": "Dr. Naushaba Marri"
+        }, 
+        {
+            "npi": 1548417926, 
+            "reportingName": "Dr. Liana Maxa"
+        }, 
+        {
+            "npi": 1891981841, 
+            "reportingName": "Matthew Metsker, PA-C"
+        }, 
+        {
+            "npi": 1336395896, 
+            "reportingName": "Mihee Montstream, ARNP"
+        }, 
+        {
+            "npi": 1073587903, 
+            "reportingName": "Albert Morriss, PA-C"
+        }, 
+        {
+            "npi": 1548535354, 
+            "reportingName": ""
+        }, 
+        {
+            "npi": 1447284807, 
+            "reportingName": "Dr. David Munoz"
+        }, 
+        {
+            "npi": 1952677320, 
+            "reportingName": "Dr. Thankam Nair"
+        }, 
+        {
+            "npi": 1174620058, 
+            "reportingName": "Michelle Nelson, PA-C"
+        }, 
+        {
+            "npi": 1588865539, 
+            "reportingName": "Dr. Vivian Nkwonta"
+        }, 
+        {
+            "npi": 1104014471, 
+            "reportingName": "Dr. Emmy Oh"
+        }, 
+        {
+            "npi": 1497075394, 
+            "reportingName": "Dr. Srivatsan Padmanabhan"
+        }, 
+        {
+            "npi": 1386083533, 
+            "reportingName": ""
+        }, 
+        {
+            "npi": 1316146848, 
+            "reportingName": "Dr. Ankit Patel"
+        }, 
+        {
+            "npi": 1396009973, 
+            "reportingName": "Dr. Jay Patel"
+        }, 
+        {
+            "npi": 1730473273, 
+            "reportingName": "Dr. Seetharam Pothi Reddy"
+        }, 
+        {
+            "npi": 1033152855, 
+            "reportingName": "Dr. Jeffrey Reasol"
+        }, 
+        {
+            "npi": 1689763732, 
+            "reportingName": "Dr. Gari Reddy"
+        }, 
+        {
+            "npi": 1710118278, 
+            "reportingName": "Dr. Prathima Reddy"
+        }, 
+        {
+            "npi": 1447283577, 
+            "reportingName": "Dr. Azra Rehman"
+        }, 
+        {
+            "npi": 1922192954, 
+            "reportingName": "Luke Requa, PA-C"
+        }, 
+        {
+            "npi": 1093037632, 
+            "reportingName": "Dr. David Rochelin"
+        }, 
+        {
+            "npi": 1598935801, 
+            "reportingName": "Dr. Nirmalya Roychowdhury"
+        }, 
+        {
+            "npi": 1407041155, 
+            "reportingName": "Dr. Evelyn Rubin"
+        }, 
+        {
+            "npi": 1710195904, 
+            "reportingName": "Dr. Yasser Said"
+        }, 
+        {
+            "npi": 1831455856, 
+            "reportingName": "Dr. Vincent Salvador"
+        }, 
+        {
+            "npi": 1801091863, 
+            "reportingName": "Dr. Shelly Sanetti"
+        }, 
+        {
+            "npi": 1801099791, 
+            "reportingName": "Dr. Maggie Sekeramayi"
+        }, 
+        {
+            "npi": 1164787131, 
+            "reportingName": "Dr. Dipam Shah"
+        }, 
+        {
+            "npi": 1316139876, 
+            "reportingName": "Dr. Megha Shah"
+        }, 
+        {
+            "npi": 1972773950, 
+            "reportingName": "Dr. Ashwin Shivakumar"
+        }, 
+        {
+            "npi": 1902990948, 
+            "reportingName": "Dr. Sherrod Shiveley"
+        }, 
+        {
+            "npi": 1609058759, 
+            "reportingName": ""
+        }, 
+        {
+            "npi": 1326223801, 
+            "reportingName": "Dr. Arthur Siek"
+        }, 
+        {
+            "npi": 1326269655, 
+            "reportingName": "Dr. John Stam"
+        }, 
+        {
+            "npi": 1013106582, 
+            "reportingName": "Dr. Jessica Tam"
+        }, 
+        {
+            "npi": 1538352802, 
+            "reportingName": "Dr. Bob Thong"
+        }, 
+        {
+            "npi": 1659521136, 
+            "reportingName": "Dr. Arinder Tiwana"
+        }, 
+        {
+            "npi": 1891040572, 
+            "reportingName": "Dr. Tamas Ungar"
+        }, 
+        {
+            "npi": 1881955599, 
+            "reportingName": "Dr. Nicolas Veohongs"
+        }, 
+        {
+            "npi": 1144347592, 
+            "reportingName": ""
+        }, 
+        {
+            "npi": 1952369795, 
+            "reportingName": "Dr. Pragathy Vutla"
+        }, 
+        {
+            "npi": 1912091984, 
+            "reportingName": "Dr. John Wagoner"
+        }, 
+        {
+            "npi": 1134320401, 
+            "reportingName": "Dr. Danhua Wallace"
+        }, 
+        {
+            "npi": 1942311352, 
+            "reportingName": "Dr. Alison Wright"
+        }, 
+        {
+            "npi": 1093066748, 
+            "reportingName": "Dr. Gayatri Yambem"
+        }, 
+        {
+            "npi": 1518290931, 
+            "reportingName": "Dr. Nathaniel Yu Chua"
+        }, 
+        {
+            "npi": 1669566535, 
+            "reportingName": "Dr. Vitaliy Zak"
+        }, 
+        {
+            "npi": 1356381537, 
+            "reportingName": "Dr. Wen Zhong"
+        }, 
+        {
+            "npi": 1972787018, 
+            "reportingName": "Dr. Irina Case"
+        }, 
+        {
+            "npi": 1760461875, 
+            "reportingName": "Dr. Kelly Carlisle"
+        }, 
+        {
+            "npi": 1326457474, 
+            "reportingName": "Dr. Mohamed Elagnaf"
+        }, 
+        {
+            "npi": 1366852105, 
+            "reportingName": "Dr. Zachary Kane"
+        }, 
+        {
+            "npi": 1962630392, 
+            "reportingName": "Dr. Omar Naji"
+        }, 
+        {
+            "npi": 1205213378, 
+            "reportingName": "Dr. Phillip Nielson"
+        }, 
+        {
+            "npi": 1447664750, 
+            "reportingName": "Dr. Rakshit Patnana"
+        }, 
+        {
+            "npi": 1366988560, 
+            "reportingName": "Dr. Michelle Pham"
+        }, 
+        {
+            "npi": 1770923476, 
+            "reportingName": "Dr. Jason Chung"
+        }, 
+        {
+            "npi": 1215347216, 
+            "reportingName": "Dr. Amar Khunti"
+        }, 
+        {
+            "npi": 1790883965, 
+            "reportingName": "Dr. Sungmi Lian"
+        }, 
+        {
+            "npi": 1033542477, 
+            "reportingName": "Dr. Dolkar Sherpa"
+        }, 
+        {
+            "npi": 1124377882, 
+            "reportingName": "Dr. Maninderjit Singh"
+        }, 
+        {
+            "npi": 1437115532, 
+            "reportingName": "Dr. Chris Stadtherr"
+        }, 
+        {
+            "npi": 1225059199, 
+            "reportingName": "Dr. Rana Tan"
+        }, 
+        {
+            "npi": 1629414537, 
+            "reportingName": "Dr. Roberta Trandev"
+        }, 
+        {
+            "npi": 1912106725, 
+            "reportingName": "Dr. Prabin Uprety"
+        }, 
+        {
+            "npi": 1184851735, 
+            "reportingName": "Dr. Ashley Hamilton"
+        }, 
+        {
+            "npi": 1083026025, 
+            "reportingName": "Dr. Timothy Jenkins"
+        }, 
+        {
+            "npi": 1306158621, 
+            "reportingName": "Dr. Priyanka Kapoor"
+        }, 
+        {
+            "npi": 1770840738, 
+            "reportingName": "Dr. Ali Alhusseni"
+        }, 
+        {
+            "npi": 1912060385, 
+            "reportingName": "Dr. Pushpanjali Basnyat"
+        }, 
+        {
+            "npi": 1558672345, 
+            "reportingName": "Dr. Megha Bendre"
+        }, 
+        {
+            "npi": 1295080562, 
+            "reportingName": "Dr. Shaluk Biswas"
+        }, 
+        {
+            "npi": 1104171347, 
+            "reportingName": "Dr. Judy Emil Dela Cruz"
+        }, 
+        {
+            "npi": 1326350794, 
+            "reportingName": "Dr. Dhananjay Deo"
+        }, 
+        {
+            "npi": 1982952750, 
+            "reportingName": "Dr. Tianhai (Tim) Guo"
+        }, 
+        {
+            "npi": 1386960540, 
+            "reportingName": "Dr. Dana Ionescu"
+        }, 
+        {
+            "npi": 1952531295, 
+            "reportingName": "Dr. Priya Kanwar"
+        }, 
+        {
+            "npi": 1982896361, 
+            "reportingName": "Dr. Kelly Liu"
+        }, 
+        {
+            "npi": "N/A", 
+            "reportingName": "Janet MacKay, RN"
+        }, 
+        {
+            "npi": 1730317892, 
+            "reportingName": "Dr. Aimee Shariat"
+        }, 
+        {
+            "npi": 1750693446, 
+            "reportingName": "Dr. Maryam Tariq"
+        }, 
+        {
+            "npi": "N/A", 
+            "reportingName": "Kelly Taylor"
+        }, 
+        {
+            "npi": 1063605723, 
+            "reportingName": "Dr. Thomson Tuscano"
+        }, 
+        {
+            "npi": 1235273715, 
+            "reportingName": "Dr. Dong Vo"
         }
-    },
-    "The Polyclinic": { 
-        "facilities": {
-            "Ballard": { 
-                "providers": [
-                ],
-                "groups": {
-                    "Outpatient Primary Care": {
-                        "careType": "outpatient",
-                        "conditions": [
-                        ]
-                    }, 
-                    "Cardiologists": {
-                        "careType": "outpatient",
-                        "conditions": [
-                        ]
-                    },
-                    "Endocrinologists": {
-                        "careType": "outpatient",
-                        "conditions": [
-                        ]
-                    },
-                    "Nephrology": {
-                        "careType": "outpatient",
-                        "conditions": [
-                        ]
-                    },
-                    "Rheumatology": {
-                        "careType": "outpatient",
-                        "conditions": [
-                        ]
-                    }
-                }
-            },
-            "Downtown": { 
-                "providers": [
-                ],
-                "groups": {
-                    "Outpatient Primary Care": {
-                        "careType": "outpatient",
-                        "conditions": [
-                        ]
-                    }, 
-                    "Cardiologists": {
-                        "careType": "outpatient",
-                        "conditions": [
-                        ]
-                    },
-                    "Endocrinologists": {
-                        "careType": "outpatient",
-                        "conditions": [
-                        ]
-                    },
-                    "Nephrology": {
-                        "careType": "outpatient",
-                        "conditions": [
-                        ]
-                    },
-                    "Rheumatology": {
-                        "careType": "outpatient",
-                        "conditions": [
-                        ]
-                    }
-                }
-            },
-            "Madison": { 
-                "providers": [
-                ],
-                "groups": {
-                    "Outpatient Primary Care": {
-                        "careType": "outpatient",
-                        "conditions": [
-                        ]
-                    }, 
-                    "Cardiologists": {
-                        "careType": "outpatient",
-                        "conditions": [
-                        ]
-                    },
-                    "Endocrinologists": {
-                        "careType": "outpatient",
-                        "conditions": [
-                        ]
-                    },
-                    "Nephrology": {
-                        "careType": "outpatient",
-                        "conditions": [
-                        ]
-                    },
-                    "Rheumatology": {
-                        "careType": "outpatient",
-                        "conditions": [
-                        ]
-                    }
-                }
-            },
-            "Northgate": { 
-                "providers": [
-                ],
-                "groups": {
-                    "Outpatient Primary Care": {
-                        "careType": "outpatient",
-                        "conditions": [
-                        ]
-                    }, 
-                    "Cardiologists": {
-                        "careType": "outpatient",
-                        "conditions": [
-                        ]
-                    },
-                    "Endocrinologists": {
-                        "careType": "outpatient",
-                        "conditions": [
-                        ]
-                    },
-                    "Nephrology": {
-                        "careType": "outpatient",
-                        "conditions": [
-                        ]
-                    },
-                    "Rheumatology": {
-                        "careType": "outpatient",
-                        "conditions": [
-                        ]
-                    }
-                }
-            },
-            "Broadway":  { 
-                "providers": [
-                ],
-                "groups": {
-                    "Hospitalists": {
-                        "careType": "inpatient",
-                        "conditions": [
-                        ]
-                    }
-                }
-            }
-        }
-    },
-    "Piedmont": {
-        "facilities": {
-            "Piedmont Atlanta": { 
-                "providers": [
-                ],
-                "groups": {
-                    "Cardiology": {
-                        "careType": "inpatient",
-                        "conditions": [
-                        ]
-                    },
-                    "Hospitalists": {
-                        "careType": "inpatient",
-                        "conditions": [
-                        ]
-                    },
-                    "Neurosurgery": {
-                        "careType": "inpatient",
-                        "conditions": [
-                        ]
-                    },
-                    "Pulmonology": {
-                        "careType": "inpatient",
-                        "conditions": [
-                        ]
-                    }
-                }
-            },
-            "Piedmont Henry": { 
-                "providers": [
-                ],
-                "groups": {
-                    "Cardiology": {
-                        "careType": "inpatient",
-                        "conditions": [
-                        ]
-                    },
-                    "Hospitalists": {
-                        "careType": "inpatient",
-                        "conditions": [
-                        ]
-                    },
-                    "Pulmonology": {
-                        "careType": "inpatient",
-                        "conditions": [
-                        ]
-                    }
-                }
-            },
-            "Piedmont Mountainside": {
-                "providers": [
-                ],
-                "groups": {
-                    "Cardiology": {
-                        "careType": "inpatient",
-                        "conditions": [
-                        ]
-                    },
-                    "Hospitalists": {
-                        "careType": "inpatient",
-                        "conditions": [
-                        ]
-                    },
-                    "Pulmonology": {
-                        "careType": "inpatient",
-                        "providers": [
-                        ],
-                        "conditions": [
-                        ]
-                    }
-                }
-            }
-        }
-    }
+    ]
 }
