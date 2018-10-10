@@ -20,17 +20,18 @@ for Hospital in Sheets['Hospitals'][1::]:
     })
 
 for Provider in Sheets['Providers'][1::]:
-    ReadModel['Cascaders']['Providers'].append(
-    {
-        "label": Provider[7],
-        "value": Provider[7]
-    })
-    ReadModel['ProvidersByNpi'].append(
-    {
-        "npi": Provider[5],
-        "reportingName": Provider[7] 
-    }
-    )
+    if Provider[7]:  
+        ReadModel['Cascaders']['Providers'].append(
+        {
+            "label": Provider[7],
+            "value": Provider[7]
+        })
+        ReadModel['ProvidersByNpi'].append(
+        {
+            "npi": Provider[5],
+            "reportingName": Provider[7] 
+        }
+        )
 
 Conditions = set() 
 for Condition in Sheets['Conditions'][1::]:

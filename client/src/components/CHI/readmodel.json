@@ -762,10 +762,6 @@
                 "value": "Dr. Syed Abbas"
             }, 
             {
-                "label": "", 
-                "value": ""
-            }, 
-            {
                 "label": "Dr. Fizzah Ali", 
                 "value": "Dr. Fizzah Ali"
             }, 
@@ -820,10 +816,6 @@
             {
                 "label": "Dr. Jinsoo Chang", 
                 "value": "Dr. Jinsoo Chang"
-            }, 
-            {
-                "label": "", 
-                "value": ""
             }, 
             {
                 "label": "Dr. Sriranjini Chilkunda Ramaswamy", 
@@ -914,10 +906,6 @@
                 "value": "Dr. Mai Vi Hoang"
             }, 
             {
-                "label": "", 
-                "value": ""
-            }, 
-            {
                 "label": "Dr. Ihab Ibrahim", 
                 "value": "Dr. Ihab Ibrahim"
             }, 
@@ -954,16 +942,8 @@
                 "value": "Dr. Shadi Khir"
             }, 
             {
-                "label": "", 
-                "value": ""
-            }, 
-            {
                 "label": "Dr. Nikolay Kolev", 
                 "value": "Dr. Nikolay Kolev"
-            }, 
-            {
-                "label": "", 
-                "value": ""
             }, 
             {
                 "label": "Dr. Samakshi Krishna", 
@@ -1026,10 +1006,6 @@
                 "value": "Albert Morriss, PA-C"
             }, 
             {
-                "label": "", 
-                "value": ""
-            }, 
-            {
                 "label": "Dr. David Munoz", 
                 "value": "Dr. David Munoz"
             }, 
@@ -1052,10 +1028,6 @@
             {
                 "label": "Dr. Srivatsan Padmanabhan", 
                 "value": "Dr. Srivatsan Padmanabhan"
-            }, 
-            {
-                "label": "", 
-                "value": ""
             }, 
             {
                 "label": "Dr. Ankit Patel", 
@@ -1134,10 +1106,6 @@
                 "value": "Dr. Sherrod Shiveley"
             }, 
             {
-                "label": "", 
-                "value": ""
-            }, 
-            {
                 "label": "Dr. Arthur Siek", 
                 "value": "Dr. Arthur Siek"
             }, 
@@ -1164,10 +1132,6 @@
             {
                 "label": "Dr. Nicolas Veohongs", 
                 "value": "Dr. Nicolas Veohongs"
-            }, 
-            {
-                "label": "", 
-                "value": ""
             }, 
             {
                 "label": "Dr. Pragathy Vutla", 
@@ -1477,10 +1441,6 @@
             "reportingName": "Dr. Syed Abbas"
         }, 
         {
-            "npi": 1932362076, 
-            "reportingName": ""
-        }, 
-        {
             "npi": 1265524961, 
             "reportingName": "Dr. Fizzah Ali"
         }, 
@@ -1535,10 +1495,6 @@
         {
             "npi": 1538424692, 
             "reportingName": "Dr. Jinsoo Chang"
-        }, 
-        {
-            "npi": 1104927730, 
-            "reportingName": ""
         }, 
         {
             "npi": 1578862389, 
@@ -1629,10 +1585,6 @@
             "reportingName": "Dr. Mai Vi Hoang"
         }, 
         {
-            "npi": 1780975615, 
-            "reportingName": ""
-        }, 
-        {
             "npi": 1417062712, 
             "reportingName": "Dr. Ihab Ibrahim"
         }, 
@@ -1669,16 +1621,8 @@
             "reportingName": "Dr. Shadi Khir"
         }, 
         {
-            "npi": 1184983793, 
-            "reportingName": ""
-        }, 
-        {
             "npi": 1699951699, 
             "reportingName": "Dr. Nikolay Kolev"
-        }, 
-        {
-            "npi": 1376776377, 
-            "reportingName": ""
         }, 
         {
             "npi": 1255431664, 
@@ -1741,10 +1685,6 @@
             "reportingName": "Albert Morriss, PA-C"
         }, 
         {
-            "npi": 1548535354, 
-            "reportingName": ""
-        }, 
-        {
             "npi": 1447284807, 
             "reportingName": "Dr. David Munoz"
         }, 
@@ -1767,10 +1707,6 @@
         {
             "npi": 1497075394, 
             "reportingName": "Dr. Srivatsan Padmanabhan"
-        }, 
-        {
-            "npi": 1386083533, 
-            "reportingName": ""
         }, 
         {
             "npi": 1316146848, 
@@ -1849,10 +1785,6 @@
             "reportingName": "Dr. Sherrod Shiveley"
         }, 
         {
-            "npi": 1609058759, 
-            "reportingName": ""
-        }, 
-        {
             "npi": 1326223801, 
             "reportingName": "Dr. Arthur Siek"
         }, 
@@ -1879,10 +1811,6 @@
         {
             "npi": 1881955599, 
             "reportingName": "Dr. Nicolas Veohongs"
-        }, 
-        {
-            "npi": 1144347592, 
-            "reportingName": ""
         }, 
         {
             "npi": 1952369795, 
