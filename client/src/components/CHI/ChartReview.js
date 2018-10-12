@@ -2,12 +2,51 @@ import React from 'react';
 import { Form, Input, Icon, Cascader, Button, DatePicker } from 'antd';
 import Unirest from 'unirest';
 import stringify from 'json-stringify-pretty-compact';
-
-let ReadModel = require('./readmodel.json');
-
+  
 const FormItem = Form.Item;
 const { TextArea } = Input;
-  
+
+let ReadModel = require('./readmodel.json');
+let Cascaders =  { 
+  'Providers': [],
+  'Conditions': [],
+  'Hospitals': [],
+  'Groups': []
+}
+for (var Provider of ReadModel['Providers']) {
+  Cascaders['Providers'].push(
+    {
+      "label": Provider['reportingName'],
+      "value": Provider['reportingName'] 
+    }
+  )
+}
+for (var Hospital of ReadModel['Hospitals']) {
+  Cascaders['Hospitals'].push(
+    {
+      "label": Hospital,
+      "value": Hospital 
+    }
+  )
+}
+for (var group in ReadModel['ConditionsByGroup']) {
+  Cascaders['Groups'].push( 
+    {
+        "label": group,
+        "value": group,
+    }
+  )
+}
+for (var diagnosisType of ReadModel['DiagnosisTypes']) {
+  Cascaders['Conditions'].push( 
+    {
+        "label": diagnosisType,
+        "value": diagnosisType,
+        "children": []
+    }
+  )
+}
+
 let uuid = 0;
 class RegistrationForm extends React.Component {
   
@@ -44,6 +83,7 @@ class RegistrationForm extends React.Component {
         conditionDiagnosisQuality: values.conditions[i][0],
         conditionNotes: values.conditionNotes[i],
         attendingProvider: values.attendingProviders[i][0],
+        assignedGroup: values.assignedGroup[0]
       }
     }
     return conditions
@@ -93,6 +133,26 @@ class RegistrationForm extends React.Component {
       keys: nextKeys,
     });
   }
+
+  onGroupCascaderChange = (value) => {
+    for (var i1=0; i1<Cascaders['Conditions'].length; i1++) {
+      Cascaders['Conditions'][i1]['children'] = []
+    }
+    this.props.form.setFieldsValue({keys: []}) 
+    group = value[0]
+    if (typeof group !== 'undefined') {
+      // Add conditions options to the Condition field of each pertinent condition fieldset 
+      for (var i2=0; i2<Cascaders['Conditions'].length; i2++) {
+        for (var ReadModelCondition of ReadModel['ConditionsByGroup'][group]) {
+          const child = {
+            "label": ReadModelCondition,
+            "value": ReadModelCondition
+          }
+          Cascaders['Conditions'][i2]['children'].push(child)
+        }
+      }
+    } 
+  }
   
   render() {
     const { getFieldDecorator, getFieldValue } = this.props.form;
@@ -126,7 +186,7 @@ class RegistrationForm extends React.Component {
               {getFieldDecorator(`attendingProviders[${k}]`, {
               rules: [{ type: 'array', required: true, message: 'Please select a provider!' }],
             })(
-              <Cascader options={ReadModel.Cascaders.Providers} />
+              <Cascader options={Cascaders.Providers} />
             )} 
             </FormItem>
             <FormItem
@@ -136,7 +196,7 @@ class RegistrationForm extends React.Component {
               {getFieldDecorator(`conditions[${k}]`, {
               rules: [{ type: 'array', required: true, message: 'Please select a condition!' }],
              })(
-              <Cascader options={ReadModel.Cascaders.Conditions} />
+              <Cascader options={Cascaders.Conditions} />
             )} 
             </FormItem>
             <FormItem
@@ -155,8 +215,6 @@ class RegistrationForm extends React.Component {
             <Icon
               className="dynamic-delete-button"
               type="minus-circle-o"
-              disabled={keys.length < 1}
-              onClick={() => this.remove(k)}
             />
           ) : null}
           </div>
@@ -188,7 +246,17 @@ class RegistrationForm extends React.Component {
             {getFieldDecorator('hospital', {
             rules: [{ type: 'array', required: true, message: 'Please select a hospital!' }],
           })(
-            <Cascader options={ReadModel.Cascaders.Hospitals} />
+            <Cascader options={Cascaders.Hospitals} />
+          )} 
+          </FormItem>
+          <FormItem
+            {...formItemLayout}
+            label="Assigned Group"
+          >
+            {getFieldDecorator('assignedGroup', {
+            rules: [{ type: 'array', required: true, message: 'Please select a group!' }],
+          })(
+            <Cascader options={Cascaders.Groups} onChange={this.onGroupCascaderChange}/>
           )} 
           </FormItem>
           <FormItem
@@ -198,7 +266,7 @@ class RegistrationForm extends React.Component {
             {getFieldDecorator('assignedProvider', {
             rules: [{ type: 'array', required: true, message: 'Please select a provider!' }],
           })(
-            <Cascader options={ReadModel.Cascaders.Providers} />
+            <Cascader options={Cascaders.Providers} />
           )} 
           </FormItem>
           <FormItem

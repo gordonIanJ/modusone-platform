@@ -1,58 +1,36 @@
 import pyexcel
 import json
+from collections import defaultdict
 
 Sheets = pyexcel.get_book_dict(file_name="CHI.xlsx")
 
 ReadModel = {
-    'Cascaders': { 
-        'Hospitals': [],
-        'Providers': [],
-        'Conditions': [],
-    },
-    'ProvidersByNpi': []
+    'Hospitals': [],
+    'Providers': [],
+    'DiagnosisTypes': [], 
+    'ConditionsByGroup': {}
 }
 
 for Hospital in Sheets['Hospitals'][1::]:
-    ReadModel['Cascaders']['Hospitals'].append(
-    {
-        "label": Hospital[0],
-        "value": Hospital[0]
-    })
+    ReadModel['Hospitals'].append(Hospital[0])
 
 for Provider in Sheets['Providers'][1::]:
     if Provider[7]:  
-        ReadModel['Cascaders']['Providers'].append(
-        {
-            "label": Provider[7],
-            "value": Provider[7]
-        })
-        ReadModel['ProvidersByNpi'].append(
+        ReadModel['Providers'].append(
         {
             "npi": Provider[5],
             "reportingName": Provider[7] 
         }
         )
 
-Conditions = set() 
-for Condition in Sheets['Conditions'][1::]:
-    Conditions.add(Condition[0])
+for Condition in Sheets['Conditions'][1::]: 
+    if not Condition[1] in ReadModel['ConditionsByGroup']: 
+        ReadModel['ConditionsByGroup'][Condition[1]] = []
+    ReadModel['ConditionsByGroup'][Condition[1]].append(Condition[0])   
 
 for DiagnosisType in Sheets['DiagnosisTypes'][1::]:
-    ConditionsCascaderItem = {
-        "label": DiagnosisType[0],
-        "value": DiagnosisType[0],
-        "children": [],
-    }
-    for Condition in list(Conditions):
-        ConditionsCascaderItem['children'].append(
-        { 
-            "label": Condition,
-            "value": Condition
-        }
-        )
-    ReadModel['Cascaders']['Conditions'].append(ConditionsCascaderItem)
+    ReadModel['DiagnosisTypes'].append(DiagnosisType[0])
 
-
-#print(json.dumps(ReadModel))
+#print(json.dumps(ReadModel, indent=4 ))
 with open("readmodel.json", "w") as outfile:
     json.dump(ReadModel, outfile, indent=4, sort_keys=True)
