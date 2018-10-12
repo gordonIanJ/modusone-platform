@@ -74,7 +74,7 @@ class RegistrationForm extends React.Component {
     for (var i = 0; i < values.conditions.length; i++) {
       conditions[i] = {
         reviewerEmail: values.email,
-        assignedFacility: values.hospital[0],
+        assignedGroup: values.assignedGroup[0],
         assignedProvider: values.assignedProvider[0],
         medicalRecordId: values.mrn,
         admissionDate: values.admissionDate,
@@ -82,8 +82,10 @@ class RegistrationForm extends React.Component {
         conditionName: values.conditions[i][1], 
         conditionDiagnosisQuality: values.conditions[i][0],
         conditionNotes: values.conditionNotes[i],
-        attendingProvider: values.attendingProviders[i][0],
-        assignedGroup: values.assignedGroup[0]
+        attendingProvider: values.attendingProviders[i][0]
+      }
+      if (typeof(values.assignedHospital) !== 'undefined') {
+        conditions[i]['assignedHospital'] = values.assignedHospital[0]
       }
     }
     return conditions
@@ -92,7 +94,7 @@ class RegistrationForm extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault()
     this.props.form.validateFieldsAndScroll((err, values) => {
-      if (!err) {
+      if (!err && typeof(values.conditions) !== 'undefined') {
         const CleanValues = this.cleanValues(values)
         const ConditionRecords = this.makeConditionRecords(CleanValues)
         this.formValuePre.innerText = stringify(ConditionRecords)
@@ -100,7 +102,7 @@ class RegistrationForm extends React.Component {
         .headers({'Accept': 'application/json', 'Content-Type': 'application/json'})
         .send(ConditionRecords)
         .end(function (response) {
-          console.log(JSON.stringify(response.body))
+          if (typeof(response.body) !== 'undefined') {console.log(JSON.stringify(response.body))}
         })
         //this.props.form.resetFields()
       }
@@ -111,10 +113,6 @@ class RegistrationForm extends React.Component {
     const { form } = this.props; 
     // can use data-binding to get
     const keys = form.getFieldValue('keys');
-    // We need at least one passenger
-    if (keys.length === 1) {
-      return;
-    }
     // can use data-binding to set
     form.setFieldsValue({
       keys: keys.filter(key => key !== k),
@@ -133,13 +131,14 @@ class RegistrationForm extends React.Component {
       keys: nextKeys,
     });
   }
-
+  
   onGroupCascaderChange = (value) => {
     for (var i1=0; i1<Cascaders['Conditions'].length; i1++) {
       Cascaders['Conditions'][i1]['children'] = []
     }
-    this.props.form.setFieldsValue({keys: []}) 
+    this.props.form.setFieldsValue({keys: []})
     group = value[0]
+    this.setState( {"selectedGroup": group})
     if (typeof group !== 'undefined') {
       // Add conditions options to the Condition field of each pertinent condition fieldset 
       for (var i2=0; i2<Cascaders['Conditions'].length; i2++) {
@@ -176,9 +175,9 @@ class RegistrationForm extends React.Component {
 
     const dynFieldsetItems = keys.map((k, index) => {
       return (
-          <div>
-            <h2>{index === 0 ? 'Pertinent Conditions' : ''}</h2>
-            <h3>Condition {index + 1}</h3>
+          <div key={`container + ${index}`}>
+            <h2 >{index === 0 ? 'Pertinent Conditions' : ''}</h2>
+            <h3 >Condition {index + 1}</h3>
             <FormItem
               {...formItemLayout}
               label="Provider"
@@ -211,12 +210,11 @@ class RegistrationForm extends React.Component {
                 <TextArea />
               )}
             </FormItem>
-          {keys.length >= 1 ? (
             <Icon
               className="dynamic-delete-button"
               type="minus-circle-o"
+              onClick={() => this.remove(k)}
             />
-          ) : null}
           </div>
       );
     });
@@ -241,24 +239,24 @@ class RegistrationForm extends React.Component {
           </FormItem>
           <FormItem
             {...formItemLayout}
-            label="Hospital"
-          >
-            {getFieldDecorator('hospital', {
-            rules: [{ type: 'array', required: true, message: 'Please select a hospital!' }],
-          })(
-            <Cascader options={Cascaders.Hospitals} />
-          )} 
-          </FormItem>
-          <FormItem
-            {...formItemLayout}
             label="Assigned Group"
           >
             {getFieldDecorator('assignedGroup', {
             rules: [{ type: 'array', required: true, message: 'Please select a group!' }],
           })(
-            <Cascader options={Cascaders.Groups} onChange={this.onGroupCascaderChange}/>
+            <Cascader options={Cascaders.Groups} onChange={this.onGroupCascaderChange} />
           )} 
           </FormItem>
+          { this.state.selectedGroup === "Hospitalist" && <FormItem
+            {...formItemLayout}
+            label="Hospital"
+          >
+            {getFieldDecorator('assignedHospital', {
+            rules: [{ type: 'array', required: true, message: 'Please select a hospital!' }],
+          })(
+            <Cascader options={Cascaders.Hospitals} />
+          )} 
+          </FormItem> }
           <FormItem
             {...formItemLayout}
             label="Provider"

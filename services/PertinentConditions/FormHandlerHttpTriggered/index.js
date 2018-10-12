@@ -1,24 +1,31 @@
 module.exports = function (context, req) {
-    
+   
     if (req.body) {
-        tableBinding = []        
+        var tableBinding = []        
         for (i = 0; i < req.body.length; i++) {
             var uniqueRowKey = req.body[i].medicalRecordId + (((1+Math.random())*0x10000)|0).toString(16).substring(1) 
-            tableBinding.push({
-                PartitionKey: req.body[i].assignedFacility,
+            var pertinentConditions = {
+                PartitionKey: 'CHI',
                 RowKey: uniqueRowKey,    
                 medicalRecordId: req.body[i].medicalRecordId, 
                 email: req.body[i].reviewerEmail, 
                 assignedProvider: req.body[i].assignedProvider,
                 admissionDate: req.body[i].admissionDate,
                 dischargeDate: req.body[i].dischargeDate,
-                conditionName: req.body[i].conditionName,
-                conditionDiagnosisQuality: req.body[i].conditionDiagnosisQuality,
-                conditionNotes: req.body[i].conditionNotes,
-                attendingHospital: req.body[i].attendingHospital,
-                attendingProvider: req.body[i].attendingProvider,
                 assignedGroup: req.body[i].assignedGroup 
-            }) 
+            } 
+            if (typeof(req.body[i].assignedHospital) !== 'undefined') {
+                pertinentConditions['assignedHospital'] = req.body[i].assignedHospital
+            }
+            if (typeof(req.body[i].conditionName) !== 'undefined') {
+                pertinentConditions['conditionName'] = req.body[i].conditionName
+                pertinentConditions['conditionDiagnosisQuality'] = req.body[i].conditionDiagnosisQuality
+                pertinentConditions['attendingProvider'] = req.body[i].attendingProvider
+            }
+            if (typeof(req.body[i].conditionNotes) !== 'undefined') {
+                pertinentConditions['conditionNotes'] = req.body[i].conditionNotes
+            }
+            tableBinding.push(pertinentConditions) 
         } 
         context.bindings.tableBinding = tableBinding
         
