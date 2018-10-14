@@ -115,682 +115,892 @@
         "St. Francis", 
         "St. Joseph"
     ], 
-    "Providers": [
-        {
-            "npi": 1851654776, 
-            "reportingName": "Dr. Ossama Al Masalmeh"
-        }, 
-        {
-            "npi": 1760434740, 
-            "reportingName": "Dr. Jonathan Bodine"
-        }, 
-        {
-            "npi": 1871886721, 
-            "reportingName": "Dr. Bhavim Desai"
-        }, 
-        {
-            "npi": 1174621130, 
-            "reportingName": "Dr. Mehmet Guzelbeyoglu"
-        }, 
-        {
-            "npi": 1528233582, 
-            "reportingName": "Dr. Christopher Lucas"
-        }, 
-        {
-            "npi": 1265762678, 
-            "reportingName": "Dr. Carlo Palarca"
-        }, 
-        {
-            "npi": 1174750335, 
-            "reportingName": "Dr. Saman Selahi"
-        }, 
-        {
-            "npi": 1558540385, 
-            "reportingName": "Deiter (Mike) Kaizer, PA-C"
-        }, 
-        {
-            "npi": 1932116076, 
-            "reportingName": "Dr. Eller Manlapaz"
-        }, 
-        {
-            "npi": 1477567725, 
-            "reportingName": "Dr. Keith Pasternak"
-        }, 
-        {
-            "npi": 1407913205, 
-            "reportingName": "Dr. Stephen Sim"
-        }, 
-        {
-            "npi": 1760455745, 
-            "reportingName": "Dr. Yancey Sloane"
-        }, 
-        {
-            "npi": 1134337611, 
-            "reportingName": "Dr. Ali Thomas"
-        }, 
-        {
-            "npi": 1962502815, 
-            "reportingName": "Dr. Rebecca Townsend"
-        }, 
-        {
-            "npi": 1508122136, 
-            "reportingName": "Dr. Zin Tun"
-        }, 
-        {
-            "npi": 1528371622, 
-            "reportingName": "Dr. Andriy Viter"
-        }, 
-        {
-            "npi": 1063437028, 
-            "reportingName": "Dr. Rending Xu"
-        }, 
-        {
-            "npi": 1699030635, 
-            "reportingName": "Dr. Sharooz Zandnia"
-        }, 
-        {
-            "npi": 1861711210, 
-            "reportingName": "Dr. Mona Shawky"
-        }, 
-        {
-            "npi": 1376599431, 
-            "reportingName": "Dr. Gurdev Singh"
-        }, 
-        {
-            "npi": 1699045641, 
-            "reportingName": "Dr. Venkata Yearva"
-        }, 
-        {
-            "npi": 1689850190, 
-            "reportingName": "Ardith Conway, ARNP"
-        }, 
-        {
-            "npi": 1225543622, 
-            "reportingName": "Celina Georgia, ARNP"
-        }, 
-        {
-            "npi": 1982847158, 
-            "reportingName": "Dr. Rosita Hermann"
-        }, 
-        {
-            "npi": 1598292120, 
-            "reportingName": "Braden Andersen, ARNP"
-        }, 
-        {
-            "npi": 1831348333, 
-            "reportingName": "Luc Bouquet, ARNP"
-        }, 
-        {
-            "npi": 1073028981, 
-            "reportingName": "Cherryl Menapace, ARNP"
-        }, 
-        {
-            "npi": 1801039649, 
-            "reportingName": "Dr. Bhupinder Walia"
-        }, 
-        {
-            "npi": 1902853229, 
-            "reportingName": "Laurie Benton, ARNP"
-        }, 
-        {
-            "npi": 1235159484, 
-            "reportingName": "Teresa Harding, ARNP"
-        }, 
-        {
-            "npi": 1790882686, 
-            "reportingName": "Dr. Andy Nguyen"
-        }, 
-        {
-            "npi": 1962769380, 
-            "reportingName": "Dr. Syed Abbas"
-        }, 
-        {
-            "npi": 1265524961, 
-            "reportingName": "Dr. Fizzah Ali"
-        }, 
-        {
-            "npi": 1063687234, 
-            "reportingName": "Dr. Viorel Angheloiu"
-        }, 
-        {
-            "npi": 1184746067, 
-            "reportingName": "Dr. Jennifer Aquino"
-        }, 
-        {
-            "npi": 1063522126, 
-            "reportingName": "Dr. Amir Aref"
-        }, 
-        {
-            "npi": 1760593057, 
-            "reportingName": "Dr. Berhane Asfaw"
-        }, 
-        {
-            "npi": 1578593703, 
-            "reportingName": "Dr. Khalid Aslam"
-        }, 
-        {
-            "npi": 1447567011, 
-            "reportingName": "Dr. Joseph Barthelemy"
-        }, 
-        {
-            "npi": 1801030275, 
-            "reportingName": "Dr. Ramon Basa"
-        }, 
-        {
-            "npi": 1730262767, 
-            "reportingName": "Dr. Kimberly Bell"
-        }, 
-        {
-            "npi": 1447223110, 
-            "reportingName": "Sharon Bennett, PA-C"
-        }, 
-        {
-            "npi": 1689699506, 
-            "reportingName": "Dr. Bhavana Bhanot"
-        }, 
-        {
-            "npi": 1962672550, 
-            "reportingName": "Dr. Himanshu Bhutani"
-        }, 
-        {
-            "npi": 1699968800, 
-            "reportingName": "Hana Cha, PA-C"
-        }, 
-        {
-            "npi": 1538424692, 
-            "reportingName": "Dr. Jinsoo Chang"
-        }, 
-        {
-            "npi": 1578862389, 
-            "reportingName": "Dr. Sriranjini Chilkunda Ramaswamy"
-        }, 
-        {
-            "npi": 1588817480, 
-            "reportingName": "Dr. Ishmael Ching"
-        }, 
-        {
-            "npi": 1851678163, 
-            "reportingName": "Georgia Coote, ARNP"
-        }, 
-        {
-            "npi": 1861715310, 
-            "reportingName": "Chelsea Crosby, PA-C"
-        }, 
-        {
-            "npi": 1619170511, 
-            "reportingName": "Dr. Marco Cruz"
-        }, 
-        {
-            "npi": 1205024866, 
-            "reportingName": "Randal Cupp, PA-C"
-        }, 
-        {
-            "npi": 1851567341, 
-            "reportingName": "Dr. Lakshmi Datla"
-        }, 
-        {
-            "npi": 1922246529, 
-            "reportingName": "Dr. Amit Desai"
-        }, 
-        {
-            "npi": 1508076985, 
-            "reportingName": "Dr. Harjeet Dhillon"
-        }, 
-        {
-            "npi": 1063643542, 
-            "reportingName": "Dr. Vladimir Dzhashi"
-        }, 
-        {
-            "npi": 1063427482, 
-            "reportingName": "Dr. Guoping Feng"
-        }, 
-        {
-            "npi": 1891097531, 
-            "reportingName": "William Finnerty, ARNP"
-        }, 
-        {
-            "npi": 1043485030, 
-            "reportingName": "Dr. Radu Florea"
-        }, 
-        {
-            "npi": 1518057678, 
-            "reportingName": "Philip Furth, PA-C"
-        }, 
-        {
-            "npi": 1861670200, 
-            "reportingName": "Dr. Michal Galeziok"
-        }, 
-        {
-            "npi": 1235146077, 
-            "reportingName": "Dr. Emad Girgis"
-        }, 
-        {
-            "npi": 1962663567, 
-            "reportingName": "Dr. Anjna Grover"
-        }, 
-        {
-            "npi": 1144541350, 
-            "reportingName": "Dr. Matthew Guindon"
-        }, 
-        {
-            "npi": 1811033202, 
-            "reportingName": "Mary Harris-Tucker, PA-C"
-        }, 
-        {
-            "npi": 1023401627, 
-            "reportingName": "Mary Harvey, ARNP"
-        }, 
-        {
-            "npi": 1942386503, 
-            "reportingName": "Dr. Edward Himes"
-        }, 
-        {
-            "npi": 1760745988, 
-            "reportingName": "Dr. Mai Vi Hoang"
-        }, 
-        {
-            "npi": 1417062712, 
-            "reportingName": "Dr. Ihab Ibrahim"
-        }, 
-        {
-            "npi": 1497084842, 
-            "reportingName": "Dr. Mohamed Imam"
-        }, 
-        {
-            "npi": 1790088052, 
-            "reportingName": "Lenora Ivanek, PA-C"
-        }, 
-        {
-            "npi": 1427302025, 
-            "reportingName": "Dr. Nadeem Jaffer"
-        }, 
-        {
-            "npi": 1801129283, 
-            "reportingName": "Dr. Tonia Jenson"
-        }, 
-        {
-            "npi": 1629357744, 
-            "reportingName": "Dr. Mark (Jihua) Jia"
-        }, 
-        {
-            "npi": 1689951550, 
-            "reportingName": "Dr. Audry Kahlstrom"
-        }, 
-        {
-            "npi": 1770635930, 
-            "reportingName": "Dr. Muhammed Khan"
-        }, 
-        {
-            "npi": 1902160534, 
-            "reportingName": "Dr. Shadi Khir"
-        }, 
-        {
-            "npi": 1699951699, 
-            "reportingName": "Dr. Nikolay Kolev"
-        }, 
-        {
-            "npi": 1255431664, 
-            "reportingName": "Dr. Samakshi Krishna"
-        }, 
-        {
-            "npi": 1891768560, 
-            "reportingName": "Cora Krouse, PA-C"
-        }, 
-        {
-            "npi": 1841458676, 
-            "reportingName": "Dr. Lakeysha Layfield"
-        }, 
-        {
-            "npi": 1538285275, 
-            "reportingName": "Dr. David Lee"
-        }, 
-        {
-            "npi": 1639426232, 
-            "reportingName": "Dr. Desire Lehmann"
-        }, 
-        {
-            "npi": 1770948333, 
-            "reportingName": "Dr. Michael - PAC L'Italien"
-        }, 
-        {
-            "npi": 1528494267, 
-            "reportingName": "Dr. Ying Liu"
-        }, 
-        {
-            "npi": 1649363706, 
-            "reportingName": "Dr. Ed Lopez"
-        }, 
-        {
-            "npi": 1578505533, 
-            "reportingName": "Laura Luu, ARNP"
-        }, 
-        {
-            "npi": 1467606111, 
-            "reportingName": "Andrea Lyon-Loftus, PA-C"
-        }, 
-        {
-            "npi": 1679630461, 
-            "reportingName": "Dr. Naushaba Marri"
-        }, 
-        {
-            "npi": 1548417926, 
-            "reportingName": "Dr. Liana Maxa"
-        }, 
-        {
-            "npi": 1891981841, 
-            "reportingName": "Matthew Metsker, PA-C"
-        }, 
-        {
-            "npi": 1336395896, 
-            "reportingName": "Mihee Montstream, ARNP"
-        }, 
-        {
-            "npi": 1073587903, 
-            "reportingName": "Albert Morriss, PA-C"
-        }, 
-        {
-            "npi": 1447284807, 
-            "reportingName": "Dr. David Munoz"
-        }, 
-        {
-            "npi": 1952677320, 
-            "reportingName": "Dr. Thankam Nair"
-        }, 
-        {
-            "npi": 1174620058, 
-            "reportingName": "Michelle Nelson, PA-C"
-        }, 
-        {
-            "npi": 1588865539, 
-            "reportingName": "Dr. Vivian Nkwonta"
-        }, 
-        {
-            "npi": 1104014471, 
-            "reportingName": "Dr. Emmy Oh"
-        }, 
-        {
-            "npi": 1497075394, 
-            "reportingName": "Dr. Srivatsan Padmanabhan"
-        }, 
-        {
-            "npi": 1316146848, 
-            "reportingName": "Dr. Ankit Patel"
-        }, 
-        {
-            "npi": 1396009973, 
-            "reportingName": "Dr. Jay Patel"
-        }, 
-        {
-            "npi": 1730473273, 
-            "reportingName": "Dr. Seetharam Pothi Reddy"
-        }, 
-        {
-            "npi": 1033152855, 
-            "reportingName": "Dr. Jeffrey Reasol"
-        }, 
-        {
-            "npi": 1689763732, 
-            "reportingName": "Dr. Gari Reddy"
-        }, 
-        {
-            "npi": 1710118278, 
-            "reportingName": "Dr. Prathima Reddy"
-        }, 
-        {
-            "npi": 1447283577, 
-            "reportingName": "Dr. Azra Rehman"
-        }, 
-        {
-            "npi": 1922192954, 
-            "reportingName": "Luke Requa, PA-C"
-        }, 
-        {
-            "npi": 1093037632, 
-            "reportingName": "Dr. David Rochelin"
-        }, 
-        {
-            "npi": 1598935801, 
-            "reportingName": "Dr. Nirmalya Roychowdhury"
-        }, 
-        {
-            "npi": 1407041155, 
-            "reportingName": "Dr. Evelyn Rubin"
-        }, 
-        {
-            "npi": 1710195904, 
-            "reportingName": "Dr. Yasser Said"
-        }, 
-        {
-            "npi": 1831455856, 
-            "reportingName": "Dr. Vincent Salvador"
-        }, 
-        {
-            "npi": 1801091863, 
-            "reportingName": "Dr. Shelly Sanetti"
-        }, 
-        {
-            "npi": 1801099791, 
-            "reportingName": "Dr. Maggie Sekeramayi"
-        }, 
-        {
-            "npi": 1164787131, 
-            "reportingName": "Dr. Dipam Shah"
-        }, 
-        {
-            "npi": 1316139876, 
-            "reportingName": "Dr. Megha Shah"
-        }, 
-        {
-            "npi": 1972773950, 
-            "reportingName": "Dr. Ashwin Shivakumar"
-        }, 
-        {
-            "npi": 1902990948, 
-            "reportingName": "Dr. Sherrod Shiveley"
-        }, 
-        {
-            "npi": 1326223801, 
-            "reportingName": "Dr. Arthur Siek"
-        }, 
-        {
-            "npi": 1326269655, 
-            "reportingName": "Dr. John Stam"
-        }, 
-        {
-            "npi": 1013106582, 
-            "reportingName": "Dr. Jessica Tam"
-        }, 
-        {
-            "npi": 1538352802, 
-            "reportingName": "Dr. Bob Thong"
-        }, 
-        {
-            "npi": 1659521136, 
-            "reportingName": "Dr. Arinder Tiwana"
-        }, 
-        {
-            "npi": 1891040572, 
-            "reportingName": "Dr. Tamas Ungar"
-        }, 
-        {
-            "npi": 1881955599, 
-            "reportingName": "Dr. Nicolas Veohongs"
-        }, 
-        {
-            "npi": 1952369795, 
-            "reportingName": "Dr. Pragathy Vutla"
-        }, 
-        {
-            "npi": 1912091984, 
-            "reportingName": "Dr. John Wagoner"
-        }, 
-        {
-            "npi": 1134320401, 
-            "reportingName": "Dr. Danhua Wallace"
-        }, 
-        {
-            "npi": 1942311352, 
-            "reportingName": "Dr. Alison Wright"
-        }, 
-        {
-            "npi": 1093066748, 
-            "reportingName": "Dr. Gayatri Yambem"
-        }, 
-        {
-            "npi": 1518290931, 
-            "reportingName": "Dr. Nathaniel Yu Chua"
-        }, 
-        {
-            "npi": 1669566535, 
-            "reportingName": "Dr. Vitaliy Zak"
-        }, 
-        {
-            "npi": 1356381537, 
-            "reportingName": "Dr. Wen Zhong"
-        }, 
-        {
-            "npi": 1972787018, 
-            "reportingName": "Dr. Irina Case"
-        }, 
-        {
-            "npi": 1760461875, 
-            "reportingName": "Dr. Kelly Carlisle"
-        }, 
-        {
-            "npi": 1326457474, 
-            "reportingName": "Dr. Mohamed Elagnaf"
-        }, 
-        {
-            "npi": 1366852105, 
-            "reportingName": "Dr. Zachary Kane"
-        }, 
-        {
-            "npi": 1962630392, 
-            "reportingName": "Dr. Omar Naji"
-        }, 
-        {
-            "npi": 1205213378, 
-            "reportingName": "Dr. Phillip Nielson"
-        }, 
-        {
-            "npi": 1447664750, 
-            "reportingName": "Dr. Rakshit Patnana"
-        }, 
-        {
-            "npi": 1366988560, 
-            "reportingName": "Dr. Michelle Pham"
-        }, 
-        {
-            "npi": 1770923476, 
-            "reportingName": "Dr. Jason Chung"
-        }, 
-        {
-            "npi": 1215347216, 
-            "reportingName": "Dr. Amar Khunti"
-        }, 
-        {
-            "npi": 1790883965, 
-            "reportingName": "Dr. Sungmi Lian"
-        }, 
-        {
-            "npi": 1033542477, 
-            "reportingName": "Dr. Dolkar Sherpa"
-        }, 
-        {
-            "npi": 1124377882, 
-            "reportingName": "Dr. Maninderjit Singh"
-        }, 
-        {
-            "npi": 1437115532, 
-            "reportingName": "Dr. Chris Stadtherr"
-        }, 
-        {
-            "npi": 1225059199, 
-            "reportingName": "Dr. Rana Tan"
-        }, 
-        {
-            "npi": 1629414537, 
-            "reportingName": "Dr. Roberta Trandev"
-        }, 
-        {
-            "npi": 1912106725, 
-            "reportingName": "Dr. Prabin Uprety"
-        }, 
-        {
-            "npi": 1184851735, 
-            "reportingName": "Dr. Ashley Hamilton"
-        }, 
-        {
-            "npi": 1083026025, 
-            "reportingName": "Dr. Timothy Jenkins"
-        }, 
-        {
-            "npi": 1306158621, 
-            "reportingName": "Dr. Priyanka Kapoor"
-        }, 
-        {
-            "npi": 1770840738, 
-            "reportingName": "Dr. Ali Alhusseni"
-        }, 
-        {
-            "npi": 1912060385, 
-            "reportingName": "Dr. Pushpanjali Basnyat"
-        }, 
-        {
-            "npi": 1558672345, 
-            "reportingName": "Dr. Megha Bendre"
-        }, 
-        {
-            "npi": 1295080562, 
-            "reportingName": "Dr. Shaluk Biswas"
-        }, 
-        {
-            "npi": 1104171347, 
-            "reportingName": "Dr. Judy Emil Dela Cruz"
-        }, 
-        {
-            "npi": 1326350794, 
-            "reportingName": "Dr. Dhananjay Deo"
-        }, 
-        {
-            "npi": 1982952750, 
-            "reportingName": "Dr. Tianhai (Tim) Guo"
-        }, 
-        {
-            "npi": 1386960540, 
-            "reportingName": "Dr. Dana Ionescu"
-        }, 
-        {
-            "npi": 1952531295, 
-            "reportingName": "Dr. Priya Kanwar"
-        }, 
-        {
-            "npi": 1982896361, 
-            "reportingName": "Dr. Kelly Liu"
-        }, 
-        {
-            "npi": "N/A", 
-            "reportingName": "Janet MacKay, RN"
-        }, 
-        {
-            "npi": 1730317892, 
-            "reportingName": "Dr. Aimee Shariat"
-        }, 
-        {
-            "npi": 1750693446, 
-            "reportingName": "Dr. Maryam Tariq"
-        }, 
-        {
-            "npi": "N/A", 
-            "reportingName": "Kelly Taylor"
-        }, 
-        {
-            "npi": 1063605723, 
-            "reportingName": "Dr. Thomson Tuscano"
-        }, 
-        {
-            "npi": 1235273715, 
-            "reportingName": "Dr. Dong Vo"
-        }
-    ]
+    "ProvidersByGroup": {
+        "Bariatrics": [
+            {
+                "npi": "unknown", 
+                "reportingName": "Dr. David Swedler"
+            }, 
+            {
+                "npi": "unknown", 
+                "reportingName": "Elaine Kiser-Rude, PA-C"
+            }, 
+            {
+                "npi": "unknown", 
+                "reportingName": "Elizabeth Tobin, PA-C"
+            }, 
+            {
+                "npi": "unknown", 
+                "reportingName": "Dr. Haroon Anwar"
+            }, 
+            {
+                "npi": "unknown", 
+                "reportingName": "Jennifer Moore, PA-C"
+            }, 
+            {
+                "npi": "unknown", 
+                "reportingName": "Kimberly Smits, ARNP"
+            }, 
+            {
+                "npi": "unknown", 
+                "reportingName": "Dr. Troy Houseworth"
+            }
+        ], 
+        "General Surgery": [
+            {
+                "npi": "unknown", 
+                "reportingName": "Dr. Stephen Atkinson"
+            }, 
+            {
+                "npi": "unknown", 
+                "reportingName": "Dr. Cathy Baker"
+            }, 
+            {
+                "npi": "unknown", 
+                "reportingName": "Dr. Samuel Cargill"
+            }, 
+            {
+                "npi": "unknown", 
+                "reportingName": "Dr. Eugene Cho"
+            }, 
+            {
+                "npi": "unknown", 
+                "reportingName": "Dr. Steven Duras"
+            }, 
+            {
+                "npi": "unknown", 
+                "reportingName": "Dr. Michele Haslinger"
+            }, 
+            {
+                "npi": "unknown", 
+                "reportingName": "Dr. Deepali Jain"
+            }, 
+            {
+                "npi": "unknown", 
+                "reportingName": "Dr. Mark Nyreen"
+            }, 
+            {
+                "npi": "unknown", 
+                "reportingName": "Dr. Linda Pai"
+            }, 
+            {
+                "npi": "unknown", 
+                "reportingName": "Dr. Sam Salama"
+            }, 
+            {
+                "npi": "unknown", 
+                "reportingName": "Dr. David Swedler"
+            }, 
+            {
+                "npi": "unknown", 
+                "reportingName": "Dr. Brian Welch"
+            }, 
+            {
+                "npi": "unknown", 
+                "reportingName": "Dr. James Yamashita"
+            }
+        ], 
+        "Hospitalist": [
+            {
+                "npi": 1851654776, 
+                "reportingName": "Dr. Ossama Al Masalmeh"
+            }, 
+            {
+                "npi": 1760434740, 
+                "reportingName": "Dr. Jonathan Bodine"
+            }, 
+            {
+                "npi": 1871886721, 
+                "reportingName": "Dr. Bhavim Desai"
+            }, 
+            {
+                "npi": 1174621130, 
+                "reportingName": "Dr. Mehmet Guzelbeyoglu"
+            }, 
+            {
+                "npi": 1528233582, 
+                "reportingName": "Dr. Christopher Lucas"
+            }, 
+            {
+                "npi": 1265762678, 
+                "reportingName": "Dr. Carlo Palarca"
+            }, 
+            {
+                "npi": 1174750335, 
+                "reportingName": "Dr. Saman Selahi"
+            }, 
+            {
+                "npi": 1558540385, 
+                "reportingName": "Deiter (Mike) Kaizer, PA-C"
+            }, 
+            {
+                "npi": 1932116076, 
+                "reportingName": "Dr. Eller Manlapaz"
+            }, 
+            {
+                "npi": 1477567725, 
+                "reportingName": "Dr. Keith Pasternak"
+            }, 
+            {
+                "npi": 1407913205, 
+                "reportingName": "Dr. Stephen Sim"
+            }, 
+            {
+                "npi": 1760455745, 
+                "reportingName": "Dr. Yancey Sloane"
+            }, 
+            {
+                "npi": 1134337611, 
+                "reportingName": "Dr. Ali Thomas"
+            }, 
+            {
+                "npi": 1962502815, 
+                "reportingName": "Dr. Rebecca Townsend"
+            }, 
+            {
+                "npi": 1508122136, 
+                "reportingName": "Dr. Zin Tun"
+            }, 
+            {
+                "npi": 1528371622, 
+                "reportingName": "Dr. Andriy Viter"
+            }, 
+            {
+                "npi": 1063437028, 
+                "reportingName": "Dr. Rending Xu"
+            }, 
+            {
+                "npi": 1699030635, 
+                "reportingName": "Dr. Sharooz Zandnia"
+            }, 
+            {
+                "npi": 1861711210, 
+                "reportingName": "Dr. Mona Shawky"
+            }, 
+            {
+                "npi": 1376599431, 
+                "reportingName": "Dr. Gurdev Singh"
+            }, 
+            {
+                "npi": 1699045641, 
+                "reportingName": "Dr. Venkata Yearva"
+            }, 
+            {
+                "npi": 1689850190, 
+                "reportingName": "Ardith Conway, ARNP"
+            }, 
+            {
+                "npi": 1225543622, 
+                "reportingName": "Celina Georgia, ARNP"
+            }, 
+            {
+                "npi": 1982847158, 
+                "reportingName": "Dr. Rosita Hermann"
+            }, 
+            {
+                "npi": 1598292120, 
+                "reportingName": "Braden Andersen, ARNP"
+            }, 
+            {
+                "npi": 1831348333, 
+                "reportingName": "Luc Bouquet, ARNP"
+            }, 
+            {
+                "npi": 1073028981, 
+                "reportingName": "Cherryl Menapace, ARNP"
+            }, 
+            {
+                "npi": 1801039649, 
+                "reportingName": "Dr. Bhupinder Walia"
+            }, 
+            {
+                "npi": 1902853229, 
+                "reportingName": "Laurie Benton, ARNP"
+            }, 
+            {
+                "npi": 1235159484, 
+                "reportingName": "Teresa Harding, ARNP"
+            }, 
+            {
+                "npi": 1790882686, 
+                "reportingName": "Dr. Andy Nguyen"
+            }, 
+            {
+                "npi": 1962769380, 
+                "reportingName": "Dr. Syed Abbas"
+            }, 
+            {
+                "npi": 1932362076, 
+                "reportingName": ""
+            }, 
+            {
+                "npi": 1265524961, 
+                "reportingName": "Dr. Fizzah Ali"
+            }, 
+            {
+                "npi": 1063687234, 
+                "reportingName": "Dr. Viorel Angheloiu"
+            }, 
+            {
+                "npi": 1184746067, 
+                "reportingName": "Dr. Jennifer Aquino"
+            }, 
+            {
+                "npi": 1063522126, 
+                "reportingName": "Dr. Amir Aref"
+            }, 
+            {
+                "npi": 1760593057, 
+                "reportingName": "Dr. Berhane Asfaw"
+            }, 
+            {
+                "npi": 1578593703, 
+                "reportingName": "Dr. Khalid Aslam"
+            }, 
+            {
+                "npi": 1447567011, 
+                "reportingName": "Dr. Joseph Barthelemy"
+            }, 
+            {
+                "npi": 1801030275, 
+                "reportingName": "Dr. Ramon Basa"
+            }, 
+            {
+                "npi": 1730262767, 
+                "reportingName": "Dr. Kimberly Bell"
+            }, 
+            {
+                "npi": 1447223110, 
+                "reportingName": "Sharon Bennett, PA-C"
+            }, 
+            {
+                "npi": 1689699506, 
+                "reportingName": "Dr. Bhavana Bhanot"
+            }, 
+            {
+                "npi": 1962672550, 
+                "reportingName": "Dr. Himanshu Bhutani"
+            }, 
+            {
+                "npi": 1699968800, 
+                "reportingName": "Hana Cha, PA-C"
+            }, 
+            {
+                "npi": 1538424692, 
+                "reportingName": "Dr. Jinsoo Chang"
+            }, 
+            {
+                "npi": 1104927730, 
+                "reportingName": ""
+            }, 
+            {
+                "npi": 1578862389, 
+                "reportingName": "Dr. Sriranjini Chilkunda Ramaswamy"
+            }, 
+            {
+                "npi": 1588817480, 
+                "reportingName": "Dr. Ishmael Ching"
+            }, 
+            {
+                "npi": 1851678163, 
+                "reportingName": "Georgia Coote, ARNP"
+            }, 
+            {
+                "npi": 1861715310, 
+                "reportingName": "Chelsea Crosby, PA-C"
+            }, 
+            {
+                "npi": 1619170511, 
+                "reportingName": "Dr. Marco Cruz"
+            }, 
+            {
+                "npi": 1205024866, 
+                "reportingName": "Randal Cupp, PA-C"
+            }, 
+            {
+                "npi": 1851567341, 
+                "reportingName": "Dr. Lakshmi Datla"
+            }, 
+            {
+                "npi": 1922246529, 
+                "reportingName": "Dr. Amit Desai"
+            }, 
+            {
+                "npi": 1508076985, 
+                "reportingName": "Dr. Harjeet Dhillon"
+            }, 
+            {
+                "npi": 1063643542, 
+                "reportingName": "Dr. Vladimir Dzhashi"
+            }, 
+            {
+                "npi": 1063427482, 
+                "reportingName": "Dr. Guoping Feng"
+            }, 
+            {
+                "npi": 1891097531, 
+                "reportingName": "William Finnerty, ARNP"
+            }, 
+            {
+                "npi": 1043485030, 
+                "reportingName": "Dr. Radu Florea"
+            }, 
+            {
+                "npi": 1518057678, 
+                "reportingName": "Philip Furth, PA-C"
+            }, 
+            {
+                "npi": 1861670200, 
+                "reportingName": "Dr. Michal Galeziok"
+            }, 
+            {
+                "npi": 1235146077, 
+                "reportingName": "Dr. Emad Girgis"
+            }, 
+            {
+                "npi": 1962663567, 
+                "reportingName": "Dr. Anjna Grover"
+            }, 
+            {
+                "npi": 1144541350, 
+                "reportingName": "Dr. Matthew Guindon"
+            }, 
+            {
+                "npi": 1811033202, 
+                "reportingName": "Mary Harris-Tucker, PA-C"
+            }, 
+            {
+                "npi": 1023401627, 
+                "reportingName": "Mary Harvey, ARNP"
+            }, 
+            {
+                "npi": 1942386503, 
+                "reportingName": "Dr. Edward Himes"
+            }, 
+            {
+                "npi": 1760745988, 
+                "reportingName": "Dr. Mai Vi Hoang"
+            }, 
+            {
+                "npi": 1780975615, 
+                "reportingName": ""
+            }, 
+            {
+                "npi": 1417062712, 
+                "reportingName": "Dr. Ihab Ibrahim"
+            }, 
+            {
+                "npi": 1497084842, 
+                "reportingName": "Dr. Mohamed Imam"
+            }, 
+            {
+                "npi": 1790088052, 
+                "reportingName": "Lenora Ivanek, PA-C"
+            }, 
+            {
+                "npi": 1427302025, 
+                "reportingName": "Dr. Nadeem Jaffer"
+            }, 
+            {
+                "npi": 1801129283, 
+                "reportingName": "Dr. Tonia Jenson"
+            }, 
+            {
+                "npi": 1629357744, 
+                "reportingName": "Dr. Mark (Jihua) Jia"
+            }, 
+            {
+                "npi": 1689951550, 
+                "reportingName": "Dr. Audry Kahlstrom"
+            }, 
+            {
+                "npi": 1770635930, 
+                "reportingName": "Dr. Muhammed Khan"
+            }, 
+            {
+                "npi": 1902160534, 
+                "reportingName": "Dr. Shadi Khir"
+            }, 
+            {
+                "npi": 1184983793, 
+                "reportingName": ""
+            }, 
+            {
+                "npi": 1699951699, 
+                "reportingName": "Dr. Nikolay Kolev"
+            }, 
+            {
+                "npi": 1376776377, 
+                "reportingName": ""
+            }, 
+            {
+                "npi": 1255431664, 
+                "reportingName": "Dr. Samakshi Krishna"
+            }, 
+            {
+                "npi": 1891768560, 
+                "reportingName": "Cora Krouse, PA-C"
+            }, 
+            {
+                "npi": 1841458676, 
+                "reportingName": "Dr. Lakeysha Layfield"
+            }, 
+            {
+                "npi": 1538285275, 
+                "reportingName": "Dr. David Lee"
+            }, 
+            {
+                "npi": 1639426232, 
+                "reportingName": "Dr. Desire Lehmann"
+            }, 
+            {
+                "npi": 1770948333, 
+                "reportingName": "Dr. Michael - PAC L'Italien"
+            }, 
+            {
+                "npi": 1528494267, 
+                "reportingName": "Dr. Ying Liu"
+            }, 
+            {
+                "npi": 1649363706, 
+                "reportingName": "Dr. Ed Lopez"
+            }, 
+            {
+                "npi": 1578505533, 
+                "reportingName": "Laura Luu, ARNP"
+            }, 
+            {
+                "npi": 1467606111, 
+                "reportingName": "Andrea Lyon-Loftus, PA-C"
+            }, 
+            {
+                "npi": 1679630461, 
+                "reportingName": "Dr. Naushaba Marri"
+            }, 
+            {
+                "npi": 1548417926, 
+                "reportingName": "Dr. Liana Maxa"
+            }, 
+            {
+                "npi": 1891981841, 
+                "reportingName": "Matthew Metsker, PA-C"
+            }, 
+            {
+                "npi": 1336395896, 
+                "reportingName": "Mihee Montstream, ARNP"
+            }, 
+            {
+                "npi": 1073587903, 
+                "reportingName": "Albert Morriss, PA-C"
+            }, 
+            {
+                "npi": 1548535354, 
+                "reportingName": ""
+            }, 
+            {
+                "npi": 1447284807, 
+                "reportingName": "Dr. David Munoz"
+            }, 
+            {
+                "npi": 1952677320, 
+                "reportingName": "Dr. Thankam Nair"
+            }, 
+            {
+                "npi": 1174620058, 
+                "reportingName": "Michelle Nelson, PA-C"
+            }, 
+            {
+                "npi": 1588865539, 
+                "reportingName": "Dr. Vivian Nkwonta"
+            }, 
+            {
+                "npi": 1104014471, 
+                "reportingName": "Dr. Emmy Oh"
+            }, 
+            {
+                "npi": 1497075394, 
+                "reportingName": "Dr. Srivatsan Padmanabhan"
+            }, 
+            {
+                "npi": 1386083533, 
+                "reportingName": ""
+            }, 
+            {
+                "npi": 1316146848, 
+                "reportingName": "Dr. Ankit Patel"
+            }, 
+            {
+                "npi": 1396009973, 
+                "reportingName": "Dr. Jay Patel"
+            }, 
+            {
+                "npi": 1730473273, 
+                "reportingName": "Dr. Seetharam Pothi Reddy"
+            }, 
+            {
+                "npi": 1033152855, 
+                "reportingName": "Dr. Jeffrey Reasol"
+            }, 
+            {
+                "npi": 1689763732, 
+                "reportingName": "Dr. Gari Reddy"
+            }, 
+            {
+                "npi": 1710118278, 
+                "reportingName": "Dr. Prathima Reddy"
+            }, 
+            {
+                "npi": 1447283577, 
+                "reportingName": "Dr. Azra Rehman"
+            }, 
+            {
+                "npi": 1922192954, 
+                "reportingName": "Luke Requa, PA-C"
+            }, 
+            {
+                "npi": 1093037632, 
+                "reportingName": "Dr. David Rochelin"
+            }, 
+            {
+                "npi": 1598935801, 
+                "reportingName": "Dr. Nirmalya Roychowdhury"
+            }, 
+            {
+                "npi": 1407041155, 
+                "reportingName": "Dr. Evelyn Rubin"
+            }, 
+            {
+                "npi": 1710195904, 
+                "reportingName": "Dr. Yasser Said"
+            }, 
+            {
+                "npi": 1831455856, 
+                "reportingName": "Dr. Vincent Salvador"
+            }, 
+            {
+                "npi": 1801091863, 
+                "reportingName": "Dr. Shelly Sanetti"
+            }, 
+            {
+                "npi": 1801099791, 
+                "reportingName": "Dr. Maggie Sekeramayi"
+            }, 
+            {
+                "npi": 1164787131, 
+                "reportingName": "Dr. Dipam Shah"
+            }, 
+            {
+                "npi": 1316139876, 
+                "reportingName": "Dr. Megha Shah"
+            }, 
+            {
+                "npi": 1972773950, 
+                "reportingName": "Dr. Ashwin Shivakumar"
+            }, 
+            {
+                "npi": 1902990948, 
+                "reportingName": "Dr. Sherrod Shiveley"
+            }, 
+            {
+                "npi": 1609058759, 
+                "reportingName": ""
+            }, 
+            {
+                "npi": 1326223801, 
+                "reportingName": "Dr. Arthur Siek"
+            }, 
+            {
+                "npi": 1326269655, 
+                "reportingName": "Dr. John Stam"
+            }, 
+            {
+                "npi": 1013106582, 
+                "reportingName": "Dr. Jessica Tam"
+            }, 
+            {
+                "npi": 1538352802, 
+                "reportingName": "Dr. Bob Thong"
+            }, 
+            {
+                "npi": 1659521136, 
+                "reportingName": "Dr. Arinder Tiwana"
+            }, 
+            {
+                "npi": 1891040572, 
+                "reportingName": "Dr. Tamas Ungar"
+            }, 
+            {
+                "npi": 1881955599, 
+                "reportingName": "Dr. Nicolas Veohongs"
+            }, 
+            {
+                "npi": 1144347592, 
+                "reportingName": ""
+            }, 
+            {
+                "npi": 1952369795, 
+                "reportingName": "Dr. Pragathy Vutla"
+            }, 
+            {
+                "npi": 1912091984, 
+                "reportingName": "Dr. John Wagoner"
+            }, 
+            {
+                "npi": 1134320401, 
+                "reportingName": "Dr. Danhua Wallace"
+            }, 
+            {
+                "npi": 1942311352, 
+                "reportingName": "Dr. Alison Wright"
+            }, 
+            {
+                "npi": 1093066748, 
+                "reportingName": "Dr. Gayatri Yambem"
+            }, 
+            {
+                "npi": 1518290931, 
+                "reportingName": "Dr. Nathaniel Yu Chua"
+            }, 
+            {
+                "npi": 1669566535, 
+                "reportingName": "Dr. Vitaliy Zak"
+            }, 
+            {
+                "npi": 1356381537, 
+                "reportingName": "Dr. Wen Zhong"
+            }, 
+            {
+                "npi": 1972787018, 
+                "reportingName": "Dr. Irina Case"
+            }, 
+            {
+                "npi": 1760461875, 
+                "reportingName": "Dr. Kelly Carlisle"
+            }, 
+            {
+                "npi": 1326457474, 
+                "reportingName": "Dr. Mohamed Elagnaf"
+            }, 
+            {
+                "npi": 1366852105, 
+                "reportingName": "Dr. Zachary Kane"
+            }, 
+            {
+                "npi": 1962630392, 
+                "reportingName": "Dr. Omar Naji"
+            }, 
+            {
+                "npi": 1205213378, 
+                "reportingName": "Dr. Phillip Nielson"
+            }, 
+            {
+                "npi": 1447664750, 
+                "reportingName": "Dr. Rakshit Patnana"
+            }, 
+            {
+                "npi": 1366988560, 
+                "reportingName": "Dr. Michelle Pham"
+            }, 
+            {
+                "npi": 1770923476, 
+                "reportingName": "Dr. Jason Chung"
+            }, 
+            {
+                "npi": 1215347216, 
+                "reportingName": "Dr. Amar Khunti"
+            }, 
+            {
+                "npi": 1790883965, 
+                "reportingName": "Dr. Sungmi Lian"
+            }, 
+            {
+                "npi": 1033542477, 
+                "reportingName": "Dr. Dolkar Sherpa"
+            }, 
+            {
+                "npi": 1124377882, 
+                "reportingName": "Dr. Maninderjit Singh"
+            }, 
+            {
+                "npi": 1437115532, 
+                "reportingName": "Dr. Chris Stadtherr"
+            }, 
+            {
+                "npi": 1225059199, 
+                "reportingName": "Dr. Rana Tan"
+            }, 
+            {
+                "npi": 1629414537, 
+                "reportingName": "Dr. Roberta Trandev"
+            }, 
+            {
+                "npi": 1912106725, 
+                "reportingName": "Dr. Prabin Uprety"
+            }, 
+            {
+                "npi": 1184851735, 
+                "reportingName": "Dr. Ashley Hamilton"
+            }, 
+            {
+                "npi": 1083026025, 
+                "reportingName": "Dr. Timothy Jenkins"
+            }, 
+            {
+                "npi": 1306158621, 
+                "reportingName": "Dr. Priyanka Kapoor"
+            }, 
+            {
+                "npi": 1770840738, 
+                "reportingName": "Dr. Ali Alhusseni"
+            }, 
+            {
+                "npi": 1912060385, 
+                "reportingName": "Dr. Pushpanjali Basnyat"
+            }, 
+            {
+                "npi": 1558672345, 
+                "reportingName": "Dr. Megha Bendre"
+            }, 
+            {
+                "npi": 1295080562, 
+                "reportingName": "Dr. Shaluk Biswas"
+            }, 
+            {
+                "npi": 1104171347, 
+                "reportingName": "Dr. Judy Emil Dela Cruz"
+            }, 
+            {
+                "npi": 1326350794, 
+                "reportingName": "Dr. Dhananjay Deo"
+            }, 
+            {
+                "npi": 1982952750, 
+                "reportingName": "Dr. Tianhai (Tim) Guo"
+            }, 
+            {
+                "npi": 1386960540, 
+                "reportingName": "Dr. Dana Ionescu"
+            }, 
+            {
+                "npi": 1952531295, 
+                "reportingName": "Dr. Priya Kanwar"
+            }, 
+            {
+                "npi": 1982896361, 
+                "reportingName": "Dr. Kelly Liu"
+            }, 
+            {
+                "npi": "N/A", 
+                "reportingName": "Janet MacKay, RN"
+            }, 
+            {
+                "npi": 1730317892, 
+                "reportingName": "Dr. Aimee Shariat"
+            }, 
+            {
+                "npi": 1750693446, 
+                "reportingName": "Dr. Maryam Tariq"
+            }, 
+            {
+                "npi": "N/A", 
+                "reportingName": "Kelly Taylor"
+            }, 
+            {
+                "npi": 1063605723, 
+                "reportingName": "Dr. Thomson Tuscano"
+            }, 
+            {
+                "npi": 1235273715, 
+                "reportingName": "Dr. Dong Vo"
+            }
+        ], 
+        "Neurosurgery": [
+            {
+                "npi": "unknown", 
+                "reportingName": "Kelly Andersson, PA-C"
+            }, 
+            {
+                "npi": "unknown", 
+                "reportingName": "Dr. Marc Goldman"
+            }, 
+            {
+                "npi": "unknown", 
+                "reportingName": "Yelena Golub, PA-C"
+            }, 
+            {
+                "npi": "unknown", 
+                "reportingName": "Vladimir V. Grib, ARNP"
+            }, 
+            {
+                "npi": "unknown", 
+                "reportingName": "Anastasia Heins, PA-C"
+            }, 
+            {
+                "npi": "unknown", 
+                "reportingName": "Caoilin Hoctor, PA-C"
+            }, 
+            {
+                "npi": "unknown", 
+                "reportingName": "Catherine Ignacio, ARNP"
+            }, 
+            {
+                "npi": "unknown", 
+                "reportingName": "Steven Johns, PA-C"
+            }, 
+            {
+                "npi": "unknown", 
+                "reportingName": "Dr. Alex Mohit"
+            }, 
+            {
+                "npi": "unknown", 
+                "reportingName": "Dr. Daniel Nehls"
+            }, 
+            {
+                "npi": "unknown", 
+                "reportingName": "Dr. Michael Schlitt"
+            }, 
+            {
+                "npi": "unknown", 
+                "reportingName": "Dr. Hoan Tran"
+            }
+        ], 
+        "Vascular": [
+            {
+                "npi": "unknown", 
+                "reportingName": "Jennifer Barnett, ARNP"
+            }, 
+            {
+                "npi": "unknown", 
+                "reportingName": "Pamela Charboneau, ARNP"
+            }, 
+            {
+                "npi": "unknown", 
+                "reportingName": "Alexandra Engstrom, PA-C"
+            }, 
+            {
+                "npi": "unknown", 
+                "reportingName": "Elaine Kiser-Rude, PA-C."
+            }, 
+            {
+                "npi": "unknown", 
+                "reportingName": "Jennifer Moore, PA-C"
+            }, 
+            {
+                "npi": "unknown", 
+                "reportingName": "Rachel Sammis-Falk, PA-C"
+            }, 
+            {
+                "npi": "unknown", 
+                "reportingName": "Teri Scott, ARNP"
+            }, 
+            {
+                "npi": "unknown", 
+                "reportingName": "Anna Singur, PA-C"
+            }, 
+            {
+                "npi": "unknown", 
+                "reportingName": "Shawn Tedford, PA-C"
+            }
+        ]
+    }
 }

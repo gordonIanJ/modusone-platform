@@ -13,14 +13,6 @@ let Cascaders =  {
   'Hospitals': [],
   'Groups': []
 }
-for (var Provider of ReadModel['Providers']) {
-  Cascaders['Providers'].push(
-    {
-      "label": Provider['reportingName'],
-      "value": Provider['reportingName'] 
-    }
-  )
-}
 for (var Hospital of ReadModel['Hospitals']) {
   Cascaders['Hospitals'].push(
     {
@@ -53,39 +45,62 @@ class RegistrationForm extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      confirmDirty: false
+      confirmDirty: false,
+      group: "",
     }
   }
 
   cleanValues = (values) => {
-    let cleanConditions = values.conditions.filter(val => {
-      return val !== null;
-    });      
-    let cleanAttendingProviders = values.attendingProviders.filter(val => {
-      return val !== null;
-    });      
-    values.conditions = cleanConditions
-    values.attendingProviders = cleanAttendingProviders 
+    if (typeof(values.conditions) !== 'undefined') { 
+      let cleanConditions = values.conditions.filter(val => {
+        return val !== null;
+      });
+      values.conditions = cleanConditions
+    }
+    if (typeof(values.attendingProviders)!== 'undefined') { 
+      let cleanAttendingProviders = values.attendingProviders.filter(val => {
+        return val !== null;
+      });
+      values.attendingProviders = cleanAttendingProviders 
+    }
     return values 
   }
                       
-  makeConditionRecords = (values) => {
+  makeRecords = (values) => {
     var conditions = [] 
-    for (var i = 0; i < values.conditions.length; i++) {
-      conditions[i] = {
+    if (typeof(values.conditions) !== 'undefined') { 
+      for (var i = 0; i < values.conditions.length; i++) {
+        conditions[i] = {
+          reviewerEmail: values.email,
+          assignedGroup: values.assignedGroup[0],
+          assignedProvider: values.assignedProvider[0],
+          medicalRecordId: values.mrn,
+          admissionDate: values.admissionDate,
+          dischargeDate: values.dischargeDate,  
+          conditionName: values.conditions[i][1], 
+          conditionDiagnosisQuality: values.conditions[i][0],
+          conditionNotes: values.conditionNotes[i],
+          attendingProvider: values.attendingProviders[i][0]
+        }
+        if (typeof(values.assignedHospital) !== 'undefined') {
+          conditions[i]['assignedHospital'] = values.assignedHospital[0]
+        }
+      }
+    } else {
+      conditions[0] = {
         reviewerEmail: values.email,
         assignedGroup: values.assignedGroup[0],
         assignedProvider: values.assignedProvider[0],
         medicalRecordId: values.mrn,
         admissionDate: values.admissionDate,
         dischargeDate: values.dischargeDate,  
-        conditionName: values.conditions[i][1], 
-        conditionDiagnosisQuality: values.conditions[i][0],
-        conditionNotes: values.conditionNotes[i],
-        attendingProvider: values.attendingProviders[i][0]
+        conditionName: "none", 
+        conditionDiagnosisQuality: "N/A",
+        conditionNotes: "N/A",
+        attendingProvider: "N/A" 
       }
       if (typeof(values.assignedHospital) !== 'undefined') {
-        conditions[i]['assignedHospital'] = values.assignedHospital[0]
+        conditions[0]['assignedHospital'] = values.assignedHospital[0]
       }
     }
     return conditions
@@ -94,18 +109,16 @@ class RegistrationForm extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault()
     this.props.form.validateFieldsAndScroll((err, values) => {
-      if (!err && typeof(values.conditions) !== 'undefined') {
-        const CleanValues = this.cleanValues(values)
-        const ConditionRecords = this.makeConditionRecords(CleanValues)
-        this.formValuePre.innerText = stringify(ConditionRecords)
-        Unirest.post('https://pertinentconditions.azurewebsites.net/api/FormHandlerHttpTriggered?code=W4/89mgbh6tFo/kepjg5a6DoAEifp78VjrcmfPRJ5xhq3IA7zxRigA==')
-        .headers({'Accept': 'application/json', 'Content-Type': 'application/json'})
-        .send(ConditionRecords)
-        .end(function (response) {
-          if (typeof(response.body) !== 'undefined') {console.log(JSON.stringify(response.body))}
-        })
-        //this.props.form.resetFields()
-      }
+      const CleanValues = this.cleanValues(values)
+      const ConditionRecords = this.makeRecords(CleanValues)
+      this.formValuePre.innerText = stringify(ConditionRecords)
+      Unirest.post('https://pertinentconditions.azurewebsites.net/api/FormHandlerHttpTriggered?code=W4/89mgbh6tFo/kepjg5a6DoAEifp78VjrcmfPRJ5xhq3IA7zxRigA==')
+      .headers({'Accept': 'application/json', 'Content-Type': 'application/json'})
+      .send(ConditionRecords)
+      .end(function (response) {
+        if (typeof(response.body) !== 'undefined') {console.log(JSON.stringify(response.body))}
+      })
+      //this.props.form.resetFields()
     })
   }
   
@@ -136,21 +149,30 @@ class RegistrationForm extends React.Component {
     for (var i1=0; i1<Cascaders['Conditions'].length; i1++) {
       Cascaders['Conditions'][i1]['children'] = []
     }
+    Cascaders['Providers'] = [] 
     this.props.form.setFieldsValue({keys: []})
     group = value[0]
-    this.setState( {"selectedGroup": group})
+    this.setState({"group": group})
     if (typeof group !== 'undefined') {
-      // Add conditions options to the Condition field of each pertinent condition fieldset 
-      for (var i2=0; i2<Cascaders['Conditions'].length; i2++) {
-        for (var ReadModelCondition of ReadModel['ConditionsByGroup'][group]) {
-          const child = {
-            "label": ReadModelCondition,
-            "value": ReadModelCondition
-          }
-          Cascaders['Conditions'][i2]['children'].push(child)
+      // Add provider options to the Provider field
+      for (var Provider of ReadModel['ProvidersByGroup'][group]) {
+        if (Provider['reportingName'] !== "") { 
+          Cascaders['Providers'].push({
+            "label": Provider['reportingName'],
+            "value": Provider['reportingName']
+          })
         }
       }
-    } 
+      // Add condition options to the Condition field of each pertinent condition fieldset 
+      for (var i2=0; i2<Cascaders['Conditions'].length; i2++) {
+        for (var ReadModelCondition of ReadModel['ConditionsByGroup'][group]) {
+          Cascaders['Conditions'][i2]['children'].push({
+            "label": ReadModelCondition,
+            "value": ReadModelCondition
+          })
+        }
+      }
+    }
   }
   
   render() {
@@ -247,7 +269,7 @@ class RegistrationForm extends React.Component {
             <Cascader options={Cascaders.Groups} onChange={this.onGroupCascaderChange} />
           )} 
           </FormItem>
-          { this.state.selectedGroup === "Hospitalist" && <FormItem
+          { this.state.group === "Hospitalist" && <FormItem
             {...formItemLayout}
             label="Hospital"
           >
