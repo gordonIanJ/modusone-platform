@@ -2,12 +2,14 @@
 
 # dependencies
 /client/node_modules
+/excelAddIn/node_modules
 
 # testing
 /coverage
 
 # production
 /client/build
+/excelAddIn/dist
 
 # misc
 .DS_Store
@@ -21,6 +23,6 @@ yarn-debug.log*
 yarn-error.log*
 
 services/pertinentConditions/local.settings.json
-services/pertinentConditions/.vscode/
+services/pertinentConditions/.vscode
 client/src/components/CHI/*CHI.xlsx
-venv/
+venv

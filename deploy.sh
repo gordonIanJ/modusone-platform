@@ -5,6 +5,7 @@ create_resource_group () {
 }
 
 create_storage_account () {
+    STORAGE_ACCOUNT_NAME=$1
     az storage account create \
     --name $STORAGE_ACCOUNT_NAME \
     --resource-group $RESOURCE_GROUP_NAME \
@@ -14,15 +15,18 @@ create_storage_account () {
 }
 
 assign_access_to_storage_account () {
-    STORAGE_ACCOUNT_ID=`az storage account show --resource-group modusone --name modusone --output json | jq .id |sed 's/"//g'` 
+    STORAGE_ACCOUNT_NAME=$1 
+    STORAGE_ACCOUNT_ID=`az storage account show --resource-group modusone --name $STORAGE_ACCOUNT_NAME --output json | jq .id |sed 's/"//g'` 
     az role assignment create --role "Reader and Data Access" --assignee shane@modusonehealth.com --scope $STORAGE_ACCOUNT_ID
 }
 
-create_storage_blob () {
+enable_static_website () {
+    STORAGE_ACCOUNT_NAME=$1 
     az storage blob service-properties update --account-name $STORAGE_ACCOUNT_NAME --static-website true --404-document 404.html --index-document index.html
 }
 
 create_function_app () {
+    STORAGE_ACCOUNT_NAME=$1 
     az functionapp create \
     --name $FUNCTION_APP_NAME \
     --resource-group $RESOURCE_GROUP_NAME \
@@ -31,9 +35,10 @@ create_function_app () {
 }
 
 deploy_function_app () {
+    STORAGE_ACCOUNT_NAME=$1 
     create_resource_group 
-    create_storage_account
-    assign_access_to_storage_account
+    create_storage_account $STORAGE_ACCOUNT_NAME
+    assign_access_to_storage_account $STORAGE_ACCOUNT_NAME
     create_function_app
 }
 
@@ -44,32 +49,35 @@ deploy_functions () {
 }
 
 deploy_spa () {
+    STORAGE_ACCOUNT_NAME=$1
+    ARTIFACT=$2  
     create_resource_group 
-    create_storage_account 
-    assign_access_to_storage_account
-    create_storage_blob 
-    az storage blob upload-batch -s $FUNCTION_APP_ARTIFACT -d '$web' \
+    create_storage_account $STORAGE_ACCOUNT_NAME 
+    assign_access_to_storage_account $STORAGE_ACCOUNT_NAME
+    enable_static_website $STORAGE_ACCOUNT_NAME 
+    az storage blob upload-batch -s $ARTIFACT -d '$web' \
     --account-name $STORAGE_ACCOUNT_NAME
 }
 
-deploy () {
-    deploy_function_app
-    deploy_functions
-    deploy_spa
+deploy_client () {
+    deploy_spa $SPA_STORAGE_ACCOUNT_NAME $SPA_ARTIFACT
+}
+
+deploy_excel_addin () {
+    deploy_spa $EXCEL_ADDIN_STORAGE_ACCOUNT_NAME $EXCEL_ADDIN_ARTIFACT
 }
 
 az login
 az extension add --name storage-preview
 
-RESOURCE_GROUP_NAME=modusone
 LOCATION=centralus
-STORAGE_ACCOUNT_NAME=modusone
-FUNCTION_APP_NAME=PertinentConditions
-COSMOS_DB_NAME=`echo $FUNCTION_APP_NAME | tr '[:upper:]' '[:lower:]'`
 BASE_DIRECTORY=/Users/iangordon/Projects/modusone-platform/
-FUNCTION_APP_ARTIFACT=$BASE_DIRECTORY/client/build/
+RESOURCE_GROUP_NAME=modusone
+SPA_STORAGE_ACCOUNT_NAME=modusone
+SPA_ARTIFACT=$BASE_DIRECTORY/client/build/
+EXCEL_ADDIN_STORAGE_ACCOUNT_NAME=modusoneexceladdin
+EXCEL_ADDIN_ARTIFACT=$BASE_DIRECTORY/excelAddIn/dist/
+FUNCTION_APP_NAME=PertinentConditions
 
 #STORAGE_ENDPOINT=`az storage account show -n $STORAGE_ACCOUNT_NAME -g $RESOURCE_GROUP_NAME --query "primaryEndpoints.web" --output tsv` 
 #STORAGE_CONNECTION_STRING=$(cd $BASE_DIRECTORY/services/$FUNCTION_APP_NAME; func azure storage fetch-connection-string $STORAGE_ACCOUNT_NAME; cd ../)
-
-#deploy
