@@ -2,6 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import * as React from 'react';
 import { Col, FormGroup, Input, Label } from 'reactstrap';
 import {v1 as uuidv1} from 'uuid'
+import { ProviderReview } from './ProviderReview'
 
 /*
 https://github.com/piotrwitek/react-redux-typescript-guide#stateful-components---class
@@ -12,17 +13,17 @@ interface IProvider {
   name: string
 }
 
-interface ICondition {
+export interface ICondition {
   name: string
   details?: string
 }
 
-interface IPertinentCondition extends ICondition {
+export interface IPertinentCondition extends ICondition {
   uuid: string 
   diagnosisCategory: string
 }
 
-interface IProviderReview {
+export interface IProviderReview {
   uuid: string 
   providerName: string
   pertinentConditions?: IPertinentCondition[]
@@ -36,7 +37,7 @@ interface IGroup {
 }
 
 interface IConditionsByProviderReviewId {
-  [key: string]: IPertinentCondition[]
+  [providerReviewId: string]: IPertinentCondition[]
 }
 
 interface IChartReviewFormState {
@@ -78,7 +79,7 @@ export class ChartReviewForm extends React.Component<any, IChartReviewFormState>
     ],
     nameOfReviewedGroup: "bariatrics",
     providerOptions: ["Rob","Roy"],
-    providerReviews: [], // TODO: replace pertinentConditions and providerReviews, with providerReviews
+    providerReviews: [],
     reviewerEmail: "", 
     underReview: undefined
   };
@@ -135,48 +136,18 @@ export class ChartReviewForm extends React.Component<any, IChartReviewFormState>
           { this.state.providerReviews != null && this.state.providerReviews.length > 0 &&
           <h2>Providers</h2>
           }
-          {this.state.providerReviews.map((providerReview, idx1) => (
-            <div key={idx1}>
-              <h3>{`Provider #${idx1 + 1}`}</h3> 
-              <FormGroup row={true}>
-                <Label for={`Provider #${idx1 + 1}`} sm={2}>{`Provider #${idx1 + 1} Name`}</Label>
-                <Col sm={10}> 
-                  <Input type="select" name={`Provider #${idx1 + 1}`} id={`Provider #${idx1 + 1}`} onChange={this.handleProviderNameChange(idx1)} >
-                  <option label=" ">-- select a provider --</option> 
-                  {this.state.providerOptions.map((providerOption, idx3) => (
-                    <option key={idx3}>{providerOption}</option>
-                  ))}
-                  </Input> 
-                </Col>
-              </FormGroup>
-              { providerReview.pertinentConditions != null && providerReview.pertinentConditions.length > 0 &&
-              <h4>{`Conditions for Provider #${idx1 + 1}`}</h4>
-              }
-              {providerReview.pertinentConditions != null && providerReview.pertinentConditions.map((pertinentCondition: IPertinentCondition, idx2: number) => (
-                <div key={idx2}>
-                  <FormGroup row={true}>
-                    <Label for={`Condition #${idx2 + 1}`} sm={2}>{`Condition #${idx2 + 1} Name`}</Label>
-                    <Col sm={10}> 
-                      <Input type="select" name={`Condition #${idx2 + 1}`} id={`Condition #${idx2 + 1}`} onChange={this.handleConditionNameChange(providerReview, idx2)} >
-                      <option label=" ">-- select a condition --</option> 
-                      {this.state.conditionOptions.map((conditionOption, idx3) => (
-                        <option key={idx3}>{conditionOption}</option>
-                      ))}
-                      </Input> 
-                    </Col>
-                  </FormGroup>
-                  <FormGroup row={true}>
-                    <Label for="Condition Detail" sm={2}>{`Condition #${idx2 + 1} Detail`}</Label>
-                    <Col sm={10}> 
-                      <Input type="textarea" name="text" id="exampleText" placeholder={`Condition #${idx2 + 1} detail`} />
-                    </Col>
-                  </FormGroup>
-                  <button type="button" onClick={this.handleRemoveCondition(providerReview, pertinentCondition)} className="small">-</button>
-                </div>
-              ))}
-              <button type="button" id={providerReview.uuid} onClick={ this.handleAddCondition } className="small">Add Condition</button>
-              <button type="button" onClick={this.handleRemoveProvider(idx1)} className="small">-</button>
-            </div>
+          {this.state.providerReviews.map((providerReview, idx) => (
+            <ProviderReview 
+              providerReview={providerReview} 
+              idx={idx} 
+              providerOptions={this.state.providerOptions}
+              conditionOptions={this.state.conditionOptions}
+              handleProviderNameChange={this.handleProviderNameChange}
+              handleAddCondition={this.handleAddCondition}
+              handleRemoveProvider={this.handleRemoveProvider}
+              handleConditionNameChange={this.handleConditionNameChange}
+              handleRemoveCondition={this.handleRemoveCondition}
+            />
           ))}
         <button type="button" onClick={this.handleAddProvider} className="small">Add Provider</button>
         <button type="button" onClick={this.handleReview} className="small">Review</button>
@@ -229,7 +200,6 @@ export class ChartReviewForm extends React.Component<any, IChartReviewFormState>
 
   private handleAddCondition = (event: any) => {
     const reviewId = event.currentTarget.id    
-    const uniqueId: string = uuidv1()
     this.setState( (previousState, props) => {
       // TODO:
       // - Get a copy of the matching providerReview from previousState.providerReviews[]
@@ -241,6 +211,7 @@ export class ChartReviewForm extends React.Component<any, IChartReviewFormState>
         if (thisReview.pertinentConditions !== undefined) {
           // tslint:disable-next-line:no-console
           console.log(thisReview.pertinentConditions)   
+          const uniqueId = uuidv1() 
           thisReview.pertinentConditions.push({name: "", uuid: uniqueId, diagnosisCategory: ""})
           // tslint:disable-next-line:no-console
           console.log(thisReview.pertinentConditions)   
