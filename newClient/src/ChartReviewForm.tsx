@@ -273,8 +273,16 @@ export class ChartReviewForm extends React.Component<any, IChartReviewFormState>
   }
 
   private handleRemoveProvider = (idx: number) => () => {
-    this.setState(() => {
-      // TODO
+    this.setState({
+      providerReviews: this.state.providerReviews.filter((s, sidx) => idx !== sidx)
     });
   }
+
+  /*
+  private handleRemoveProvider = (idx: number) => () => {
+    this.setState(() => {
+      providerReviews: this.state.providerReviews.filter((s, sidx) => idx !== sidx)
+    });
+  }
+  */
 }
