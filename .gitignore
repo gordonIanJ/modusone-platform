@@ -26,3 +26,4 @@ services/pertinentConditions/local.settings.json
 services/pertinentConditions/.vscode
 client/src/components/CHI/*CHI.xlsx
 venv
+.vscode
