@@ -44,6 +44,7 @@ interface IChartReviewFormState {
   email: string | undefined  
   accountNumber: string | undefined
   conditionOptions: string[]
+  diagnosisCategoryOptions: string[]
   groups: IGroup[]
   nameOfReviewedGroup: string
   providerOptions: string[]
@@ -58,6 +59,7 @@ export class ChartReviewForm extends React.Component<any, IChartReviewFormState>
     accountNumber: undefined,
     conditionOptions: ["sweaty palms", "nervous tick"],
     conditionsByProviderReviewId: {},
+    diagnosisCategoryOptions: ["Accurate", "Omitted"],
     email: undefined, 
     groups: [
       {
@@ -134,13 +136,14 @@ export class ChartReviewForm extends React.Component<any, IChartReviewFormState>
             </Col>
           </FormGroup>
           { this.state.providerReviews != null && this.state.providerReviews.length > 0 &&
-          <h2>Providers</h2>
+          <h2>Conditions</h2>
           }
           {this.state.providerReviews.map((providerReview, idx) => (
             <ProviderReview 
               providerReview={providerReview} 
               idx={idx} 
               providerOptions={this.state.providerOptions}
+              diagnosisCategoryOptions={this.state.diagnosisCategoryOptions}
               conditionOptions={this.state.conditionOptions}
               handleProviderNameChange={this.handleProviderNameChange}
               handleAddCondition={this.handleAddCondition}
@@ -149,7 +152,7 @@ export class ChartReviewForm extends React.Component<any, IChartReviewFormState>
               handleRemoveCondition={this.handleRemoveCondition}
             />
           ))}
-        <button type="button" onClick={this.handleAddProvider} className="small">Add Provider</button>
+        <button type="button" onClick={this.handleAddProvider} className="small">Add Condition</button>
         <button type="button" onClick={this.handleReview} className="small">Review</button>
       </form>
       </div>

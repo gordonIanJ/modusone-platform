@@ -8,6 +8,7 @@ interface IProviderReviewProps {
     providerReview: IProviderReview
     idx: number 
     providerOptions: string[]
+    diagnosisCategoryOptions: string[]
     conditionOptions: string[]
     handleProviderNameChange: (idx: number) => (event: any) => void 
     handleAddCondition: (event: any) => void
@@ -20,23 +21,46 @@ export const ProviderReview: React.SFC<IProviderReviewProps> = (props) => {
   const { 
       providerReview, 
       idx, 
-      providerOptions, 
+      providerOptions,
+      diagnosisCategoryOptions,
       conditionOptions, 
       handleProviderNameChange, 
-      handleAddCondition, 
+      // handleAddCondition, 
       handleRemoveProvider, 
       handleConditionNameChange,
       handleRemoveCondition } = props
   return ( 
     <div key={idx}>
-        <h3>{`Provider #${idx + 1}`}</h3> 
+        <h3>{`Condition #${idx + 1}`}</h3> 
         <FormGroup row={true}>
-        <Label for={`Provider #${idx + 1}`} sm={2}>{`Provider #${idx + 1} Name`}</Label>
+        <Label for={`Provider #${idx + 1}`} sm={2}>Provider</Label>
         <Col sm={10}> 
         <Input type="select" name={`Provider #${idx + 1}`} id={`Provider #${idx + 1}`} onChange={handleProviderNameChange(idx)} >
             <option label=" ">-- select a provider --</option> 
             {providerOptions.map((providerOption, idx1) => (
             <option key={idx1}>{providerOption}</option>
+        ))}
+        </Input> 
+        </Col>
+        </FormGroup>
+        <FormGroup row={true}>
+        <Label for={`Diagnosis Category #${idx + 1}`} sm={2}>Diagnosis Category</Label>
+        <Col sm={10}> 
+        <Input type="select" name={`Diagnosis Category #${idx + 1}`} id={`Diagnosis Category #${idx + 1}`} onChange={handleProviderNameChange(idx)} >
+            <option label=" ">-- select a provider --</option> 
+            {diagnosisCategoryOptions.map((diagnosisCategoryOption, idx1) => (
+            <option key={idx1}>{diagnosisCategoryOption}</option>
+        ))}
+        </Input> 
+        </Col>
+        </FormGroup>
+        <FormGroup row={true}>
+        <Label for={`Condition #${idx + 1}`} sm={2}>Condition</Label>
+        <Col sm={10}> 
+        <Input type="select" name={`Condition #${idx + 1}`} id={`Condition #${idx + 1}`} onChange={handleProviderNameChange(idx)} >
+            <option label=" ">-- select a provider --</option> 
+            {conditionOptions.map((conditionOption, idx1) => (
+            <option key={idx1}>{conditionOption}</option>
         ))}
         </Input> 
         </Col>
@@ -54,7 +78,6 @@ export const ProviderReview: React.SFC<IProviderReviewProps> = (props) => {
           handleRemoveCondition={handleRemoveCondition} 
         />
         ))}
-        <button type="button" id={providerReview.uuid} onClick={ handleAddCondition } className="small">Add Condition</button>
         <button type="button" onClick={handleRemoveProvider(idx)} className="small">-</button>
     </div>)
 }
