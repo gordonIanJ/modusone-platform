@@ -143,8 +143,8 @@ export class ChartReviewForm extends React.Component<any, IChartReviewFormState>
               providerReview={providerReview} 
               idx={idx} 
               providerOptions={this.state.providerOptions}
-              diagnosisCategoryOptions={this.state.diagnosisCategoryOptions}
               conditionOptions={this.state.conditionOptions}
+              diagnosisCategoryOptions={this.state.diagnosisCategoryOptions}
               handleProviderNameChange={this.handleProviderNameChange}
               handleAddCondition={this.handleAddCondition}
               handleRemoveProvider={this.handleRemoveProvider}
@@ -200,7 +200,14 @@ export class ChartReviewForm extends React.Component<any, IChartReviewFormState>
 
     this.setState({ providerReviews: newConditions }); // TODO: Make this a callback
   }
-
+  
+  private handleAddCondition = () => {
+    this.setState({
+      providerReviews: this.state.providerReviews.concat([{ uuid: "", providerName: "" }])
+    });
+  }  
+  
+  /*
   private handleAddCondition = (event: any) => {
     const reviewId = event.currentTarget.id    
     this.setState( (previousState, props) => {
@@ -233,7 +240,7 @@ export class ChartReviewForm extends React.Component<any, IChartReviewFormState>
         return {providerReviews: previousState.providerReviews}
       }
     }) 
-  }
+  }*/
 
   private handleRemoveCondition = (providerReview: IProviderReview, pertinentCondition: IPertinentCondition) => () => {
     this.setState( (previousState, props) => {
@@ -248,10 +255,13 @@ export class ChartReviewForm extends React.Component<any, IChartReviewFormState>
   
   private handleProviderNameChange = (idx: number) => (evt: any) => {
     const newProviders = this.state.providerReviews.map((provider, sidx) => {
+      // tslint:disable-next-line:no-console   
+      console.log("In handleProviderNameChange...")
       if (idx !== sidx) { return provider; }
+      // tslint:disable-next-line:no-console   
+      console.log("idx === sidx")
       return { ...provider, name: evt.target.value };
     });
-
     this.setState({ providerReviews: newProviders }); // TODO: Make this a callback
   }
   
