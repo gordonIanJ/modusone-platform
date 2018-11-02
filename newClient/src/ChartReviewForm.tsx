@@ -26,6 +26,8 @@ export interface IPertinentCondition extends ICondition {
 export interface IProviderReview {
   uuid: string 
   providerName: string
+  conditionName: string
+  diagnosisCategory: string
   pertinentConditions?: IPertinentCondition[]
 }
 
@@ -203,7 +205,7 @@ export class ChartReviewForm extends React.Component<any, IChartReviewFormState>
   
   private handleAddCondition = () => {
     this.setState({
-      providerReviews: this.state.providerReviews.concat([{ uuid: "", providerName: "" }])
+      providerReviews: this.state.providerReviews.concat([{ uuid: "", providerName: "", conditionName: "", diagnosisCategory: "" }])
     });
   }  
   
@@ -257,10 +259,12 @@ export class ChartReviewForm extends React.Component<any, IChartReviewFormState>
     const newProviders = this.state.providerReviews.map((provider, sidx) => {
       // tslint:disable-next-line:no-console   
       console.log("In handleProviderNameChange...")
+      // tslint:disable-next-line:no-console   
+      console.log(this.state)
       if (idx !== sidx) { return provider; }
       // tslint:disable-next-line:no-console   
       console.log("idx === sidx")
-      return { ...provider, name: evt.target.value };
+      return { ...provider, [evt.target.name]: evt.target.value };
     });
     this.setState({ providerReviews: newProviders }); // TODO: Make this a callback
   }
@@ -268,7 +272,7 @@ export class ChartReviewForm extends React.Component<any, IChartReviewFormState>
   private handleAddProvider = () => {
     this.setState( (previousState, props) => {
       const uniqueId: string = uuidv1();
-      return {providerReviews: previousState.providerReviews.concat([{ uuid: uniqueId, providerName: '', pertinentConditions: [] }])}
+      return {providerReviews: previousState.providerReviews.concat([{ uuid: uniqueId, providerName: '', conditionName: '', diagnosisCategory: '', pertinentConditions: [] }])}
     });
   }
 

@@ -35,7 +35,7 @@ export const ProviderReview: React.SFC<IProviderReviewProps> = (props) => {
         <FormGroup row={true}>
         <Label for={`Provider #${idx + 1}`} sm={2}>Provider</Label>
         <Col sm={10}> 
-        <Input type="select" name={`Provider #${idx + 1}`} id={`Provider #${idx + 1}`} onChange={handleProviderNameChange(idx)} >
+        <Input type="select" name="providerName" id={`Provider #${idx + 1}`} onChange={handleProviderNameChange(idx)} >
             <option label=" ">-- select a provider --</option> 
             {providerOptions.map((providerOption, idx1) => (
             <option key={idx1}>{providerOption}</option>
@@ -46,7 +46,7 @@ export const ProviderReview: React.SFC<IProviderReviewProps> = (props) => {
         <FormGroup row={true}>
         <Label for={`Diagnosis Category #${idx + 1}`} sm={2}>Diagnosis Category</Label>
         <Col sm={10}> 
-        <Input type="select" name={`Diagnosis Category #${idx + 1}`} id={`Diagnosis Category #${idx + 1}`} onChange={handleProviderNameChange(idx)} >
+        <Input type="select" name="diagnosisCategory" id={`Diagnosis Category #${idx + 1}`} onChange={handleProviderNameChange(idx)} >
             <option label=" ">-- select a provider --</option> 
             {diagnosisCategoryOptions.map((diagnosisCategoryOption, idx1) => (
             <option key={idx1}>{diagnosisCategoryOption}</option>
@@ -57,7 +57,7 @@ export const ProviderReview: React.SFC<IProviderReviewProps> = (props) => {
         <FormGroup row={true}>
         <Label for={`Condition #${idx + 1}`} sm={2}>Condition</Label>
         <Col sm={10}> 
-        <Input type="select" name={`Condition #${idx + 1}`} id={`Condition #${idx + 1}`} onChange={handleProviderNameChange(idx)} >
+        <Input type="select" name="conditionName" id={`Condition #${idx + 1}`} onChange={handleProviderNameChange(idx)} >
             <option label=" ">-- select a provider --</option> 
             {conditionOptions.map((conditionOption, idx1) => (
             <option key={idx1}>{conditionOption}</option>
