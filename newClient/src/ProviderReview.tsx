@@ -2,7 +2,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import * as React from 'react';
 import { Col, FormGroup, Input, Label } from 'reactstrap';
 import { IProviderReview } from './ChartReviewForm'
-// import { PertinentCondition } from './PertinentCondition'
 
 interface IProviderReviewProps {
     providerReview: IProviderReview
@@ -11,24 +10,17 @@ interface IProviderReviewProps {
     diagnosisCategoryOptions: string[]
     conditionOptions: string[]
     handleProviderNameChange: (idx: number) => (event: any) => void 
-    // handleAddCondition: (event: any) => void
     handleRemoveProvider: (idx: number) => (event: any) => void
-    // handleConditionNameChange: (providerReview: IProviderReview, idx: number) => (event: any) => void
-    // handleRemoveCondition: (providerReview: IProviderReview, pertinentCondition: IPertinentCondition) => (event: any) => void 
 }
 
 export const ProviderReview: React.SFC<IProviderReviewProps> = (props) => {
   const { 
-      // providerReview, 
       idx, 
       providerOptions,
       diagnosisCategoryOptions,
       conditionOptions, 
       handleProviderNameChange, 
-      // handleAddCondition, 
       handleRemoveProvider, 
-      // handleConditionNameChange,
-      // handleRemoveCondition 
       } = props
   return ( 
     <div key={idx}>

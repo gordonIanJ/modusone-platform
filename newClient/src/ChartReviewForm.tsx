@@ -18,12 +18,6 @@ export interface ICondition {
   details?: string
 }
 
-/*export interface IPertinentCondition extends ICondition {
-  uuid: string 
-  diagnosisCategory: string
-}*/
-
-
 export interface IProviderReview {
   uuid: string 
   providerName: string
@@ -39,10 +33,6 @@ interface IGroup {
   conditions: ICondition[]
 }
 
-/*interface IConditionsByProviderReviewId {
-  [providerReviewId: string]: IPertinentCondition[]
-}*/
-
 interface IChartReviewFormState {
   email: string | undefined  
   accountNumber: string | undefined
@@ -52,7 +42,6 @@ interface IChartReviewFormState {
   nameOfReviewedGroup: string
   providerOptions: string[]
   providerReviews: IProviderReview[]
-  // conditionsByProviderReviewId: IConditionsByProviderReviewId 
   reviewerEmail: string | undefined 
   underReview: boolean | undefined
 }
@@ -61,7 +50,6 @@ export class ChartReviewForm extends React.Component<any, IChartReviewFormState>
   public readonly state: IChartReviewFormState = {
     accountNumber: undefined,
     conditionOptions: ["sweaty palms", "nervous tick"],
-    // conditionsByProviderReviewId: {},
     diagnosisCategoryOptions: ["Accurate", "Omitted"],
     email: undefined, 
     groups: [
@@ -122,59 +110,54 @@ export class ChartReviewForm extends React.Component<any, IChartReviewFormState>
   */ 
 
   public render() {
-    return (
-      <div>
-      <h1>Chart Review for CHI</h1> 
-      <form onSubmit={this.handleSubmit}>
-           <FormGroup row={true}>
-            <Label for="email" sm={2}>Your Email</Label>
-            <Col sm={10}> 
-              <Input type="text" name="reviewerEmail" id="reviewerEmail" onChange={this.handleReviewerEmailChange()} />
-            </Col>
-          </FormGroup>
-          <FormGroup row={true}>
-            <Label for="accountNumber" sm={2}>Account Number</Label>
-            <Col sm={10}> 
-            <Input type="text" name="accountNumber" id="accountNumber" onChange={this.handleAccountNumberChange()} />
-            </Col>
-          </FormGroup>
-          { this.state.providerReviews != null && this.state.providerReviews.length > 0 &&
-          <h2>Conditions</h2>
-          }
-          {this.state.providerReviews.map((providerReview, idx) => (
-            <ProviderReview 
-              providerReview={providerReview} 
-              idx={idx} 
-              providerOptions={this.state.providerOptions}
-              conditionOptions={this.state.conditionOptions}
-              diagnosisCategoryOptions={this.state.diagnosisCategoryOptions}
-              handleProviderNameChange={this.handleProviderNameChange}
-              // handleAddCondition={this.handleAddCondition}
-              handleRemoveProvider={this.handleRemoveProvider}
-              // handleConditionNameChange={this.handleConditionNameChange}
-              // handleRemoveCondition={this.handleRemoveCondition}
-            />
-          ))}
-        <button type="button" onClick={this.handleAddProvider} className="small">Add Condition</button>
-        <button type="button" onClick={this.handleReview} className="small">Review</button>
-      </form>
-      </div>
-    );
+    if (! this.state.underReview) {  
+      return (
+        <div>
+        <h1>Chart Review for CHI</h1> 
+        <form onSubmit={this.handleSubmit}>
+            <FormGroup row={true}>
+              <Label for="email" sm={2}>Your Email</Label>
+              <Col sm={10}> 
+                <Input type="text" name="reviewerEmail" id="reviewerEmail" onChange={this.handleReviewerEmailChange()} />
+              </Col>
+            </FormGroup>
+            <FormGroup row={true}>
+              <Label for="accountNumber" sm={2}>Account Number</Label>
+              <Col sm={10}> 
+              <Input type="text" name="accountNumber" id="accountNumber" onChange={this.handleAccountNumberChange()} />
+              </Col>
+            </FormGroup>
+            { this.state.providerReviews != null && this.state.providerReviews.length > 0 &&
+            <h2>Conditions</h2>
+            }
+            {this.state.providerReviews.map((providerReview, idx) => (
+              <ProviderReview 
+                providerReview={providerReview} 
+                idx={idx} 
+                providerOptions={this.state.providerOptions}
+                conditionOptions={this.state.conditionOptions}
+                diagnosisCategoryOptions={this.state.diagnosisCategoryOptions}
+                handleProviderNameChange={this.handleProviderNameChange}
+                handleRemoveProvider={this.handleRemoveProvider}
+              />
+            ))}
+          <button type="button" onClick={this.handleAddProvider} className="small">Add Condition</button>
+          <button type="button" onClick={this.handleReview} className="small">Review</button>
+        </form>
+        </div>
+      )
+    } else {
+      // tslint:disable-next-line:no-console   
+      console.log(this.state)
+      return(
+        <div>
+          <h1>Here be the summary</h1>
+          <p>Email: {this.state.reviewerEmail}</p>
+          <p>Account number: {this.state.accountNumber}</p>
+        </div>
+      )
+    }
   }
-  
-  /* DRY change handling
-  private changeStateAttributeValue = (stateName: string, attributeKey: string, attributeValue: string) => {
-    var newState = this.state; 
-    var stateBeingChanged = this.state[stateName];
-    stateBeingChanged[attributeKey] = attributeValue;
-    newState[stateName] = stateBeingChanged;
-    this.setState(newState);
-  }
-  */ 
-  
-  /*
-  private handleReviewedGroupChange = () => {}
-  */
   
   private handleReviewerEmailChange = () => (evt: any) => {
     this.setState({reviewerEmail: evt.target.value})
