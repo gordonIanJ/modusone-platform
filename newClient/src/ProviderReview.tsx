@@ -7,7 +7,7 @@ interface IProviderReviewProps {
     providerReview: IProviderReview
     idx: number 
     providerOptions: string[]
-    diagnosisCategoryOptions: string[]
+    diagnosisCategorySelectOptions: string[]
     conditionOptions: string[]
     handleProviderReviewChange: (idx: number) => (event: any) => void 
     handleRemoveProvider: (idx: number) => (event: any) => void
@@ -17,7 +17,7 @@ export const ProviderReview: React.SFC<IProviderReviewProps> = (props) => {
   const { 
       idx, 
       providerOptions,
-      diagnosisCategoryOptions,
+      diagnosisCategorySelectOptions,
       conditionOptions, 
       handleProviderReviewChange, 
       handleRemoveProvider, 
@@ -41,7 +41,7 @@ export const ProviderReview: React.SFC<IProviderReviewProps> = (props) => {
         <Col sm={10}> 
         <Input type="select" name="diagnosisCategory" id={`Diagnosis Category #${idx + 1}`} onChange={handleProviderReviewChange(idx)} >
             <option label=" ">-- select a provider --</option> 
-            {diagnosisCategoryOptions.map((diagnosisCategoryOption, idx1) => (
+            {diagnosisCategorySelectOptions.map((diagnosisCategoryOption, idx1) => (
             <option key={idx1}>{diagnosisCategoryOption}</option>
         ))}
         </Input> 

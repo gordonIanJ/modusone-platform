@@ -29,20 +29,21 @@ interface IGroups {
 interface IDynamicSelectOptions {
   providers: string[]
   conditions: string[]
+  hospitals?: string[]
 }
 
 interface IChartReviewFormState {
-  diagnosisCategoryOptions: string[]
+  diagnosisCategorySelectOptions: string[]
   groups: IGroups
   groupUnderReview: string
   dynamicSelectOptions: IDynamicSelectOptions
-  providerReviews: IProviderReview[]
+  providerConditions: IProviderReview[]
   underReview: boolean
 }
 
 export class ChartReviewForm extends React.Component<any, IChartReviewFormState> {
   public readonly state: IChartReviewFormState = {
-    diagnosisCategoryOptions: ["Accurate", "Omitted"],
+    diagnosisCategorySelectOptions: ["Accurate", "Omitted"],
     dynamicSelectOptions: {
       conditions: [],
       providers: []
@@ -61,11 +62,31 @@ export class ChartReviewForm extends React.Component<any, IChartReviewFormState>
           ]
         } 
       },
+      'General Surgery': {
+        selectOptions: {
+          conditions: [
+            "Broken Balls",
+            "Sour Grapes"
+          ],
+          hospitals: [
+            "Hotel California",
+            "Alcatraz"
+          ],
+          providers: [
+              "Sailor",
+              "Lonely Lady"
+          ]
+        } 
+      },
       Hospitalists: {
         selectOptions: {
           conditions: [
             "Sweaty Palms",
             "Nervous Tick"
+          ],
+          hospitals: [
+            "BFE",
+            "Deathbed"
           ],
           providers: [
               "Rob",
@@ -74,7 +95,7 @@ export class ChartReviewForm extends React.Component<any, IChartReviewFormState>
         } 
       }
     }, 
-    providerReviews: [],
+    providerConditions: [],
     underReview: false 
   };
   
@@ -114,7 +135,7 @@ export class ChartReviewForm extends React.Component<any, IChartReviewFormState>
     if (! this.state.underReview) {
       return (
         <div>
-        <h1>Chart Review for CHI</h1> 
+        <h1>Chart Review</h1> 
         <form onSubmit={this.handleSubmit}>
             <FormGroup row={true}>
               <Label for="email" sm={2}>Your Email</Label>
@@ -151,25 +172,30 @@ export class ChartReviewForm extends React.Component<any, IChartReviewFormState>
             </Input> 
             </Col>
             </FormGroup>
-            { (this.state.groupUnderReview === 'Hospitalists' || this.state.groupUnderReview === 'Hospitalists') && 
+            { (this.state.groupUnderReview === 'Hospitalists' || this.state.groupUnderReview === 'General Surgery') && 
               <FormGroup row={true}>
-                <Label for="hospitalName" sm={2}>Hospital</Label>
-                <Col sm={10}> 
-                <Input type="text" name="hospitalName" id="hospitalName" onChange={this.handleChange} />
-                </Col>
+              <Label for="hospitalName" sm={2}>Hospital</Label>
+              <Col sm={10}> 
+                <Input type="select" name="hospitalName" id="hospitalName" onChange={this.handleChange} >
+                  <option label=" ">-- select a hospital --</option> 
+                  { this.state.dynamicSelectOptions.hospitals != null && this.state.dynamicSelectOptions.hospitals.map((hospitalOption, idx1) => (
+                    <option key={idx1}>{hospitalOption}</option>
+                  ))}
+              </Input> 
+              </Col>
               </FormGroup>
             }
-            { this.state.providerReviews != null && this.state.providerReviews.length > 0 &&
+            { this.state.providerConditions != null && this.state.providerConditions.length > 0 &&
             <h2>Conditions</h2>
             }
-            {this.state.providerReviews.map((providerReview, idx) => (
+            {this.state.providerConditions.map((providerReview, idx) => (
               <ProviderReview
                 key={idx} 
                 providerReview={providerReview} 
                 idx={idx} 
                 providerOptions={this.state.dynamicSelectOptions.providers}
                 conditionOptions={this.state.dynamicSelectOptions.conditions}
-                diagnosisCategoryOptions={this.state.diagnosisCategoryOptions}
+                diagnosisCategorySelectOptions={this.state.diagnosisCategorySelectOptions}
                 handleProviderReviewChange={this.handleProviderReviewChange}
                 handleRemoveProvider={this.handleRemoveProvider}
               />
@@ -201,8 +227,6 @@ export class ChartReviewForm extends React.Component<any, IChartReviewFormState>
   
   private handleReview = () => {
     this.setState({underReview: true}) 
-    // tslint:disable-next-line:no-console   
-     console.log(this.state)
   }
   
   private handleSubmit = () => {
@@ -211,23 +235,23 @@ export class ChartReviewForm extends React.Component<any, IChartReviewFormState>
   }
   
   private handleProviderReviewChange = (idx: number) => (evt: any) => {
-    const newProviders = this.state.providerReviews.map((provider, sidx) => {
+    const newProviders = this.state.providerConditions.map((provider, sidx) => {
       if (idx !== sidx) { return provider; }
       return { ...provider, [evt.target.name]: evt.target.value };
     });
-    this.setState({ providerReviews: newProviders }); // TODO: Make this a callback
+    this.setState({ providerConditions: newProviders }); // TODO: Make this a callback
   }
   
   private handleAddProvider = () => {
     this.setState( (previousState, props) => {
       const uniqueId: string = uuidv1();
-      return {providerReviews: previousState.providerReviews.concat([{ uuid: uniqueId, providerName: '', conditionName: '', diagnosisCategory: '', conditionDetail: '' }])}
+      return {providerConditions: previousState.providerConditions.concat([{ uuid: uniqueId, providerName: '', conditionName: '', diagnosisCategory: '', conditionDetail: '' }])}
     });
   }
 
   private handleRemoveProvider = (idx: number) => () => {
     this.setState({
-      providerReviews: this.state.providerReviews.filter((s, sidx) => idx !== sidx)
+      providerConditions: this.state.providerConditions.filter((s, sidx) => idx !== sidx)
     });
   }
 
