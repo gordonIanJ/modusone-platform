@@ -32,19 +32,16 @@ interface IDynamicSelectOptions {
 }
 
 interface IChartReviewFormState {
-  conditionOptions: string[]
   diagnosisCategoryOptions: string[]
   groups: IGroups
   groupUnderReview: string
   dynamicSelectOptions: IDynamicSelectOptions
-  providerOptions: string[]
   providerReviews: IProviderReview[]
   underReview: boolean
 }
 
 export class ChartReviewForm extends React.Component<any, IChartReviewFormState> {
   public readonly state: IChartReviewFormState = {
-    conditionOptions: ["sweaty palms", "nervous tick"],
     diagnosisCategoryOptions: ["Accurate", "Omitted"],
     dynamicSelectOptions: {
       conditions: [],
@@ -52,17 +49,19 @@ export class ChartReviewForm extends React.Component<any, IChartReviewFormState>
     }, 
     groupUnderReview: "",
     groups: { 
-      '': {
+      Bariatrics: {
         selectOptions: {
           conditions: [
-            ""
+            "Swollen Nuts",
+            "Bad Blood"
           ],
           providers: [
-            ""
+              "Jack",
+              "InnaBox"
           ]
-        }
-    }, 
-      'bariatrics': {
+        } 
+      },
+      Hospitalists: {
         selectOptions: {
           conditions: [
             "Sweaty Palms",
@@ -74,8 +73,7 @@ export class ChartReviewForm extends React.Component<any, IChartReviewFormState>
           ]
         } 
       }
-    },
-    providerOptions: ["Rob","Roy"],
+    }, 
     providerReviews: [],
     underReview: false 
   };
@@ -153,6 +151,14 @@ export class ChartReviewForm extends React.Component<any, IChartReviewFormState>
             </Input> 
             </Col>
             </FormGroup>
+            { (this.state.groupUnderReview === 'Hospitalists' || this.state.groupUnderReview === 'Hospitalists') && 
+              <FormGroup row={true}>
+                <Label for="hospitalName" sm={2}>Hospital</Label>
+                <Col sm={10}> 
+                <Input type="text" name="hospitalName" id="hospitalName" onChange={this.handleChange} />
+                </Col>
+              </FormGroup>
+            }
             { this.state.providerReviews != null && this.state.providerReviews.length > 0 &&
             <h2>Conditions</h2>
             }
@@ -187,7 +193,7 @@ export class ChartReviewForm extends React.Component<any, IChartReviewFormState>
   private handleChange = (evt: any) => {
     const newState = this.state
     newState[evt.target.name] = evt.target.value
-    if (evt.target.name === 'groupUnderReview') {
+    if (evt.target.name === 'groupUnderReview' && newState.groups[evt.target.value] != null) {
       newState.dynamicSelectOptions = newState.groups[evt.target.value].selectOptions
     }
     this.setState(newState)  
