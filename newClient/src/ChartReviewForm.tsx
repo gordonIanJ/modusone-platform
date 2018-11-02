@@ -27,38 +27,35 @@ export interface IProviderReview {
 }
 
 interface IGroup {
-  name: string;
   hospital?: string;
   providers: IProvider[]
   conditions: ICondition[]
 }
 
+interface IGroups {
+  [key: string]: IGroup
+}
+
 interface IChartReviewFormState {
-  // accountNumber: string
   conditionOptions: string[]
   diagnosisCategoryOptions: string[]
-  groups: IGroup[]
-  // nameOfReviewedGroup: string
+  groups: IGroups
   providerOptions: string[]
   providerReviews: IProviderReview[]
-  // reviewerEmail: string
   underReview: boolean
 }
 
 export class ChartReviewForm extends React.Component<any, IChartReviewFormState> {
   public readonly state: IChartReviewFormState = {
-    // accountNumber: undefined,
     conditionOptions: ["sweaty palms", "nervous tick"],
     diagnosisCategoryOptions: ["Accurate", "Omitted"],
-    // email: undefined, 
-    groups: [
-      {
+    groups: { 
+      'bariatrics': {
         conditions: [
           {
             name: "Major Depression"
           }
         ],
-        name: "bariatrics",
         providers: [
           {
             name: "Rob"
@@ -68,11 +65,9 @@ export class ChartReviewForm extends React.Component<any, IChartReviewFormState>
           }
         ]
       }
-    ],
-    // nameOfReviewedGroup: "bariatrics",
+    },
     providerOptions: ["Rob","Roy"],
     providerReviews: [],
-    // reviewerEmail: "", 
     underReview: false 
   };
   
@@ -168,15 +163,6 @@ export class ChartReviewForm extends React.Component<any, IChartReviewFormState>
       )
     }
   }
-  
-  /*
-  private handleReviewerEmailChange = () => (evt: any) => {
-    this.setState({reviewerEmail: evt.target.value})
-  }
-  
-  private handleAccountNumberChange = () => (evt: any) => {
-    this.setState({ accountNumber: evt.target.value })
-  }*/
   
   private handleReview = () => {
     this.setState({underReview: true}) 
