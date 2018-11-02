@@ -18,17 +18,18 @@ export interface ICondition {
   details?: string
 }
 
-export interface IPertinentCondition extends ICondition {
+/*export interface IPertinentCondition extends ICondition {
   uuid: string 
   diagnosisCategory: string
-}
+}*/
+
 
 export interface IProviderReview {
   uuid: string 
   providerName: string
   conditionName: string
   diagnosisCategory: string
-  pertinentConditions?: IPertinentCondition[]
+  // pertinentConditions?: IPertinentCondition[]
 }
 
 interface IGroup {
@@ -38,9 +39,9 @@ interface IGroup {
   conditions: ICondition[]
 }
 
-interface IConditionsByProviderReviewId {
+/*interface IConditionsByProviderReviewId {
   [providerReviewId: string]: IPertinentCondition[]
-}
+}*/
 
 interface IChartReviewFormState {
   email: string | undefined  
@@ -51,7 +52,7 @@ interface IChartReviewFormState {
   nameOfReviewedGroup: string
   providerOptions: string[]
   providerReviews: IProviderReview[]
-  conditionsByProviderReviewId: IConditionsByProviderReviewId 
+  // conditionsByProviderReviewId: IConditionsByProviderReviewId 
   reviewerEmail: string | undefined 
   underReview: boolean | undefined
 }
@@ -60,7 +61,7 @@ export class ChartReviewForm extends React.Component<any, IChartReviewFormState>
   public readonly state: IChartReviewFormState = {
     accountNumber: undefined,
     conditionOptions: ["sweaty palms", "nervous tick"],
-    conditionsByProviderReviewId: {},
+    // conditionsByProviderReviewId: {},
     diagnosisCategoryOptions: ["Accurate", "Omitted"],
     email: undefined, 
     groups: [
@@ -194,67 +195,6 @@ export class ChartReviewForm extends React.Component<any, IChartReviewFormState>
     // console.log("Submit handled")
   }
 
-  /*private handleConditionNameChange = (providerReview: IProviderReview, pertinentConditionIndex: number) => (evt: any) => {
-    const newConditions = this.state.providerReviews[providerReview.providerName].map((condition: object, sidx: number) => {
-      if (pertinentConditionIndex !== sidx) { return condition; }
-      return { ...condition, name: evt.target.value };
-    });
-
-    this.setState({ providerReviews: newConditions }); // TODO: Make this a callback
-  }*/
-  
-  /*private handleAddCondition = () => {
-    this.setState({
-      providerReviews: this.state.providerReviews.concat([{ uuid: "", providerName: "", conditionName: "", diagnosisCategory: "" }])
-    });
-  }*/  
-  
-  /*
-  private handleAddCondition = (event: any) => {
-    const reviewId = event.currentTarget.id    
-    this.setState( (previousState, props) => {
-      // TODO:
-      // - Get a copy of the matching providerReview from previousState.providerReviews[]
-      const thisReview = previousState.providerReviews.find(x => x.uuid === reviewId)
-      // tslint:disable-next-line:no-console   
-      console.log(thisReview)
-      // - Push a pertinentCondition onto pertinentConditions[] of the copy
-      if (thisReview !== undefined) {
-        if (thisReview.pertinentConditions !== undefined) {
-          // tslint:disable-next-line:no-console
-          console.log(thisReview.pertinentConditions)   
-          const uniqueId = uuidv1() 
-          thisReview.pertinentConditions.push({name: "", uuid: uniqueId, diagnosisCategory: ""})
-          // tslint:disable-next-line:no-console
-          console.log(thisReview.pertinentConditions)   
-        }
-        // - Get a copy of the previousState.providerReviews[] filtered !matching
-        const filteredReviews = previousState.providerReviews.filter((y) => {
-          return !y.uuid.match(reviewId)
-        });
-        // - Push the providerReview with the added pertinentCondtion to the filtered copy
-        filteredReviews.push(thisReview)
-        // tslint:disable-next-line:no-console   
-        console.log(filteredReviews) 
-        // - Return the filtered copy
-        return { providerReviews: filteredReviews }
-      } else {
-        return {providerReviews: previousState.providerReviews}
-      }
-    }) 
-  }*/
-
-  /*private handleRemoveCondition = (providerReview: IProviderReview, pertinentCondition: IPertinentCondition) => () => {
-    this.setState( (previousState, props) => {
-      const filteredReviews = previousState.providerReviews.filter((providerReviewItem) => {
-        return !providerReviewItem.uuid.match(providerReview.uuid)
-      }); 
-      return {providerReviews: filteredReviews.filter((pertinentConditionItem) => {
-        return !pertinentConditionItem.uuid.match(pertinentCondition.uuid)
-      })} 
-    })
-  }*/
-  
   private handleProviderNameChange = (idx: number) => (evt: any) => {
     const newProviders = this.state.providerReviews.map((provider, sidx) => {
       // tslint:disable-next-line:no-console   
@@ -272,7 +212,7 @@ export class ChartReviewForm extends React.Component<any, IChartReviewFormState>
   private handleAddProvider = () => {
     this.setState( (previousState, props) => {
       const uniqueId: string = uuidv1();
-      return {providerReviews: previousState.providerReviews.concat([{ uuid: uniqueId, providerName: '', conditionName: '', diagnosisCategory: '', pertinentConditions: [] }])}
+      return {providerReviews: previousState.providerReviews.concat([{ uuid: uniqueId, providerName: '', conditionName: '', diagnosisCategory: '' }])}
     });
   }
 
@@ -282,11 +222,4 @@ export class ChartReviewForm extends React.Component<any, IChartReviewFormState>
     });
   }
 
-  /*
-  private handleRemoveProvider = (idx: number) => () => {
-    this.setState(() => {
-      providerReviews: this.state.providerReviews.filter((s, sidx) => idx !== sidx)
-    });
-  }
-  */
 }
