@@ -34,24 +34,23 @@ interface IGroup {
 }
 
 interface IChartReviewFormState {
-  email: string | undefined  
-  accountNumber: string | undefined
+  // accountNumber: string
   conditionOptions: string[]
   diagnosisCategoryOptions: string[]
   groups: IGroup[]
-  nameOfReviewedGroup: string
+  // nameOfReviewedGroup: string
   providerOptions: string[]
   providerReviews: IProviderReview[]
-  reviewerEmail: string | undefined 
-  underReview: boolean | undefined
+  // reviewerEmail: string
+  underReview: boolean
 }
 
 export class ChartReviewForm extends React.Component<any, IChartReviewFormState> {
   public readonly state: IChartReviewFormState = {
-    accountNumber: undefined,
+    // accountNumber: undefined,
     conditionOptions: ["sweaty palms", "nervous tick"],
     diagnosisCategoryOptions: ["Accurate", "Omitted"],
-    email: undefined, 
+    // email: undefined, 
     groups: [
       {
         conditions: [
@@ -70,11 +69,11 @@ export class ChartReviewForm extends React.Component<any, IChartReviewFormState>
         ]
       }
     ],
-    nameOfReviewedGroup: "bariatrics",
+    // nameOfReviewedGroup: "bariatrics",
     providerOptions: ["Rob","Roy"],
     providerReviews: [],
-    reviewerEmail: "", 
-    underReview: undefined
+    // reviewerEmail: "", 
+    underReview: false 
   };
   
   /* TODO Initialize the state
@@ -125,6 +124,18 @@ export class ChartReviewForm extends React.Component<any, IChartReviewFormState>
               <Label for="accountNumber" sm={2}>Account Number</Label>
               <Col sm={10}> 
               <Input type="text" name="accountNumber" id="accountNumber" onChange={this.handleChange} />
+              </Col>
+            </FormGroup>
+            <FormGroup row={true}>
+              <Label for="dateOfAdmission" sm={2}>Date of Admission</Label>
+              <Col sm={10}> 
+              <Input type="date" name="dateOfAdmission" id="dateOfAdmission" onChange={this.handleChange} />
+              </Col>
+            </FormGroup>
+            <FormGroup row={true}>
+              <Label for="dateOfRelease" sm={2}>Date of Release</Label>
+              <Col sm={10}> 
+              <Input type="date" name="dateOfRelease" id="dateOfRelease" onChange={this.handleChange} />
               </Col>
             </FormGroup>
             { this.state.providerReviews != null && this.state.providerReviews.length > 0 &&
