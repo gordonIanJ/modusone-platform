@@ -118,13 +118,13 @@ export class ChartReviewForm extends React.Component<any, IChartReviewFormState>
             <FormGroup row={true}>
               <Label for="email" sm={2}>Your Email</Label>
               <Col sm={10}> 
-                <Input type="text" name="reviewerEmail" id="reviewerEmail" onChange={this.handleReviewerEmailChange()} />
+                <Input type="text" name="reviewerEmail" id="reviewerEmail" onChange={this.handleChange} />
               </Col>
             </FormGroup>
             <FormGroup row={true}>
               <Label for="accountNumber" sm={2}>Account Number</Label>
               <Col sm={10}> 
-              <Input type="text" name="accountNumber" id="accountNumber" onChange={this.handleAccountNumberChange()} />
+              <Input type="text" name="accountNumber" id="accountNumber" onChange={this.handleChange} />
               </Col>
             </FormGroup>
             { this.state.providerReviews != null && this.state.providerReviews.length > 0 &&
@@ -152,21 +152,20 @@ export class ChartReviewForm extends React.Component<any, IChartReviewFormState>
       console.log(this.state)
       return(
         <div>
-          <h1>Here be the summary</h1>
-          <p>Email: {this.state.reviewerEmail}</p>
-          <p>Account number: {this.state.accountNumber}</p>
+          <h1>Here be the summary!</h1>
         </div>
       )
     }
   }
   
+  /*
   private handleReviewerEmailChange = () => (evt: any) => {
     this.setState({reviewerEmail: evt.target.value})
   }
   
   private handleAccountNumberChange = () => (evt: any) => {
     this.setState({ accountNumber: evt.target.value })
-  }
+  }*/
   
   private handleReview = () => {
     this.setState({underReview: true}) 
@@ -179,6 +178,14 @@ export class ChartReviewForm extends React.Component<any, IChartReviewFormState>
     // console.log("Submit handled")
   }
 
+  private handleChange = (evt: any) => {
+    // tslint:disable-next-line:no-console   
+    console.log("In handleChange...")
+    const newProviders = this.state
+    newProviders[evt.target.name] = evt.target.value
+    return(newProviders)
+  }
+  
   private handleProviderReviewChange = (idx: number) => (evt: any) => {
     const newProviders = this.state.providerReviews.map((provider, sidx) => {
       if (idx !== sidx) { return provider; }
