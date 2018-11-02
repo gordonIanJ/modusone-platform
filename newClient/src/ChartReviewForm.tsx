@@ -9,15 +9,6 @@ https://github.com/piotrwitek/react-redux-typescript-guide#stateful-components--
 https://goshakkk.name/array-form-inputs/
 */
 
-interface IProvider {
-  name: string
-}
-
-export interface ICondition {
-  name: string
-  details?: string
-}
-
 export interface IProviderReview {
   uuid: string 
   providerName: string
@@ -28,18 +19,24 @@ export interface IProviderReview {
 
 interface IGroup {
   hospital?: string;
-  providers: IProvider[]
-  conditions: ICondition[]
+  selectOptions: IDynamicSelectOptions
 }
 
 interface IGroups {
   [key: string]: IGroup
 }
 
+interface IDynamicSelectOptions {
+  providers: string[]
+  conditions: string[]
+}
+
 interface IChartReviewFormState {
   conditionOptions: string[]
   diagnosisCategoryOptions: string[]
   groups: IGroups
+  groupUnderReview: string
+  dynamicSelectOptions: IDynamicSelectOptions
   providerOptions: string[]
   providerReviews: IProviderReview[]
   underReview: boolean
@@ -49,21 +46,33 @@ export class ChartReviewForm extends React.Component<any, IChartReviewFormState>
   public readonly state: IChartReviewFormState = {
     conditionOptions: ["sweaty palms", "nervous tick"],
     diagnosisCategoryOptions: ["Accurate", "Omitted"],
+    dynamicSelectOptions: {
+      conditions: [],
+      providers: []
+    }, 
+    groupUnderReview: "",
     groups: { 
+      '': {
+        selectOptions: {
+          conditions: [
+            ""
+          ],
+          providers: [
+            ""
+          ]
+        }
+    }, 
       'bariatrics': {
-        conditions: [
-          {
-            name: "Major Depression"
-          }
-        ],
-        providers: [
-          {
-            name: "Rob"
-          },
-          {
-            name: "Roy"
-          }
-        ]
+        selectOptions: {
+          conditions: [
+            "Sweaty Palms",
+            "Nervous Tick"
+          ],
+          providers: [
+              "Rob",
+              "Roy"
+          ]
+        } 
       }
     },
     providerOptions: ["Rob","Roy"],
@@ -104,7 +113,7 @@ export class ChartReviewForm extends React.Component<any, IChartReviewFormState>
   */ 
 
   public render() {
-    if (! this.state.underReview) {  
+    if (! this.state.underReview) {
       return (
         <div>
         <h1>Chart Review for CHI</h1> 
@@ -133,6 +142,17 @@ export class ChartReviewForm extends React.Component<any, IChartReviewFormState>
               <Input type="date" name="dateOfRelease" id="dateOfRelease" onChange={this.handleChange} />
               </Col>
             </FormGroup>
+            <FormGroup row={true}>
+            <Label for="groupUnderReview" sm={2}>Group</Label>
+            <Col sm={10}> 
+            <Input type="select" name="groupUnderReview" id="groupUnderReview" onChange={this.handleChange} >
+                <option label=" ">-- select a group --</option> 
+                {Object.keys(this.state.groups).map((groupOption, idx1) => (
+                <option key={idx1}>{groupOption}</option>
+            ))}
+            </Input> 
+            </Col>
+            </FormGroup>
             { this.state.providerReviews != null && this.state.providerReviews.length > 0 &&
             <h2>Conditions</h2>
             }
@@ -141,8 +161,8 @@ export class ChartReviewForm extends React.Component<any, IChartReviewFormState>
                 key={idx} 
                 providerReview={providerReview} 
                 idx={idx} 
-                providerOptions={this.state.providerOptions}
-                conditionOptions={this.state.conditionOptions}
+                providerOptions={this.state.dynamicSelectOptions.providers}
+                conditionOptions={this.state.dynamicSelectOptions.conditions}
                 diagnosisCategoryOptions={this.state.diagnosisCategoryOptions}
                 handleProviderReviewChange={this.handleProviderReviewChange}
                 handleRemoveProvider={this.handleRemoveProvider}
@@ -163,6 +183,15 @@ export class ChartReviewForm extends React.Component<any, IChartReviewFormState>
       )
     }
   }
+
+  private handleChange = (evt: any) => {
+    const newState = this.state
+    newState[evt.target.name] = evt.target.value
+    if (evt.target.name === 'groupUnderReview') {
+      newState.dynamicSelectOptions = newState.groups[evt.target.value].selectOptions
+    }
+    this.setState(newState)  
+  }
   
   private handleReview = () => {
     this.setState({underReview: true}) 
@@ -173,14 +202,6 @@ export class ChartReviewForm extends React.Component<any, IChartReviewFormState>
   private handleSubmit = () => {
     // tslint:disable-next-line:no-console   
     // console.log("Submit handled")
-  }
-
-  private handleChange = (evt: any) => {
-    // tslint:disable-next-line:no-console   
-    console.log("In handleChange...")
-    const newProviders = this.state
-    newProviders[evt.target.name] = evt.target.value
-    return(newProviders)
   }
   
   private handleProviderReviewChange = (idx: number) => (evt: any) => {
