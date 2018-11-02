@@ -23,7 +23,6 @@ export interface IProviderReview {
   providerName: string
   conditionName: string
   diagnosisCategory: string
-  // pertinentConditions?: IPertinentCondition[]
 }
 
 interface IGroup {
@@ -137,7 +136,7 @@ export class ChartReviewForm extends React.Component<any, IChartReviewFormState>
                 providerOptions={this.state.providerOptions}
                 conditionOptions={this.state.conditionOptions}
                 diagnosisCategoryOptions={this.state.diagnosisCategoryOptions}
-                handleProviderNameChange={this.handleProviderNameChange}
+                handleProviderReviewChange={this.handleProviderReviewChange}
                 handleRemoveProvider={this.handleRemoveProvider}
               />
             ))}
@@ -178,15 +177,9 @@ export class ChartReviewForm extends React.Component<any, IChartReviewFormState>
     // console.log("Submit handled")
   }
 
-  private handleProviderNameChange = (idx: number) => (evt: any) => {
+  private handleProviderReviewChange = (idx: number) => (evt: any) => {
     const newProviders = this.state.providerReviews.map((provider, sidx) => {
-      // tslint:disable-next-line:no-console   
-      console.log("In handleProviderNameChange...")
-      // tslint:disable-next-line:no-console   
-      console.log(this.state)
       if (idx !== sidx) { return provider; }
-      // tslint:disable-next-line:no-console   
-      console.log("idx === sidx")
       return { ...provider, [evt.target.name]: evt.target.value };
     });
     this.setState({ providerReviews: newProviders }); // TODO: Make this a callback
