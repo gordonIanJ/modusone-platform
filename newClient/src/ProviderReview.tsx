@@ -58,6 +58,12 @@ export const ProviderReview: React.SFC<IProviderReviewProps> = (props) => {
         </Input> 
         </Col>
         </FormGroup>
+        <FormGroup row={true}>
+          <Label for="conditionDetail" sm={2}>Condition Detail</Label>
+          <Col sm={10}> 
+            <Input type="textarea" name="conditionDetail" id="conditionDetail" onChange={handleProviderReviewChange(idx)} />
+          </Col>
+        </FormGroup>
         <button type="button" onClick={handleRemoveProvider(idx)} className="small">-</button>
     </div>)
 }

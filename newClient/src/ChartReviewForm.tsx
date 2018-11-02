@@ -23,6 +23,7 @@ export interface IProviderReview {
   providerName: string
   conditionName: string
   diagnosisCategory: string
+  conditionDetail: string
 }
 
 interface IGroup {
@@ -130,7 +131,8 @@ export class ChartReviewForm extends React.Component<any, IChartReviewFormState>
             <h2>Conditions</h2>
             }
             {this.state.providerReviews.map((providerReview, idx) => (
-              <ProviderReview 
+              <ProviderReview
+                key={idx} 
                 providerReview={providerReview} 
                 idx={idx} 
                 providerOptions={this.state.providerOptions}
@@ -188,7 +190,7 @@ export class ChartReviewForm extends React.Component<any, IChartReviewFormState>
   private handleAddProvider = () => {
     this.setState( (previousState, props) => {
       const uniqueId: string = uuidv1();
-      return {providerReviews: previousState.providerReviews.concat([{ uuid: uniqueId, providerName: '', conditionName: '', diagnosisCategory: '' }])}
+      return {providerReviews: previousState.providerReviews.concat([{ uuid: uniqueId, providerName: '', conditionName: '', diagnosisCategory: '', conditionDetail: '' }])}
     });
   }
 
