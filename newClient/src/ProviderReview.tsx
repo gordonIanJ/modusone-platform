@@ -1,8 +1,8 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import * as React from 'react';
 import { Col, FormGroup, Input, Label } from 'reactstrap';
-import { IPertinentCondition, IProviderReview } from './ChartReviewForm'
-import { PertinentCondition } from './PertinentCondition'
+import { IProviderReview } from './ChartReviewForm'
+// import { PertinentCondition } from './PertinentCondition'
 
 interface IProviderReviewProps {
     providerReview: IProviderReview
@@ -11,15 +11,15 @@ interface IProviderReviewProps {
     diagnosisCategoryOptions: string[]
     conditionOptions: string[]
     handleProviderNameChange: (idx: number) => (event: any) => void 
-    handleAddCondition: (event: any) => void
+    // handleAddCondition: (event: any) => void
     handleRemoveProvider: (idx: number) => (event: any) => void
-    handleConditionNameChange: (providerReview: IProviderReview, idx: number) => (event: any) => void
-    handleRemoveCondition: (providerReview: IProviderReview, pertinentCondition: IPertinentCondition) => (event: any) => void 
+    // handleConditionNameChange: (providerReview: IProviderReview, idx: number) => (event: any) => void
+    // handleRemoveCondition: (providerReview: IProviderReview, pertinentCondition: IPertinentCondition) => (event: any) => void 
 }
 
 export const ProviderReview: React.SFC<IProviderReviewProps> = (props) => {
   const { 
-      providerReview, 
+      // providerReview, 
       idx, 
       providerOptions,
       diagnosisCategoryOptions,
@@ -27,8 +27,9 @@ export const ProviderReview: React.SFC<IProviderReviewProps> = (props) => {
       handleProviderNameChange, 
       // handleAddCondition, 
       handleRemoveProvider, 
-      handleConditionNameChange,
-      handleRemoveCondition } = props
+      // handleConditionNameChange,
+      // handleRemoveCondition 
+      } = props
   return ( 
     <div key={idx}>
         <h3>{`Condition #${idx + 1}`}</h3> 
@@ -65,19 +66,6 @@ export const ProviderReview: React.SFC<IProviderReviewProps> = (props) => {
         </Input> 
         </Col>
         </FormGroup>
-        {providerReview.pertinentConditions != null && providerReview.pertinentConditions.length > 0 &&
-        <h4>{`Conditions for Provider #${idx + 1}`}</h4>
-        }
-        {providerReview.pertinentConditions != null && providerReview.pertinentConditions.map((pertinentCondition: IPertinentCondition, idx2: number) => (
-        <PertinentCondition
-          idx={idx2}
-          conditionOptions={conditionOptions}
-          providerReview={providerReview}
-          pertinentCondition={pertinentCondition}
-          handleConditionNameChange={handleConditionNameChange}
-          handleRemoveCondition={handleRemoveCondition} 
-        />
-        ))}
         <button type="button" onClick={handleRemoveProvider(idx)} className="small">-</button>
     </div>)
 }

@@ -148,10 +148,10 @@ export class ChartReviewForm extends React.Component<any, IChartReviewFormState>
               conditionOptions={this.state.conditionOptions}
               diagnosisCategoryOptions={this.state.diagnosisCategoryOptions}
               handleProviderNameChange={this.handleProviderNameChange}
-              handleAddCondition={this.handleAddCondition}
+              // handleAddCondition={this.handleAddCondition}
               handleRemoveProvider={this.handleRemoveProvider}
-              handleConditionNameChange={this.handleConditionNameChange}
-              handleRemoveCondition={this.handleRemoveCondition}
+              // handleConditionNameChange={this.handleConditionNameChange}
+              // handleRemoveCondition={this.handleRemoveCondition}
             />
           ))}
         <button type="button" onClick={this.handleAddProvider} className="small">Add Condition</button>
@@ -194,20 +194,20 @@ export class ChartReviewForm extends React.Component<any, IChartReviewFormState>
     // console.log("Submit handled")
   }
 
-  private handleConditionNameChange = (providerReview: IProviderReview, pertinentConditionIndex: number) => (evt: any) => {
+  /*private handleConditionNameChange = (providerReview: IProviderReview, pertinentConditionIndex: number) => (evt: any) => {
     const newConditions = this.state.providerReviews[providerReview.providerName].map((condition: object, sidx: number) => {
       if (pertinentConditionIndex !== sidx) { return condition; }
       return { ...condition, name: evt.target.value };
     });
 
     this.setState({ providerReviews: newConditions }); // TODO: Make this a callback
-  }
+  }*/
   
-  private handleAddCondition = () => {
+  /*private handleAddCondition = () => {
     this.setState({
       providerReviews: this.state.providerReviews.concat([{ uuid: "", providerName: "", conditionName: "", diagnosisCategory: "" }])
     });
-  }  
+  }*/  
   
   /*
   private handleAddCondition = (event: any) => {
@@ -244,7 +244,7 @@ export class ChartReviewForm extends React.Component<any, IChartReviewFormState>
     }) 
   }*/
 
-  private handleRemoveCondition = (providerReview: IProviderReview, pertinentCondition: IPertinentCondition) => () => {
+  /*private handleRemoveCondition = (providerReview: IProviderReview, pertinentCondition: IPertinentCondition) => () => {
     this.setState( (previousState, props) => {
       const filteredReviews = previousState.providerReviews.filter((providerReviewItem) => {
         return !providerReviewItem.uuid.match(providerReview.uuid)
@@ -253,7 +253,7 @@ export class ChartReviewForm extends React.Component<any, IChartReviewFormState>
         return !pertinentConditionItem.uuid.match(pertinentCondition.uuid)
       })} 
     })
-  }
+  }*/
   
   private handleProviderNameChange = (idx: number) => (evt: any) => {
     const newProviders = this.state.providerReviews.map((provider, sidx) => {
