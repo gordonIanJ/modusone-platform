@@ -1,9 +1,14 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-import * as React from 'react';
-import { Col, FormGroup, Input, Label } from 'reactstrap';
+import 'bootstrap/dist/css/bootstrap.min.css'
+import * as React from 'react'
+import { Col, FormGroup, Input, Label } from 'reactstrap'
 import {v1 as uuidv1} from 'uuid'
 import { ProviderReview } from './ProviderReview'
 import { readModel } from './readmodel'
+// import { render } from "react-dom"
+
+import "react-table/react-table.css"
+
+import ReactTable from "react-table"
 
 /*
 https://github.com/piotrwitek/react-redux-typescript-guide#stateful-components---class
@@ -19,7 +24,7 @@ export interface IProviderReview {
 }
 
 interface IGroup {
-  hospital?: string;
+  hospital?: string
   selectOptions: IDynamicSelectOptions
 }
 
@@ -58,7 +63,7 @@ export class ChartReviewForm extends React.Component<IChartReviewFormProps, ICha
     groups: {},
     providerConditions: [],
     underReview: false 
-  };
+  }
 
   public componentDidMount() {
     this.setState({diagnosisCategorySelectOptions: readModel.diagnosisCategorySelectOptions})
@@ -155,9 +160,48 @@ export class ChartReviewForm extends React.Component<IChartReviewFormProps, ICha
     } else {
       // tslint:disable-next-line:no-console   
       console.log(this.state)
+      /*const data = {
+        'lastName': 'Gordon'
+      }*/
       return(
         <div>
-          <h1>Here be the summary!</h1>
+          <div>
+            <ReactTable
+              columns={[
+                {
+                  Header: "Provider",
+                  columns: [
+                    {
+                      Header: "Name",
+                      accessor: "providerName"
+                    }
+                  ]
+                },
+                {
+                  Header: "Pertinent Condition",
+                  columns: [
+                    {
+                      Header: "Diagnosis Category",
+                      accessor: "diagnosisCategory"
+                    },
+                    {
+                      Header: "Condition Name",
+                      accessor: "conditionName"
+                    },
+                    {
+                      Header: "Condition Detail",
+                      accessor: "conditionDetail"
+                    }
+                  ]
+                }              ]}
+              defaultPageSize={10}
+              className="-striped -highlight"
+            />
+            <br />
+            <div style={{ textAlign: "center" }}>
+              <em>Tip: Hold shift when sorting to multi-sort!</em>
+            </div>
+          </div>
         </div>
       )
     }
@@ -183,23 +227,41 @@ export class ChartReviewForm extends React.Component<IChartReviewFormProps, ICha
   
   private handleProviderReviewChange = (idx: number) => (evt: any) => {
     const newProviders = this.state.providerConditions.map((provider, sidx) => {
-      if (idx !== sidx) { return provider; }
-      return { ...provider, [evt.target.name]: evt.target.value };
-    });
-    this.setState({ providerConditions: newProviders }); // TODO: Make this a callback
+      if (idx !== sidx) { return provider }
+      return { ...provider, [evt.target.name]: evt.target.value }
+    })
+    this.setState({ providerConditions: newProviders }) // TODO: Make this a callback
   }
   
   private handleAddProvider = () => {
     this.setState( (previousState, props) => {
-      const uniqueId: string = uuidv1();
+      const uniqueId: string = uuidv1()
       return {providerConditions: previousState.providerConditions.concat([{ uuid: uniqueId, providerName: '', conditionName: '', diagnosisCategory: '', conditionDetail: '' }])}
-    });
+    })
   }
 
   private handleRemoveProvider = (idx: number) => () => {
     this.setState({
       providerConditions: this.state.providerConditions.filter((s, sidx) => idx !== sidx)
-    });
+    })
   }
+
+  /*private renderEditable(cellInfo: any) {
+    return (
+      <div
+        style={{ backgroundColor: "#fafafa" }}
+        contentEditable
+        suppressContentEditableWarning
+        onBlur={e => {
+          const data = [...this.state.data];
+          data[cellInfo.index][cellInfo.column.id] = e.target.innerHTML;
+          this.setState({ data });
+        }}
+        dangerouslySetInnerHTML={{
+          __html: this.state.data[cellInfo.index][cellInfo.column.id]
+        }}
+      />
+    );
+  }*/
 
 }
