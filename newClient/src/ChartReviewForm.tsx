@@ -1,7 +1,7 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-import * as React from 'react';
-import { Col, FormGroup, Input, Label } from 'reactstrap';
-import {v1 as uuidv1} from 'uuid'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import * as React from 'react'
+import { Col, FormGroup, Input, Label } from 'reactstrap'
+import { IConditionsByProvider, IProviderReview} from './ChartReview'
 import { ProviderReview } from './ProviderReview'
 import { readModel } from './readmodel'
 
@@ -10,16 +10,8 @@ https://github.com/piotrwitek/react-redux-typescript-guide#stateful-components--
 https://goshakkk.name/array-form-inputs/
 */
 
-export interface IProviderReview {
-  uuid: string 
-  providerName: string
-  conditionName: string
-  diagnosisCategory: string
-  conditionDetail: string
-}
-
 interface IGroup {
-  hospital?: string;
+  hospital?: string
   selectOptions: IDynamicSelectOptions
 }
 
@@ -34,7 +26,13 @@ interface IDynamicSelectOptions {
 }
 
 interface IChartReviewFormProps {
+  conditionsByProvider: IConditionsByProvider 
   customer: string
+  providerConditions: IProviderReview[]
+  handleProviderReviewChange: (idx: number) => (event: any) => void
+  handleRemoveProvider: (idx: number) => () => void
+  handleAddProvider: () => void
+  handleReview: () => void 
 }
 
 interface IChartReviewFormState {
@@ -42,12 +40,10 @@ interface IChartReviewFormState {
   groups: IGroups
   groupUnderReview: string
   dynamicSelectOptions: IDynamicSelectOptions
-  providerConditions: IProviderReview[]
-  underReview: boolean
 }
 
 export class ChartReviewForm extends React.Component<IChartReviewFormProps, IChartReviewFormState> {
-  
+
   public readonly state: IChartReviewFormState = {
     diagnosisCategorySelectOptions: [],
     dynamicSelectOptions: {
@@ -56,9 +52,11 @@ export class ChartReviewForm extends React.Component<IChartReviewFormProps, ICha
     }, 
     groupUnderReview: "",
     groups: {},
-    providerConditions: [],
-    underReview: false 
-  };
+  }
+  
+  constructor(props: IChartReviewFormProps) {
+    super(props)
+  }
 
   public componentDidMount() {
     this.setState({diagnosisCategorySelectOptions: readModel.diagnosisCategorySelectOptions})
@@ -66,11 +64,9 @@ export class ChartReviewForm extends React.Component<IChartReviewFormProps, ICha
   }
   
   public render() {
-    if (! this.state.underReview) {
-      return (
-        <div>
-        <h1>Chart Review</h1> 
-        <form onSubmit={this.handleSubmit}>
+      return(
+        <div> 
+          <h1>Chart Review</h1> 
             <FormGroup row={true}>
               <Label for="email" sm={2}>Your Email</Label>
               <Col sm={10}> 
@@ -101,8 +97,8 @@ export class ChartReviewForm extends React.Component<IChartReviewFormProps, ICha
             <Input type="select" name="groupUnderReview" id="groupUnderReview" onChange={this.handleChange} >
                 <option label=" ">-- select a group --</option> 
                 {Object.keys(this.state.groups).map((groupOption, idx1) => (
-                <option key={idx1}>{groupOption}</option>
-            ))}
+                  <option key={idx1}>{groupOption}</option>
+                ))}
             </Input> 
             </Col>
             </FormGroup>
@@ -132,10 +128,10 @@ export class ChartReviewForm extends React.Component<IChartReviewFormProps, ICha
               </Col>
               </FormGroup>
             }
-            { this.state.providerConditions != null && this.state.providerConditions.length > 0 &&
+            { this.props.providerConditions != null && this.props.providerConditions.length > 0 &&
             <h2>Conditions</h2>
             }
-            {this.state.providerConditions.map((providerReview, idx) => (
+            {this.props.providerConditions.map((providerReview, idx) => (
               <ProviderReview
                 key={idx} 
                 providerReview={providerReview} 
@@ -143,26 +139,16 @@ export class ChartReviewForm extends React.Component<IChartReviewFormProps, ICha
                 providerOptions={this.state.dynamicSelectOptions.providers}
                 conditionOptions={this.state.dynamicSelectOptions.conditions}
                 diagnosisCategorySelectOptions={this.state.diagnosisCategorySelectOptions}
-                handleProviderReviewChange={this.handleProviderReviewChange}
-                handleRemoveProvider={this.handleRemoveProvider}
+                handleProviderReviewChange={this.props.handleProviderReviewChange}
+                handleRemoveProvider={this.props.handleRemoveProvider}
               />
             ))}
-          <button type="button" onClick={this.handleAddProvider} className="small">Add Condition</button>
-          <button type="button" onClick={this.handleReview} className="small">Review</button>
-        </form>
+          <button type="button" onClick={this.props.handleAddProvider} className="small">Add Condition</button>
+          <button type="button" onClick={this.props.handleReview} className="small">Review</button>
         </div>
       )
-    } else {
-      // tslint:disable-next-line:no-console   
-      console.log(this.state)
-      return(
-        <div>
-          <h1>Here be the summary!</h1>
-        </div>
-      )
-    }
   }
-
+   
   private handleChange = (evt: any) => {
     const newState = this.state
     newState[evt.target.name] = evt.target.value
@@ -170,36 +156,6 @@ export class ChartReviewForm extends React.Component<IChartReviewFormProps, ICha
       newState.dynamicSelectOptions = newState.groups[evt.target.value].selectOptions
     }
     this.setState(newState)  
-  }
-  
-  private handleReview = () => {
-    this.setState({underReview: true}) 
-  }
-  
-  private handleSubmit = () => {
-    // tslint:disable-next-line:no-console   
-    // console.log("Submit handled")
-  }
-  
-  private handleProviderReviewChange = (idx: number) => (evt: any) => {
-    const newProviders = this.state.providerConditions.map((provider, sidx) => {
-      if (idx !== sidx) { return provider; }
-      return { ...provider, [evt.target.name]: evt.target.value };
-    });
-    this.setState({ providerConditions: newProviders }); // TODO: Make this a callback
-  }
-  
-  private handleAddProvider = () => {
-    this.setState( (previousState, props) => {
-      const uniqueId: string = uuidv1();
-      return {providerConditions: previousState.providerConditions.concat([{ uuid: uniqueId, providerName: '', conditionName: '', diagnosisCategory: '', conditionDetail: '' }])}
-    });
-  }
-
-  private handleRemoveProvider = (idx: number) => () => {
-    this.setState({
-      providerConditions: this.state.providerConditions.filter((s, sidx) => idx !== sidx)
-    });
   }
 
 }

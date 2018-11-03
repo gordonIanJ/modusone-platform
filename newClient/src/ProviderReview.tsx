@@ -1,7 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import * as React from 'react';
 import { Col, FormGroup, Input, Label } from 'reactstrap';
-import { IProviderReview } from './ChartReviewForm'
+import { IProviderReview } from './ChartReview'
 
 interface IProviderReviewProps {
     providerReview: IProviderReview
