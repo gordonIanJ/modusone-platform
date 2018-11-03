@@ -3,6 +3,7 @@ import * as React from 'react';
 import { Col, FormGroup, Input, Label } from 'reactstrap';
 import {v1 as uuidv1} from 'uuid'
 import { ProviderReview } from './ProviderReview'
+import { readModel } from './readmodel'
 
 /*
 https://github.com/piotrwitek/react-redux-typescript-guide#stateful-components---class
@@ -43,13 +44,15 @@ interface IChartReviewFormState {
 
 export class ChartReviewForm extends React.Component<any, IChartReviewFormState> {
   public readonly state: IChartReviewFormState = {
-    diagnosisCategorySelectOptions: ["Accurate", "Omitted"],
+    // diagnosisCategorySelectOptions: ["Accurate", "Omitted"],
+    diagnosisCategorySelectOptions: [],
     dynamicSelectOptions: {
       conditions: [],
       providers: []
     }, 
     groupUnderReview: "",
-    groups: { 
+    groups: {},
+    /*groups: { 
       Bariatrics: {
         selectOptions: {
           conditions: [
@@ -78,7 +81,7 @@ export class ChartReviewForm extends React.Component<any, IChartReviewFormState>
           ]
         } 
       },
-      Hospitalists: {
+      Hospitalist: {
         selectOptions: {
           conditions: [
             "Sweaty Palms",
@@ -94,43 +97,20 @@ export class ChartReviewForm extends React.Component<any, IChartReviewFormState>
           ]
         } 
       }
-    }, 
+    },*/ 
     providerConditions: [],
     underReview: false 
   };
   
   /* TODO Initialize the state
-  
-  private reviewedGroup  = (nameOfReviewedGroup: string, groups: IGroup[]): IGroup => {
-    const reviewedGroup = groups.find(obj => obj.name == nameOfReviewedGroup)
-    if (reviewedGroup !== undefined) {
-      return reviewedGroup
-    } else {
-      return {
-        name: "",
-        providers: [],
-        conditions: []
-      }
-    }
-  }
-
-  private conditionOptions = (reviewedGroup: (nameOfReviewedGroup: string, groups: IGroup[]) => IGroup) => {
-    const group = reviewedGroup(this.state.nameOfReviewedGroup, this.state.groups)
-    group.conditions.forEach(() => {
-      this.state.conditionOptions.push(name)}) 
-
-  }
-
-  private providerOptions = (reviewedGroup: (nameOfReviewedGroup: string, groups: IGroup[]) => IGroup) => {
-    const group = reviewedGroup(this.state.nameOfReviewedGroup, this.state.groups)
-    group.providers.forEach(() => {
-      this.state.providerOptions.push(name)}) 
-
-  }
-  
   https://www.robinwieruch.de/react-fetching-data/
   */ 
 
+  public componentDidMount() {
+    this.setState({diagnosisCategorySelectOptions: readModel.diagnosisCategorySelectOptions})
+    this.setState({groups: readModel.groups})
+  }
+  
   public render() {
     if (! this.state.underReview) {
       return (
@@ -172,7 +152,7 @@ export class ChartReviewForm extends React.Component<any, IChartReviewFormState>
             </Input> 
             </Col>
             </FormGroup>
-            { (this.state.groupUnderReview === 'Hospitalists' || this.state.groupUnderReview === 'General Surgery') && 
+            { (this.state.groupUnderReview === 'Hospitalist' || this.state.groupUnderReview === 'General Surgery') && 
               <FormGroup row={true}>
               <Label for="hospitalName" sm={2}>Hospital</Label>
               <Col sm={10}> 
