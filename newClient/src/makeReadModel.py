@@ -14,16 +14,18 @@ Groups = []
 NamesOfSheetsWithGroups = ['Hospitals', 'Conditions', 'Providers']
 for Name in NamesOfSheetsWithGroups:
     for Row in Sheets[Name][1::]:
+        print Name 
         if Name == 'Providers':
             Group = Row[6]
         else: Group = Row[1]
+        print ":" + Group + ":" 
         Groups.append(Group)
 GroupsSet = set(Groups)
 Groups = list(GroupsSet)
 
 # Make the groups node of ReadModel
 for Group in Groups:
-    if not Group in ReadModel['groups']:
+    if not Group in ReadModel['groups'] and Group != '':
         ReadModel['groups'][Group] = {}
     if not 'selectOptions' in ReadModel['groups'][Group]:
         ReadModel['groups'][Group]['selectOptions'] = {
@@ -32,7 +34,7 @@ for Group in Groups:
             'providers': []
         }
 
-print(json.dumps(ReadModel, indent=4 ))
+#print(json.dumps(ReadModel, indent=4 ))
 
 for Hospital in Sheets['Hospitals'][1::]: # for every row in the sheet
     group = Hospital[1] 

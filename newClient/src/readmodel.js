@@ -5,10 +5,34 @@ export const readModel = {
         "Omitted"
     ], 
     "groups": {
-        "": {
+        "Cardiology": {
             "selectOptions": {
-                "conditions": [], 
-                "hospitals": [], 
+                "conditions": [
+                    "Acute blood loss anemia", 
+                    "Acute heart failure with reduced EF (HFrEF)\n ", 
+                    "Acute heart failure with preserved EF (HFpEF)", 
+                    "Acute kidney injury ", 
+                    "Acute myocardial infarction [specify type, location, and designation of initial/ subsequent/old]", 
+                    "Acute respiratory failure [specify with hypoxia and/or hypercapnia]", 
+                    "Cardiac arrhythmia [specify type]", 
+                    "Chronic heart failure\u00a0with reduced EF (HFrEF)", 
+                    "Chronic heart failure with preserved EF (HFpEF)", 
+                    "Chronic kidney disease [stage 3, 4, 5, or ESRD, on dialysis]", 
+                    "Encephalopathy due to [specify cause]", 
+                    "Hypernatremia", 
+                    "Hyponatremia", 
+                    "Morbid obesity [BMI]", 
+                    "Pleural effusion", 
+                    "Sepsis", 
+                    "Septic shock", 
+                    "Severe sepsis", 
+                    "Venous thromboembolism [specify DVT or PE, acute or chronic]"
+                ], 
+                "hospitals": [
+                    "Piedmont Atlanta", 
+                    "Piedmont Henry", 
+                    "Piedmont Mountainside"
+                ], 
                 "providers": [
                     "Stephanie Aaron, NP", 
                     "Nicole Adams, PA", 
@@ -195,7 +219,38 @@ export const readModel = {
                     "Jennifer Christie Waite, NP", 
                     "Dr. Jimmie Dale Cannon Jr.", 
                     "Dr. Roberto F. Pereira", 
-                    "Sara Williams, NP", 
+                    "Sara Williams, NP"
+                ]
+            }
+        }, 
+        "Hospitalist": {
+            "selectOptions": {
+                "conditions": [
+                    "Acute blood loss anemia", 
+                    "Acute heart failure with reduced EF (HFrEF)\n ", 
+                    "Acute heart failure with preserved EF (HFpEF)", 
+                    "Acute kidney injury", 
+                    "Acute respiratory failure [specify with hypoxia and/or hypercapnia]", 
+                    "Chronic heart failure\u00a0with reduced EF (HFrEF)", 
+                    "Chronic heart failure with preserved EF (HFpEF)", 
+                    "Chronic kidney disease [stage 3, 4, 5, or ESRD, on dialysis]", 
+                    "Drug [type] dependence [active or in remission]", 
+                    "Encephalopathy due to [specify cause]", 
+                    "Hypernatremia", 
+                    "Hyponatremia", 
+                    "Morbid obesity [BMI]", 
+                    "Sepsis", 
+                    "Septic shock", 
+                    "Severe sepsis", 
+                    "Shock [specify type or cause]", 
+                    "Status conditions"
+                ], 
+                "hospitals": [
+                    "Piedmont Atlanta", 
+                    "Piedmont Henry", 
+                    "Piedmont Mountainside"
+                ], 
+                "providers": [
                     "Dr. Atishi Aggarwal", 
                     "Dr. Hodan Ahmed", 
                     "Dr. Marie-Veronique Bielo", 
@@ -275,7 +330,32 @@ export const readModel = {
                     "Dr. Ingle Brandan Owens-Schnars", 
                     "Michelle Queen, NP", 
                     "Dr. Katherine Elizabeth Stein", 
-                    "Dr. Jesus Gustavo Vazquez-Figueroa", 
+                    "Dr. Jesus Gustavo Vazquez-Figueroa"
+                ]
+            }
+        }, 
+        "Neurosurgery": {
+            "selectOptions": {
+                "conditions": [
+                    "Acute blood loss anemia", 
+                    "Acute kidney injury", 
+                    "Acute respiratory failure [with hypoxia and/or hypercapnia]", 
+                    "Cerebral edema", 
+                    "Chronic kidney disease \nStage 3, 4, or 5", 
+                    "Coma, GCS score, time of record", 
+                    "Compression of brain", 
+                    "Drug dependence, continuous use", 
+                    "Encephalopathy due to [specific cause]", 
+                    "Hemiparesis [side, dominance]", 
+                    "Hemiplegia [side, dominance]", 
+                    "Hypernatremia", 
+                    "Hyponatremia", 
+                    "Myelopathy [vascular or nonvascular]"
+                ], 
+                "hospitals": [
+                    "Piedmont Atlanta"
+                ], 
+                "providers": [
                     "Dr. David Benglis", 
                     "Patrice Braun, NP", 
                     "Dr. Howard Chandler", 
@@ -290,7 +370,39 @@ export const readModel = {
                     "Danielle Underwood, NP", 
                     "Melissa Voyles, PA", 
                     "Dr. Steven Wray", 
-                    "Jane Yoffe, NP", 
+                    "Jane Yoffe, NP"
+                ]
+            }
+        }, 
+        "Pulmonology": {
+            "selectOptions": {
+                "conditions": [
+                    "Acute heart failure with reduced EF (HFrEF)\n ", 
+                    "Acute heart failure with preserved EF (HFpEF)", 
+                    "Acute Kidney Injury (CC) ", 
+                    "Acute respiratory failure [specify with hypoxia and/or hypercapnia]", 
+                    "Chronic heart failure\u00a0 with reduced EF (HFrEF)", 
+                    "Chronic heart failure with preserved EF (HFpEF)", 
+                    "Chronic kidney disease [stage 3, 4, 5, or ESRD, on dialysis]", 
+                    "Chronic respiratory failure with hypoxia and/or hypercapnia", 
+                    "Encephalopathy due to [specify cause]", 
+                    "Hypernatremia", 
+                    "Hyponatremia", 
+                    "Morbid obesity [BMI]", 
+                    "Pleural Effusion", 
+                    "Pneumothorax", 
+                    "Sepsis", 
+                    "Septic shock", 
+                    "Severe sepsis", 
+                    "Pneumonia [specify type/cause, and if present on admission (POA)]", 
+                    "Venous Thromboembolism [Specify Dvt Or Pe, Acute Or Chronic]"
+                ], 
+                "hospitals": [
+                    "Piedmont Atlanta", 
+                    "Piedmont Henry", 
+                    "Piedmont Mountainside"
+                ], 
+                "providers": [
                     "Elisabeth Adele", 
                     "Jeremy Amayo, PA-C", 
                     "Sandeep Anand, PA-C", 
@@ -353,122 +465,6 @@ export const readModel = {
                     "William Rutland, PA-C", 
                     "Dr. Tamim Mohamad Al-Kharrat"
                 ]
-            }
-        }, 
-        "Cardiology": {
-            "selectOptions": {
-                "conditions": [
-                    "Acute blood loss anemia", 
-                    "Acute heart failure with reduced EF (HFrEF)\n ", 
-                    "Acute heart failure with preserved EF (HFpEF)", 
-                    "Acute kidney injury ", 
-                    "Acute myocardial infarction [specify type, location, and designation of initial/ subsequent/old]", 
-                    "Acute respiratory failure [specify with hypoxia and/or hypercapnia]", 
-                    "Cardiac arrhythmia [specify type]", 
-                    "Chronic heart failure\u00a0with reduced EF (HFrEF)", 
-                    "Chronic heart failure with preserved EF (HFpEF)", 
-                    "Chronic kidney disease [stage 3, 4, 5, or ESRD, on dialysis]", 
-                    "Encephalopathy due to [specify cause]", 
-                    "Hypernatremia", 
-                    "Hyponatremia", 
-                    "Morbid obesity [BMI]", 
-                    "Pleural effusion", 
-                    "Sepsis", 
-                    "Septic shock", 
-                    "Severe sepsis", 
-                    "Venous thromboembolism [specify DVT or PE, acute or chronic]"
-                ], 
-                "hospitals": [
-                    "Piedmont Atlanta", 
-                    "Piedmont Henry", 
-                    "Piedmont Mountainside"
-                ], 
-                "providers": []
-            }
-        }, 
-        "Hospitalist": {
-            "selectOptions": {
-                "conditions": [
-                    "Acute blood loss anemia", 
-                    "Acute heart failure with reduced EF (HFrEF)\n ", 
-                    "Acute heart failure with preserved EF (HFpEF)", 
-                    "Acute kidney injury", 
-                    "Acute respiratory failure [specify with hypoxia and/or hypercapnia]", 
-                    "Chronic heart failure\u00a0with reduced EF (HFrEF)", 
-                    "Chronic heart failure with preserved EF (HFpEF)", 
-                    "Chronic kidney disease [stage 3, 4, 5, or ESRD, on dialysis]", 
-                    "Drug [type] dependence [active or in remission]", 
-                    "Encephalopathy due to [specify cause]", 
-                    "Hypernatremia", 
-                    "Hyponatremia", 
-                    "Morbid obesity [BMI]", 
-                    "Sepsis", 
-                    "Septic shock", 
-                    "Severe sepsis", 
-                    "Shock [specify type or cause]", 
-                    "Status conditions"
-                ], 
-                "hospitals": [
-                    "Piedmont Atlanta", 
-                    "Piedmont Henry", 
-                    "Piedmont Mountainside"
-                ], 
-                "providers": []
-            }
-        }, 
-        "Neurosurgery": {
-            "selectOptions": {
-                "conditions": [
-                    "Acute blood loss anemia", 
-                    "Acute kidney injury", 
-                    "Acute respiratory failure [with hypoxia and/or hypercapnia]", 
-                    "Cerebral edema", 
-                    "Chronic kidney disease \nStage 3, 4, or 5", 
-                    "Coma, GCS score, time of record", 
-                    "Compression of brain", 
-                    "Drug dependence, continuous use", 
-                    "Encephalopathy due to [specific cause]", 
-                    "Hemiparesis [side, dominance]", 
-                    "Hemiplegia [side, dominance]", 
-                    "Hypernatremia", 
-                    "Hyponatremia", 
-                    "Myelopathy [vascular or nonvascular]"
-                ], 
-                "hospitals": [
-                    "Piedmont Atlanta"
-                ], 
-                "providers": []
-            }
-        }, 
-        "Pulmonology": {
-            "selectOptions": {
-                "conditions": [
-                    "Acute heart failure with reduced EF (HFrEF)\n ", 
-                    "Acute heart failure with preserved EF (HFpEF)", 
-                    "Acute Kidney Injury (CC) ", 
-                    "Acute respiratory failure [specify with hypoxia and/or hypercapnia]", 
-                    "Chronic heart failure\u00a0 with reduced EF (HFrEF)", 
-                    "Chronic heart failure with preserved EF (HFpEF)", 
-                    "Chronic kidney disease [stage 3, 4, 5, or ESRD, on dialysis]", 
-                    "Chronic respiratory failure with hypoxia and/or hypercapnia", 
-                    "Encephalopathy due to [specify cause]", 
-                    "Hypernatremia", 
-                    "Hyponatremia", 
-                    "Morbid obesity [BMI]", 
-                    "Pleural Effusion", 
-                    "Pneumothorax", 
-                    "Sepsis", 
-                    "Septic shock", 
-                    "Severe sepsis", 
-                    "Pneumonia [specify type/cause, and if present on admission (POA)]", 
-                    "Venous Thromboembolism [Specify Dvt Or Pe, Acute Or Chronic]"
-                ], 
-                "hospitals": [
-                    "Piedmont Atlanta", 
-                    "Piedmont Henry", 
-                    "Piedmont Mountainside"
-                ], 
-                "providers": []
             }
         }
     }
