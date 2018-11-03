@@ -33,6 +33,10 @@ interface IDynamicSelectOptions {
   hospitals?: string[]
 }
 
+interface IChartReviewFormProps {
+  customer: string
+}
+
 interface IChartReviewFormState {
   diagnosisCategorySelectOptions: string[]
   groups: IGroups
@@ -42,9 +46,9 @@ interface IChartReviewFormState {
   underReview: boolean
 }
 
-export class ChartReviewForm extends React.Component<any, IChartReviewFormState> {
+export class ChartReviewForm extends React.Component<IChartReviewFormProps, IChartReviewFormState> {
+  
   public readonly state: IChartReviewFormState = {
-    // diagnosisCategorySelectOptions: ["Accurate", "Omitted"],
     diagnosisCategorySelectOptions: [],
     dynamicSelectOptions: {
       conditions: [],
@@ -52,59 +56,9 @@ export class ChartReviewForm extends React.Component<any, IChartReviewFormState>
     }, 
     groupUnderReview: "",
     groups: {},
-    /*groups: { 
-      Bariatrics: {
-        selectOptions: {
-          conditions: [
-            "Swollen Nuts",
-            "Bad Blood"
-          ],
-          providers: [
-              "Jack",
-              "InnaBox"
-          ]
-        } 
-      },
-      'General Surgery': {
-        selectOptions: {
-          conditions: [
-            "Broken Balls",
-            "Sour Grapes"
-          ],
-          hospitals: [
-            "Hotel California",
-            "Alcatraz"
-          ],
-          providers: [
-              "Sailor",
-              "Lonely Lady"
-          ]
-        } 
-      },
-      Hospitalist: {
-        selectOptions: {
-          conditions: [
-            "Sweaty Palms",
-            "Nervous Tick"
-          ],
-          hospitals: [
-            "BFE",
-            "Deathbed"
-          ],
-          providers: [
-              "Rob",
-              "Roy"
-          ]
-        } 
-      }
-    },*/ 
     providerConditions: [],
     underReview: false 
   };
-  
-  /* TODO Initialize the state
-  https://www.robinwieruch.de/react-fetching-data/
-  */ 
 
   public componentDidMount() {
     this.setState({diagnosisCategorySelectOptions: readModel.diagnosisCategorySelectOptions})
@@ -152,7 +106,20 @@ export class ChartReviewForm extends React.Component<any, IChartReviewFormState>
             </Input> 
             </Col>
             </FormGroup>
-            { (this.state.groupUnderReview === 'Hospitalist' || this.state.groupUnderReview === 'General Surgery') && 
+            {this.props.customer === 'CHI' && (this.state.groupUnderReview === 'Hospitalist' || this.state.groupUnderReview === 'General Surgery') && 
+              <FormGroup row={true}>
+              <Label for="hospitalName" sm={2}>Hospital</Label>
+              <Col sm={10}> 
+                <Input type="select" name="hospitalName" id="hospitalName" onChange={this.handleChange} >
+                  <option label=" ">-- select a hospital --</option> 
+                  { this.state.dynamicSelectOptions.hospitals != null && this.state.dynamicSelectOptions.hospitals.map((hospitalOption, idx1) => (
+                    <option key={idx1}>{hospitalOption}</option>
+                  ))}
+              </Input> 
+              </Col>
+              </FormGroup>
+            }
+            {this.props.customer !== 'CHI' &&
               <FormGroup row={true}>
               <Label for="hospitalName" sm={2}>Hospital</Label>
               <Col sm={10}> 
