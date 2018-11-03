@@ -14,11 +14,9 @@ Groups = []
 NamesOfSheetsWithGroups = ['Hospitals', 'Conditions', 'Providers']
 for Name in NamesOfSheetsWithGroups:
     for Row in Sheets[Name][1::]:
-        print Name 
         if Name == 'Providers':
             Group = Row[6]
         else: Group = Row[1]
-        print ":" + Group + ":" 
         Groups.append(Group)
 GroupsSet = set(Groups)
 Groups = list(GroupsSet)
