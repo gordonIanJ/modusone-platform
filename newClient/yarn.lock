@@ -46,6 +46,13 @@
     "@types/node" "*"
     "@types/react" "*"
 
+"@types/react-table@^6.7.14":
+  version "6.7.14"
+  resolved "https://registry.yarnpkg.com/@types/react-table/-/react-table-6.7.14.tgz#dcd61311be1612d573288978a596379ef7bf3bd8"
+  integrity sha512-qUw1aRPQ1Lxsygjf7AadLEm3qG2H9t2ly6LUIDGfkds0i5MQEVvAQ1dCT66i27XS7ek1W1RaiyeJxQJ6IvsVYw==
+  dependencies:
+    "@types/react" "*"
+
 "@types/react@*", "@types/react@^16.4.18":
   version "16.4.18"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-16.4.18.tgz#2e28a2e7f92d3fa7d6a65f2b73275c3e3138a13d"
@@ -1686,7 +1693,7 @@ class-utils@^0.3.5:
     isobject "^3.0.0"
     static-extend "^0.1.1"
 
-classnames@^2.2.3:
+classnames@^2.2.3, classnames@^2.2.5:
   version "2.2.6"
   resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.2.6.tgz#43935bffdd291f326dad0a205309b38d00f650ce"
   integrity sha512-JR/iSQOSt+LQIWwrwEzJ9uk0xfN3mTVYMwt1Ir5mUcSN6pU+V4zQFFaJsclJbPuAUQH+yfWef6tm7l1quW3C8Q==
@@ -6673,6 +6680,13 @@ react-scripts-ts@3.1.0:
     whatwg-fetch "2.0.3"
   optionalDependencies:
     fsevents "^1.1.3"
+
+react-table@^6.8.6:
+  version "6.8.6"
+  resolved "https://registry.yarnpkg.com/react-table/-/react-table-6.8.6.tgz#a0ad8b4839319052d5befc012603fb161e52ede3"
+  integrity sha1-oK2LSDkxkFLVvvwBJgP7Fh5S7eM=
+  dependencies:
+    classnames "^2.2.5"
 
 react-transition-group@^2.3.1:
   version "2.5.0"
