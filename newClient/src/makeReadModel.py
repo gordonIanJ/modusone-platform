@@ -2,7 +2,7 @@ import pyexcel
 import json
 from collections import defaultdict
 
-Sheets = pyexcel.get_book_dict(file_name="CHI.xlsx")
+Sheets = pyexcel.get_book_dict(file_name="Piedmont.xlsx")
 
 ReadModel = {
     'diagnosisCategorySelectOptions': [],
@@ -49,7 +49,6 @@ for Provider in Sheets['Providers'][1::]:
 for diagnosisType in Sheets['DiagnosisTypes'][1::]:
     ReadModel['diagnosisCategorySelectOptions'].append(diagnosisType[0])
 
-with open("readmodel.js", "w") as outfile:
+with open("readmodelPiedmont.js", "w") as outfile:
     outfile.write("export const readModel = ")
     json.dump(ReadModel, outfile, indent=4, sort_keys=True)
-
