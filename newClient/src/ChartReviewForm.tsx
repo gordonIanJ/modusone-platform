@@ -202,6 +202,7 @@ export class ChartReviewForm extends React.Component<IChartReviewFormProps, ICha
               <em>Tip: Hold shift when sorting to multi-sort!</em>
             </div>
           </div>
+          <button type="button" onClick={this.handleSubmit} className="small">Submit</button>
         </div>
       )
     }
