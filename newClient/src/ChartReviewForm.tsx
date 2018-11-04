@@ -52,7 +52,7 @@ interface IChartReviewFormState {
 }
 
 export class ChartReviewForm extends React.Component<IChartReviewFormProps, IChartReviewFormState> {
-  
+
   public readonly state: IChartReviewFormState = {
     diagnosisCategorySelectOptions: [],
     dynamicSelectOptions: {
@@ -63,6 +63,13 @@ export class ChartReviewForm extends React.Component<IChartReviewFormProps, ICha
     groups: {},
     providerConditions: [],
     underReview: false 
+  }
+  
+  constructor(props: IChartReviewFormProps) {
+    super(props)
+    // this.state = {};
+    this.renderEditable = this.renderEditable.bind(this)
+    this.onBlur = this.onBlur.bind(this)
   }
 
   public componentDidMount() {
@@ -160,13 +167,12 @@ export class ChartReviewForm extends React.Component<IChartReviewFormProps, ICha
     } else {
       // tslint:disable-next-line:no-console   
       console.log(this.state)
-      /*const data = {
-        'lastName': 'Gordon'
-      }*/
+      const { providerConditions } = this.state
       return(
         <div>
           <div>
             <ReactTable
+              data = {providerConditions}
               columns={[
                 {
                   Header: "Provider",
@@ -181,14 +187,17 @@ export class ChartReviewForm extends React.Component<IChartReviewFormProps, ICha
                   Header: "Pertinent Condition",
                   columns: [
                     {
+                      Cell: this.renderEditable,
                       Header: "Diagnosis Category",
                       accessor: "diagnosisCategory"
                     },
                     {
+                      Cell: this.renderEditable,
                       Header: "Condition Name",
                       accessor: "conditionName"
                     },
                     {
+                      Cell: this.renderEditable,
                       Header: "Condition Detail",
                       accessor: "conditionDetail"
                     }
@@ -247,22 +256,26 @@ export class ChartReviewForm extends React.Component<IChartReviewFormProps, ICha
     })
   }
 
-  /*private renderEditable(cellInfo: any) {
+  private onBlur = (cellInfo: any) => (evt: any) => {
+    const providerConditions = [...this.state.providerConditions];
+    providerConditions[cellInfo.index][cellInfo.column.id] = evt.target.innerHTML;
+    this.setState({ providerConditions })
+  }
+
+  
+  private renderEditable(cellInfo: any) {
     return (
       <div
         style={{ backgroundColor: "#fafafa" }}
-        contentEditable
-        suppressContentEditableWarning
-        onBlur={e => {
-          const data = [...this.state.data];
-          data[cellInfo.index][cellInfo.column.id] = e.target.innerHTML;
-          this.setState({ data });
-        }}
+        contentEditable={true}
+        suppressContentEditableWarning={true}
+        data-route="cellInfo" 
+        onBlur={this.onBlur}
         dangerouslySetInnerHTML={{
-          __html: this.state.data[cellInfo.index][cellInfo.column.id]
+          __html: this.state.providerConditions[cellInfo.index][cellInfo.column.id]
         }}
       />
     );
-  }*/
+  }
 
 }
