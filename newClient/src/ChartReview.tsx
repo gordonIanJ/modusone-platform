@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { ChartReviewForm } from './ChartReviewForm'
-import { ChartReviewSummary } from './ChartReviewSummary'
+import { ChartReviewSummaryForm } from './ChartReviewSummaryForm'
 import { readModel } from './readmodel'
 // import {v1 as uuidv1} from 'uuid'
 
@@ -43,11 +43,16 @@ export interface IConditionsByProvider {
   [key: string]: IPertinentCondition
 }
 
+interface IFormValues { 
+  [key: string]: string
+}
+
 interface IChartReviewState {
   providerConditions: IProviderReview[]
   conditionsByProvider: IConditionsByProvider
   diagnosisCategorySelectOptions: string[]
   dynamicSelectOptions: IDynamicSelectOptions
+  formValues: IFormValues 
   groupUnderReview: string
   groups: IGroups
   underReview: boolean 
@@ -61,6 +66,7 @@ export class ChartReview extends React.Component<IChartReviewProps, IChartReview
       conditions: [],
       providers: []
     }, 
+    formValues: {}, 
     groupUnderReview: "",
     groups: {},
     providerConditions: [],
@@ -95,9 +101,18 @@ export class ChartReview extends React.Component<IChartReviewProps, IChartReview
         />
       )}
       { this.state.underReview && (
-        <ChartReviewSummary
-          providerConditions={this.state.providerConditions}
+        <ChartReviewSummaryForm
+          customer={this.props.customer} 
+          diagnosisCategorySelectOptions={this.state.diagnosisCategorySelectOptions} 
+          dynamicSelectOptions={this.state.dynamicSelectOptions} 
+          groupUnderReview={this.state.groupUnderReview}
+          groups={this.state.groups}
+          handleChange={this.handleChange}
           handleProviderReviewChange={this.handleProviderReviewChange}
+          handleRemoveProvider={this.handleRemoveProvider}
+          handleAddProvider={this.handleAddProvider}
+          handleReview={this.handleReview}
+          providerConditions={this.state.providerConditions}
         />
       )}
       </div>
@@ -105,7 +120,7 @@ export class ChartReview extends React.Component<IChartReviewProps, IChartReview
   
   private handleChange = (evt: any) => {
     const newState = this.state
-    newState[evt.target.name] = evt.target.value
+    newState.formValues[evt.target.name] = evt.target.value
     if (evt.target.name === 'groupUnderReview' && newState.groups[evt.target.value] != null) {
       newState.dynamicSelectOptions = newState.groups[evt.target.value].selectOptions
     }
