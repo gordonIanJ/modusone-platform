@@ -61,6 +61,7 @@ export class ChartReview extends React.Component<IChartReviewProps, IChartReview
       { this.state.underReview && (
         <ChartReviewSummary
           providerConditions={this.state.providerConditions}
+          handleProviderReviewChange={this.handleProviderReviewChange}
         />
       )}
       </div>

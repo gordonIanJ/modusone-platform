@@ -6,21 +6,22 @@ import { IProviderReview } from './ChartReview'
  interface IConditionReviewProps {
     providerCondition: IProviderReview
     idx: number 
-    // handleProviderReviewChange: (idx: number) => (event: any) => void 
+    handleProviderReviewChange: (idx: number) => (event: any) => void 
 }
 
 export const ConditionReview: React.SFC<IConditionReviewProps> = (props) => {
   const { 
-    providerCondition   
-    // idx, 
-    // handleProviderReviewChange, 
+    providerCondition,   
+    idx, 
+    handleProviderReviewChange 
   } = props
+
   return (
    <div>
-     <span>{providerCondition.providerName}</span>
-     <span>{providerCondition.diagnosisCategory}</span>
-     <span>{providerCondition.conditionName}</span>
-     <span>{providerCondition.conditionDetail}</span>
+     <input type="text" value={providerCondition.providerName} name="providerName" onChange={handleProviderReviewChange(idx)} />
+     <input type="text" value={providerCondition.diagnosisCategory} name="diagnosisCategory" onChange={handleProviderReviewChange(idx)} />
+     <input type="text" value={providerCondition.conditionName} name="conditionName" onChange={handleProviderReviewChange(idx)} />
+     <input type="text" value={providerCondition.conditionDetail} name="conditionDetail" onChange={handleProviderReviewChange(idx)} />
    </div> 
   )
 }
