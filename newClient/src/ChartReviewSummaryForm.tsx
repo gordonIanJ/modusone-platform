@@ -13,10 +13,10 @@ interface IChartReviewFormProps {
   customer: string
   diagnosisCategorySelectOptions: string[]
   dynamicSelectOptions: IDynamicSelectOptions
-  groups: IGroups
-  groupUnderReview: string
   providerConditions: IProviderReview[]
-  handleChange: (evt: any) => void 
+  groupUnderReview: string
+  groups: IGroups
+  handleChange: (evt: any) => void
   handleProviderReviewChange: (idx: number) => (event: any) => void
   handleRemoveProvider: (idx: number) => () => void
   handleAddProvider: () => void
