@@ -18,6 +18,13 @@
     esutils "^2.0.2"
     js-tokens "^4.0.0"
 
+"@babel/runtime@^7.1.2":
+  version "7.1.2"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.1.2.tgz#81c89935f4647706fc54541145e6b4ecfef4b8e3"
+  integrity sha512-Y3SCjmhSupzFB6wcv1KmmFucH6gDVnI30WjOcicV10ju0cZjak3Jcs67YLIXBrmZYw1xCrVeJPbycFwrqNyxpg==
+  dependencies:
+    regenerator-runtime "^0.12.0"
+
 "@types/jest@^23.3.5":
   version "23.3.5"
   resolved "https://registry.yarnpkg.com/@types/jest/-/jest-23.3.5.tgz#870a1434208b60603745bfd214fc3fc675142364"
@@ -50,6 +57,13 @@
   version "6.7.14"
   resolved "https://registry.yarnpkg.com/@types/react-table/-/react-table-6.7.14.tgz#dcd61311be1612d573288978a596379ef7bf3bd8"
   integrity sha512-qUw1aRPQ1Lxsygjf7AadLEm3qG2H9t2ly6LUIDGfkds0i5MQEVvAQ1dCT66i27XS7ek1W1RaiyeJxQJ6IvsVYw==
+  dependencies:
+    "@types/react" "*"
+
+"@types/react-textarea-autosize@^4.3.3":
+  version "4.3.3"
+  resolved "https://registry.yarnpkg.com/@types/react-textarea-autosize/-/react-textarea-autosize-4.3.3.tgz#85f542a4c582836d01b9751b3948dfad1642f0cb"
+  integrity sha512-fl0yK995xJg31Y/7EkR0rkg9hbIqX6mas7e/DZdMr0mb+CDZ6gwdYXor6XjWJqGW3MRsuKY9HbqHne9ZWQqNVg==
   dependencies:
     "@types/react" "*"
 
@@ -6420,7 +6434,7 @@ promise@8.0.1:
   dependencies:
     asap "~2.0.3"
 
-prop-types@^15.5.8, prop-types@^15.6.1, prop-types@^15.6.2:
+prop-types@^15.5.8, prop-types@^15.6.0, prop-types@^15.6.1, prop-types@^15.6.2:
   version "15.6.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.6.2.tgz#05d5ca77b4453e985d60fc7ff8c859094a497102"
   integrity sha512-3pboPvLiWD7dkI3qf3KbUe6hKFKa52w+AE0VCqECtf+QHAKgOL37tTaNCnuX1nAAQ4ZhyP+kYVKf8rLmJ/feDQ==
@@ -6688,6 +6702,14 @@ react-table@^6.8.6:
   dependencies:
     classnames "^2.2.5"
 
+react-textarea-autosize@^7.1.0-1:
+  version "7.1.0-1"
+  resolved "https://registry.yarnpkg.com/react-textarea-autosize/-/react-textarea-autosize-7.1.0-1.tgz#77525259fdc1e60415d9661be0edcdacbf4c1094"
+  integrity sha512-kBFIGYOhmC1vbZ07GDR4T8LmU/m6UJqvd4N3cjQ7sp1Duu6I60U/QtNMDFEnWCoighIG6FUU/Uz9x13sCUjVZA==
+  dependencies:
+    "@babel/runtime" "^7.1.2"
+    prop-types "^15.6.0"
+
 react-transition-group@^2.3.1:
   version "2.5.0"
   resolved "https://registry.yarnpkg.com/react-transition-group/-/react-transition-group-2.5.0.tgz#70bca0e3546102c4dc5cf3f5f57f73447cce6874"
@@ -6828,6 +6850,11 @@ regenerator-runtime@^0.11.0:
   version "0.11.1"
   resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.11.1.tgz#be05ad7f9bf7d22e056f9726cee5017fbf19e2e9"
   integrity sha512-MguG95oij0fC3QV3URf4V2SDYGJhJnJGqvIIgdECeODCT98wSWDAJ94SSuVpYQUoTcGUIL6L4yNB7j1DFFHSBg==
+
+regenerator-runtime@^0.12.0:
+  version "0.12.1"
+  resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.12.1.tgz#fa1a71544764c036f8c49b13a08b2594c9f8a0de"
+  integrity sha512-odxIc1/vDlo4iZcfXqRYFj0vpXFNoGdKMAUieAlFYO6m/nl5e9KR/beGf41z4a1FI+aQgtjhuaSlDxQ0hmkrHg==
 
 regenerator-transform@^0.10.0:
   version "0.10.1"
