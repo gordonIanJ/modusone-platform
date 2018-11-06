@@ -43,7 +43,7 @@ export interface IConditionsByProvider {
   [key: string]: IPertinentCondition
 }
 
-interface IFormValues { 
+export interface IFormValues { 
   [key: string]: string
 }
 
@@ -105,6 +105,7 @@ export class ChartReview extends React.Component<IChartReviewProps, IChartReview
           customer={this.props.customer} 
           diagnosisCategorySelectOptions={this.state.diagnosisCategorySelectOptions} 
           dynamicSelectOptions={this.state.dynamicSelectOptions} 
+          formValues={this.state.formValues} 
           groupUnderReview={this.state.groupUnderReview}
           groups={this.state.groups}
           handleChange={this.handleChange}
@@ -130,7 +131,7 @@ export class ChartReview extends React.Component<IChartReviewProps, IChartReview
   private handleReview = () => {
     const newState = this.state
     newState.underReview = true
-    this.setState(newState) 
+    this.setState(newState)
   }
   
   private handleProviderReviewChange = (idx: number) => (evt: any) => {
