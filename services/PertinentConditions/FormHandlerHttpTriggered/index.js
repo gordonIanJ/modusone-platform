@@ -9,7 +9,6 @@ module.exports = function (context, req) {
                 RowKey: uniqueRowKey,    
                 medicalRecordId: req.body[i].medicalRecordId, 
                 email: req.body[i].reviewerEmail, 
-                assignedProvider: req.body[i].assignedProvider,
                 admissionDate: req.body[i].admissionDate,
                 dischargeDate: req.body[i].dischargeDate,
                 assignedGroup: req.body[i].assignedGroup 
