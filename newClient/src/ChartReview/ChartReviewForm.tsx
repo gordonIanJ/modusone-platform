@@ -1,7 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
 import * as React from 'react'
 import { Col, FormGroup, Input, Label } from 'reactstrap'
-import { IDynamicSelectOptions, IGroups, IProviderReview } from './ChartReview'
+import { IDynamicSelectOptions, IFormValues, IGroups, IProviderReview } from './ChartReview'
 import { ProviderReview } from './ProviderReview'
 
 /*
@@ -13,11 +13,11 @@ interface IChartReviewFormProps {
   customer: string
   diagnosisCategorySelectOptions: string[]
   dynamicSelectOptions: IDynamicSelectOptions
+  formValues: IFormValues
   groups: IGroups
   groupUnderReview: string
   providerConditions: IProviderReview[]
   handleChange: (evt: any) => void
-  handleChangeCustomer: (evt: any) => void
   handleProviderReviewChange: (idx: number) => (event: any) => void
   handleRemoveProvider: (idx: number) => () => void
   handleAddProvider: () => void
@@ -33,17 +33,7 @@ export class ChartReviewForm extends React.Component<IChartReviewFormProps> {
   public render() {
       return(
         <div> 
-          <h1>Chart Review</h1> 
-            <FormGroup row={true}>
-              <Label for="customer" sm={2}>Customer</Label>
-              <Col sm={10}> 
-                <Input type="select" name="customer" id="customer" onChange={this.props.handleChangeCustomer} >
-                    <option label=" ">-- select a customer --</option> 
-                      <option>CHI</option>
-                      <option>Piedmont</option>
-                </Input> 
-              </Col>
-            </FormGroup>
+          <h3>Chart Review</h3> 
             <FormGroup row={true}>
               <Label for="email" sm={2}>Your Email</Label>
               <Col sm={10}> 
@@ -79,7 +69,7 @@ export class ChartReviewForm extends React.Component<IChartReviewFormProps> {
             </Input> 
             </Col>
             </FormGroup>
-            {this.props.customer === 'CHI' && (this.props.groupUnderReview === 'Hospitalist' || this.props.groupUnderReview === 'General Surgery') && 
+            {this.props.customer === 'CHI' && (this.props.formValues.groupUnderReview === 'Hospitalist' || this.props.formValues.groupUnderReview === 'General Surgery') && 
               <FormGroup row={true}>
               <Label for="hospitalName" sm={2}>Hospital</Label>
               <Col sm={10}> 

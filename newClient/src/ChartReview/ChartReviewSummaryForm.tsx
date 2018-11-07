@@ -35,7 +35,7 @@ export class ChartReviewSummaryForm extends React.Component<IChartReviewSummaryF
   public render() {
       return(
         <div> 
-          <h1>Summary for Confirmation</h1> 
+          <h3>Summary for Confirmation</h3> 
           <Row>
             <Col md={4}>
               <FormGroup>
@@ -69,7 +69,7 @@ export class ChartReviewSummaryForm extends React.Component<IChartReviewSummaryF
               </FormGroup>
             </Col>
             <Col md={6}>
-                {this.props.customer === 'CHI' && (this.props.formValues.groupUnderReview === 'Hospitalist' || this.props.groupUnderReview === 'General Surgery') && 
+                {this.props.customer === 'CHI' && (this.props.formValues.groupUnderReview === 'Hospitalist' || this.props.formValues.groupUnderReview === 'General Surgery') && 
                 <FormGroup> 
                   <Label for="hospitalName">Hospital</Label> 
                   <Input type="select" name="hospitalName" value={this.props.formValues.hospitalName} onChange={this.props.handleChange} >
