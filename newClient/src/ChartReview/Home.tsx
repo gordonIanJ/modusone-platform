@@ -28,7 +28,7 @@ export class Home extends React.Component<any, IHomeState> {
     return(
       <div> 
       <ButtonDropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
-        <DropdownToggle caret={true}>
+        <DropdownToggle caret={true} color="success">
           Select a customer 
         </DropdownToggle>
         <DropdownMenu>
