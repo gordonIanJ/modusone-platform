@@ -69,7 +69,7 @@ export class ChartReviewSummaryForm extends React.Component<IChartReviewSummaryF
               </FormGroup>
             </Col>
             <Col md={6}>
-                {this.props.customer === 'CHI' && (this.props.formValues.groupUnderReview === 'Hospitalist' || this.props.groupUnderReview === 'General Surgery') && 
+                {this.props.customer === 'CHI' && (this.props.formValues.groupUnderReview === 'Hospitalist' || this.props.formValues.groupUnderReview === 'General Surgery') && 
                 <FormGroup> 
                   <Label for="hospitalName">Hospital</Label> 
                   <Input type="select" name="hospitalName" value={this.props.formValues.hospitalName} onChange={this.props.handleChange} >

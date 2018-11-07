@@ -87,6 +87,7 @@ export class ChartReview extends React.Component<IChartReviewProps, IChartReview
           customer={this.props.customer}
           diagnosisCategorySelectOptions={this.state.diagnosisCategorySelectOptions}
           dynamicSelectOptions={this.state.dynamicSelectOptions}
+          formValues={this.state.formValues}
           groupUnderReview={this.state.groupUnderReview} 
           groups={this.state.groups}
           providerConditions={this.state.providerConditions}

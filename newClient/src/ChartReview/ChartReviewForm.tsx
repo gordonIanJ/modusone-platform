@@ -1,7 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
 import * as React from 'react'
 import { Col, FormGroup, Input, Label } from 'reactstrap'
-import { IDynamicSelectOptions, IGroups, IProviderReview } from './ChartReview'
+import { IDynamicSelectOptions, IFormValues, IGroups, IProviderReview } from './ChartReview'
 import { ProviderReview } from './ProviderReview'
 
 /*
@@ -13,6 +13,7 @@ interface IChartReviewFormProps {
   customer: string
   diagnosisCategorySelectOptions: string[]
   dynamicSelectOptions: IDynamicSelectOptions
+  formValues: IFormValues
   groups: IGroups
   groupUnderReview: string
   providerConditions: IProviderReview[]
@@ -68,7 +69,7 @@ export class ChartReviewForm extends React.Component<IChartReviewFormProps> {
             </Input> 
             </Col>
             </FormGroup>
-            {this.props.customer === 'CHI' && (this.props.groupUnderReview === 'Hospitalist' || this.props.groupUnderReview === 'General Surgery') && 
+            {this.props.customer === 'CHI' && (this.props.formValues.groupUnderReview === 'Hospitalist' || this.props.formValues.groupUnderReview === 'General Surgery') && 
               <FormGroup row={true}>
               <Label for="hospitalName" sm={2}>Hospital</Label>
               <Col sm={10}> 
