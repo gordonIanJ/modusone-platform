@@ -155,27 +155,16 @@ export class ChartReviewSummaryForm extends React.Component<IChartReviewSummaryF
 
   private handleSubmit = () => {
     const ConditionRecords = this.makeRecords(this.props.formValues, this.props.providerConditions)
-    // tslint:disable-next-line:no-console 
-    console.log(ConditionRecords)
 
-    axios.post('https://pertinentconditions.azurewebsites.net/api/FormHandlerHttpTriggered?code=W4/89mgbh6tFo/kepjg5a6DoAEifp78VjrcmfPRJ5xhq3IA7zxRigA==', { ConditionRecords })
+    const httpHeaders = {
+      'customer': this.props.customer
+    }
+    // tslint:disable-next-line:no-console 
+    axios.post('https://pertinentconditionsdevelop.azurewebsites.net/api/FormHandlerHttpTriggered?code=KVI7YTvv3YZPSBtHvxIs1Tjl3SmyNGTCypDadKg1JbcYZkR90EBERw==', ConditionRecords, {headers: httpHeaders})
       .then(res => {
-        // tslint:disable-next-line:no-console 
-        console.log(res);
         // tslint:disable-next-line:no-console 
         console.log(res.data);
       })
-    
-    /*
-    Unirest.post('https://pertinentconditions.azurewebsites.net/api/FormHandlerHttpTriggered?code=W4/89mgbh6tFo/kepjg5a6DoAEifp78VjrcmfPRJ5xhq3IA7zxRigA==')
-      .headers({'Accept': 'application/json', 'Content-Type': 'application/json'})
-      .send(ConditionRecords)
-      .end(function (response) {
-        if (typeof(response.body) !== 'undefined') {console.log(JSON.stringify(response.body))}
-      })
-    */
-      
-    // this.props.form.resetFields()
   }
 
 }

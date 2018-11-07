@@ -1,14 +1,12 @@
 import * as React from 'react'
 import { ChartReviewForm } from './ChartReviewForm'
 import { ChartReviewSummaryForm } from './ChartReviewSummaryForm'
+import { config } from './config.js'
 import { readModel } from './readmodel'
+
 // import {v1 as uuidv1} from 'uuid'
 
 // https://github.com/piotrwitek/react-redux-typescript-guide#stateful-components---class
-
-interface IChartReviewProps {
-  customer: string
-}
 
 export interface IGroup {
   hospital?: string
@@ -50,6 +48,7 @@ export interface IFormValues {
 interface IChartReviewState {
   providerConditions: IProviderReview[]
   conditionsByProvider: IConditionsByProvider
+  customer: string
   diagnosisCategorySelectOptions: string[]
   dynamicSelectOptions: IDynamicSelectOptions
   formValues: IFormValues 
@@ -58,9 +57,10 @@ interface IChartReviewState {
   underReview: boolean 
 }
 
-export class ChartReview extends React.Component<IChartReviewProps, IChartReviewState> { 
+export class ChartReview extends React.Component<{}, IChartReviewState> { 
   public readonly state: IChartReviewState = {
     conditionsByProvider: {},
+    customer: config.customer,
     diagnosisCategorySelectOptions: [],
     dynamicSelectOptions: {
       conditions: [],
@@ -73,13 +73,9 @@ export class ChartReview extends React.Component<IChartReviewProps, IChartReview
     underReview: false
   }
   
-  constructor(props: IChartReviewProps) {
-    super(props)
-  }
-
   public componentDidMount() {
-    this.setState({diagnosisCategorySelectOptions: readModel.diagnosisCategorySelectOptions})
-    this.setState({groups: readModel.groups})
+    this.setState({diagnosisCategorySelectOptions: readModel[this.state.customer].diagnosisCategorySelectOptions})
+    this.setState({groups: readModel[this.state.customer].groups})
   }
   
   public render() {
@@ -87,14 +83,15 @@ export class ChartReview extends React.Component<IChartReviewProps, IChartReview
       <div>
       {! this.state.underReview && (
         <ChartReviewForm
-          customer={this.props.customer}
+          customer={this.state.customer}
           diagnosisCategorySelectOptions={this.state.diagnosisCategorySelectOptions}
           dynamicSelectOptions={this.state.dynamicSelectOptions}
           groupUnderReview={this.state.groupUnderReview} 
           groups={this.state.groups}
           providerConditions={this.state.providerConditions}
           handleAddProvider={this.handleAddProvider} 
-          handleChange={this.handleChange} 
+          handleChange={this.handleChange}
+          handleChangeCustomer={this.handleChangeCustomer} 
           handleProviderReviewChange={this.handleProviderReviewChange}
           handleRemoveProvider={this.handleRemoveProvider}
           handleReview={this.handleReview} 
@@ -102,7 +99,7 @@ export class ChartReview extends React.Component<IChartReviewProps, IChartReview
       )}
       { this.state.underReview && (
         <ChartReviewSummaryForm
-          customer={this.props.customer} 
+          customer={this.state.customer} 
           diagnosisCategorySelectOptions={this.state.diagnosisCategorySelectOptions} 
           dynamicSelectOptions={this.state.dynamicSelectOptions} 
           formValues={this.state.formValues} 
@@ -119,7 +116,15 @@ export class ChartReview extends React.Component<IChartReviewProps, IChartReview
       </div>
     )}
   
-  private handleChange = (evt: any) => {
+   private handleChangeCustomer = (evt: any) => {
+    const newState = this.state
+    newState.customer = evt.target.value
+    newState.groups = readModel[this.state.customer].groups
+    // this.setState({groups: readModel[this.state.customer].groups})
+    this.setState(newState)  
+   } 
+  
+    private handleChange = (evt: any) => {
     const newState = this.state
     newState.formValues[evt.target.name] = evt.target.value
     if (evt.target.name === 'groupUnderReview' && newState.groups[evt.target.value] != null) {

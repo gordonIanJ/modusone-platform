@@ -16,7 +16,7 @@ create_storage_account () {
 
 assign_access_to_storage_account () {
     STORAGE_ACCOUNT_NAME=$1 
-    STORAGE_ACCOUNT_ID=`az storage account show --resource-group modusone --name $STORAGE_ACCOUNT_NAME --output json | jq .id |sed 's/"//g'` 
+    STORAGE_ACCOUNT_ID=`az storage account show --resource-group $RESOURCE_GROUP_NAME --name $STORAGE_ACCOUNT_NAME --output json | jq .id |sed 's/"//g'` 
     az role assignment create --role "Reader and Data Access" --assignee shane@modusonehealth.com --scope $STORAGE_ACCOUNT_ID
 }
 
@@ -39,7 +39,7 @@ deploy_function_app () {
     create_resource_group 
     create_storage_account $STORAGE_ACCOUNT_NAME
     assign_access_to_storage_account $STORAGE_ACCOUNT_NAME
-    create_function_app
+    create_function_app $STORAGE_ACCOUNT_NAME
 }
 
 deploy_functions () {
@@ -72,12 +72,15 @@ az extension add --name storage-preview
 
 LOCATION=centralus
 BASE_DIRECTORY=/Users/iangordon/Projects/modusone-platform/
-RESOURCE_GROUP_NAME=modusone
-SPA_STORAGE_ACCOUNT_NAME=modusone
+# RESOURCE_GROUP_NAME=modusone
+RESOURCE_GROUP_NAME=modusonedevelop
+#SPA_STORAGE_ACCOUNT_NAME=modusone
+SPA_STORAGE_ACCOUNT_NAME=modusonedevelop
 SPA_ARTIFACT=$BASE_DIRECTORY/newClient/build/
 EXCEL_ADDIN_STORAGE_ACCOUNT_NAME=modusoneexceladdin
 EXCEL_ADDIN_ARTIFACT=$BASE_DIRECTORY/excelAddIn/dist/
-FUNCTION_APP_NAME=PertinentConditions
+#FUNCTION_APP_NAME=PertinentConditions
+FUNCTION_APP_NAME=PertinentConditionsDevelop
 
 #STORAGE_ENDPOINT=`az storage account show -n $STORAGE_ACCOUNT_NAME -g $RESOURCE_GROUP_NAME --query "primaryEndpoints.web" --output tsv` 
 #STORAGE_CONNECTION_STRING=$(cd $BASE_DIRECTORY/services/$FUNCTION_APP_NAME; func azure storage fetch-connection-string $STORAGE_ACCOUNT_NAME; cd ../)
