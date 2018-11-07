@@ -1,11 +1,12 @@
 module.exports = function (context, req) {
    
-    if (req.body) {
+    if (req.body && req.headers) {
+        var customer = req.headers.customer 
         var tableBinding = []        
         for (i = 0; i < req.body.length; i++) {
             var uniqueRowKey = req.body[i].medicalRecordId + (((1+Math.random())*0x10000)|0).toString(16).substring(1) 
             var pertinentConditions = {
-                PartitionKey: 'CHI',
+                PartitionKey: customer,
                 RowKey: uniqueRowKey,    
                 medicalRecordId: req.body[i].medicalRecordId, 
                 email: req.body[i].reviewerEmail, 
@@ -36,7 +37,7 @@ module.exports = function (context, req) {
     else {
         context.res = {
             status: 400,
-            body: "Please send JSON in the body"
+            body: "Please send conditions data as JSON in the body and Customer as JSON in the headers"
         };
     }
     context.done();

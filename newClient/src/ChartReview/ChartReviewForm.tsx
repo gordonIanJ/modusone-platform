@@ -16,7 +16,8 @@ interface IChartReviewFormProps {
   groups: IGroups
   groupUnderReview: string
   providerConditions: IProviderReview[]
-  handleChange: (evt: any) => void 
+  handleChange: (evt: any) => void
+  handleChangeCustomer: (evt: any) => void
   handleProviderReviewChange: (idx: number) => (event: any) => void
   handleRemoveProvider: (idx: number) => () => void
   handleAddProvider: () => void
@@ -33,6 +34,16 @@ export class ChartReviewForm extends React.Component<IChartReviewFormProps> {
       return(
         <div> 
           <h1>Chart Review</h1> 
+            <FormGroup row={true}>
+              <Label for="customer" sm={2}>Customer</Label>
+              <Col sm={10}> 
+                <Input type="select" name="customer" id="customer" onChange={this.props.handleChangeCustomer} >
+                    <option label=" ">-- select a customer --</option> 
+                      <option>CHI</option>
+                      <option>Piedmont</option>
+                </Input> 
+              </Col>
+            </FormGroup>
             <FormGroup row={true}>
               <Label for="email" sm={2}>Your Email</Label>
               <Col sm={10}> 
