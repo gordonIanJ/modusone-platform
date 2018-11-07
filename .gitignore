@@ -27,3 +27,4 @@ services/pertinentConditions/.vscode
 client/src/components/CHI/*CHI.xlsx
 venv
 .vscode
+*.xlsx*

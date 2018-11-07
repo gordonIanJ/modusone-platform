@@ -35,7 +35,7 @@ export class ChartReviewSummaryForm extends React.Component<IChartReviewSummaryF
   public render() {
       return(
         <div> 
-          <h1>Summary for Confirmation</h1> 
+          <h3>Summary for Confirmation</h3> 
           <Row>
             <Col md={4}>
               <FormGroup>
