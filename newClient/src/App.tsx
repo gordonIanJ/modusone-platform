@@ -1,5 +1,6 @@
 import * as React from 'react'
 import './App.css'
+// import './Navbar.css'
 
 import { CHI } from 'src/ChartReview/CHI'
 
@@ -49,7 +50,7 @@ class App extends React.Component<IAppProps, IAppState> {
     return (
   <Router>
     <div>
-    <Navbar color="light" light={true} expand="md">
+    <Navbar color="primary" dark={true} expand="md" className="modusOne" >
           <NavbarBrand href="/">ModusOne Health</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar={true}>
