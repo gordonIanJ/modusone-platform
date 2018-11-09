@@ -4,13 +4,16 @@ import { Input } from 'reactstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { IDynamicSelectOptions, IProviderReview } from './ChartReview'
 
- interface IConditionReviewProps {
-    dynamicSelectOptions: IDynamicSelectOptions  
-    diagnosisCategorySelectOptions: string[] 
-    idx: number 
-    handleProviderReviewChange: (idx: number) => (event: any) => void
-    handleRemoveProvider: (idx: number) => (event: any) => void 
-    providerCondition: IProviderReview
+import { BottomMarginButton } from '../StyledComponents'
+
+
+interface IConditionReviewProps {
+  dynamicSelectOptions: IDynamicSelectOptions  
+  diagnosisCategorySelectOptions: string[] 
+  idx: number 
+  handleProviderReviewChange: (idx: number) => (event: any) => void
+  handleRemoveProvider: (idx: number) => (event: any) => void 
+  providerCondition: IProviderReview
 }
 
 export const ConditionReview: React.SFC<IConditionReviewProps> = (props) => {
@@ -44,7 +47,7 @@ export const ConditionReview: React.SFC<IConditionReviewProps> = (props) => {
        ))}
      </Input> 
      <Input type="textarea" name="conditionDetail" value={providerCondition.conditionDetail} onChange={handleProviderReviewChange(idx)} />
-     <button type="button" onClick={handleRemoveProvider(idx)} className="small">-</button>
+     <BottomMarginButton type="button" onClick={handleRemoveProvider(idx)} className="small, btn">-</BottomMarginButton>
    </div> 
   )
 }

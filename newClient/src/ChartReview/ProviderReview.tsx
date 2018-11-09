@@ -3,6 +3,8 @@ import * as React from 'react';
 import { Col, FormGroup, Input, Label } from 'reactstrap';
 import { IProviderReview } from './ChartReview'
 
+import { BottomMarginButton } from '../StyledComponents'
+
 interface IProviderReviewProps {
     providerReview: IProviderReview
     idx: number 
@@ -24,7 +26,7 @@ export const ProviderReview: React.SFC<IProviderReviewProps> = (props) => {
       } = props
   return ( 
     <div key={idx}>
-        <h3>{`Condition #${idx + 1}`}</h3> 
+        <h4>{`Condition #${idx + 1}`}</h4> 
         <FormGroup row={true}>
         <Label for={`Provider #${idx + 1}`} sm={2}>Provider</Label>
         <Col sm={10}> 
@@ -64,6 +66,6 @@ export const ProviderReview: React.SFC<IProviderReviewProps> = (props) => {
             <Input type="textarea" name="conditionDetail" id="conditionDetail" onChange={handleProviderReviewChange(idx)} />
           </Col>
         </FormGroup>
-        <button type="button" onClick={handleRemoveProvider(idx)} className="small">-</button>
+        <BottomMarginButton type="button" onClick={handleRemoveProvider(idx)} className="small, btn">-</BottomMarginButton>
     </div>)
 }

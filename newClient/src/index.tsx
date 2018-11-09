@@ -80,7 +80,7 @@ const routing = (
 */
 
 ReactDOM.render(
-  <App knockKnock={"whosThere"} />,
+  <App />,
   document.getElementById('root') as HTMLElement
 )
 registerServiceWorker()

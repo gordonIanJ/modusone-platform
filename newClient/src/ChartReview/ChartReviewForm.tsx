@@ -4,6 +4,8 @@ import { Col, FormGroup, Input, Label } from 'reactstrap'
 import { IDynamicSelectOptions, IFormValues, IGroups, IProviderReview } from './ChartReview'
 import { ProviderReview } from './ProviderReview'
 
+import { BlueButton, GreenButton } from '../StyledComponents' 
+
 /*
 https://github.com/piotrwitek/react-redux-typescript-guide#stateful-components---class
 https://goshakkk.name/array-form-inputs/
@@ -95,9 +97,6 @@ export class ChartReviewForm extends React.Component<IChartReviewFormProps> {
               </Col>
               </FormGroup>
             }
-            { this.props.providerConditions != null && this.props.providerConditions.length > 0 &&
-            <h2>Conditions</h2>
-            }
             {this.props.providerConditions.map((providerReview, idx) => (
               <ProviderReview
                 key={idx} 
@@ -110,8 +109,8 @@ export class ChartReviewForm extends React.Component<IChartReviewFormProps> {
                 handleRemoveProvider={this.props.handleRemoveProvider}
               />
             ))}
-          <button type="button" onClick={this.props.handleAddProvider} className="small">Add Condition</button>
-          <button type="button" onClick={this.props.handleReview} className="small">Review</button>
+          <BlueButton type="button" onClick={this.props.handleAddProvider} className="small, btn">Add Condition</BlueButton>
+          <GreenButton type="button" onClick={this.props.handleReview} className="small, btn">Review</GreenButton>
         </div>
       )
   }
