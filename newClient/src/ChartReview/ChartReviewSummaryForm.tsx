@@ -6,6 +6,8 @@ import { ConditionReview } from './ConditionReview'
 
 import { IDynamicSelectOptions, IFormValues, IGroups, IProviderReview } from './ChartReview'
 
+import { BlueButton, GreenButton } from '../StyledComponents'
+
 /*
 https://github.com/piotrwitek/react-redux-typescript-guide#stateful-components---class
 https://goshakkk.name/array-form-inputs/
@@ -94,7 +96,7 @@ export class ChartReviewSummaryForm extends React.Component<IChartReviewSummaryF
             </Col>
           </Row>
                 { this.props.providerConditions != null && this.props.providerConditions.length > 0 &&
-                  <h2>Pertinent Conditions</h2>
+                  <h4>Conditions</h4>
                 }
                 { this.props.providerConditions.map((condition, idx) =>
                   <ConditionReview
@@ -107,8 +109,8 @@ export class ChartReviewSummaryForm extends React.Component<IChartReviewSummaryF
                     diagnosisCategorySelectOptions={this.props.diagnosisCategorySelectOptions} 
                   /> 
                 )}        
-          <button type="button" onClick={this.props.handleAddProvider} className="small">Add Condition</button>
-          <button type="button" onClick={this.handleSubmit} className="small">Confirm & Deliver</button>
+          <BlueButton type="button" onClick={this.props.handleAddProvider} className="small, btn">Add Condition</BlueButton>
+          <GreenButton type="button" onClick={this.handleSubmit} className="small, btn">Confirm & Deliver</GreenButton>
         </div>
       )
   }

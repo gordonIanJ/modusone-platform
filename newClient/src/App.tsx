@@ -29,16 +29,12 @@ import { Home } from './ChartReview/Home'
 import NavbarToggler from 'reactstrap/lib/NavbarToggler';
 import { Piedmont } from 'src/ChartReview/Piedmont'
 
-interface IAppProps {
-  knockKnock: string
-}
-
 interface IAppState {
   isOpen: boolean
 }
 
-class App extends React.Component<IAppProps, IAppState> {
-  constructor(props: IAppProps) {
+class App extends React.Component<any, IAppState> {
+  constructor(props: any) {
     super(props);
 
     this.toggle = this.toggle.bind(this);
