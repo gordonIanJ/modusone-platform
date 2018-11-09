@@ -26,6 +26,10 @@ export const ConditionReview: React.SFC<IConditionReviewProps> = (props) => {
     providerCondition   
   } = props
 
+  /*
+  TODO:
+  - Sort and type-ahead for select options for provider and for condition
+  */
   return (
    <div>
      <Input type="select" name="providerName" value={providerCondition.providerName} onChange={handleProviderReviewChange(idx)} >
