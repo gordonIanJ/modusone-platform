@@ -7,15 +7,20 @@ import {
   NavLink
 } from 'reactstrap'
 
+/* TODO
+import { CustomerLink } from './CustomerLink'
+*/
 
+interface IHomeProps {
+  setCustomerActive: (customerName: string) => void
+}
 
 interface IHomeState {
   dropdownOpen: boolean
 }
 
-// export const Home: React.SFC = (props) => {
-export class Home extends React.Component<any, IHomeState> {
-  constructor(props: any) {
+export class Home extends React.Component<IHomeProps, IHomeState> {
+  constructor(props: IHomeProps) {
     super(props);
    
     this.toggle = this.toggle.bind(this);
@@ -25,6 +30,9 @@ export class Home extends React.Component<any, IHomeState> {
   }
   
   public render() {
+    /*
+    TODO: Set Navlinks in Navbar to active upon a click of a NavLink in this dropdown
+    */
     return(
       <div> 
       <ButtonDropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
